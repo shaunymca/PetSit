@@ -103,8 +103,6 @@ GEM
     orm_adapter (0.4.0)
     pg (0.14.1)
     polyglot (0.3.3)
-    postgres (0.8.1)
-      pg (~> 0)
     quiet_assets (1.0.1)
       railties (~> 3.1)
     rack (1.4.1)
@@ -202,7 +200,7 @@ DEPENDENCIES
   jquery-rails
   launchy (>= 2.1.2)
   letter_opener
-  postgres
+  pg
   quiet_assets (>= 1.0.1)
   rails (= 3.2.9)
   rolify (>= 3.2.0)
