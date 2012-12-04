@@ -4,12 +4,13 @@
 * Sign up, login
 * Subscription
 * User Roles
-* Add clients to database
+* Add clients to database  
+* Implemented turbolinks, speeding up the application greatly.
 
 ##Todo  
 
 * Finish up clients view  
-** Add pagination and ajax search to client index  
+** ~~Add pagination and search to client index~~  
 ** Make the "show" client page better  
 ** Add map to "show" client page, or link, whatever.  
 * Create pricing profiles that work  
