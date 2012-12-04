@@ -33,8 +33,5 @@
 		<% end %>
 	</tbody>
 </table>
-<%= will_paginate @clients %>
-
-<br />
-
+<%= will_paginate @clients, class: "pagination pagination-centered"%>
 <%= link_to 'New Client <i class="icon-user icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %>
