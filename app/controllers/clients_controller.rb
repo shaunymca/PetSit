@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :sort_column, :sort_direction
   # GET /clients
   # GET /clients.json
   def index
-    @clients = current_user.clients
+    @clients = current_user.clients.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 2, :page => params[:page])
     
     respond_to do |format|
       format.html # index.html.erb
@@ -81,5 +82,15 @@ class ClientsController < ApplicationController
       format.html { redirect_to clients_url }
       format.json { head :no_content }
     end
+  end
+  
+    private
+  
+  def sort_column
+    Client.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
