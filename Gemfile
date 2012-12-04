@@ -25,3 +25,4 @@ gem "stripe_event", ">= 0.4.0"
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "letter_opener", :group => :development
 gem 'will_paginate', '~> 3.0'
+gem 'turbolinks'
