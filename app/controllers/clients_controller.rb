@@ -87,7 +87,7 @@ class ClientsController < ApplicationController
     private
   
   def sort_column
-    Client.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+    Client.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
   end
   
   def sort_direction
