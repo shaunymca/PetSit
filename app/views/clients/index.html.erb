@@ -1,27 +1,35 @@
 <h1>Client Search</h1>
 <p>
 <%= link_to 'New Client', new_client_path, class: "btn" %>
+<%= form_tag clients_path, :method => 'get' do %>
+	<%= hidden_field_tag :direction, params[:direction] %>
+	<%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :last_name => nil %>
+  </p>
+<% end %>
 <p>
-<table class="table table-hover">
+  <table class="table table-hover">
   <tr>
-    <th><%= sortable "first_name", "First name" %></th>
     <th><%= sortable "last_name", "Last name" %></th>
+    <th><%= sortable "first_name", "First name" %></th>
     <th><%= sortable "email", "Email" %></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @clients.each do |client| %>
-  <tr>
-    <td><%= client.first_name %></td>
-    <td><%= client.last_name %></td>
-    <td><%= client.email %></td>
-    <td><%= link_to 'View Client', client %></td>
-    <td><%= link_to 'Edit', edit_client_path(client) %></td>
-  </tr>
-<% end %>
+	<% for client in @clients %>
+  	<tr>
+    	<td><%= client.last_name %></td>
+    	<td><%= client.first_name %></td>
+    	<td><%= client.email %></td>
+    	<td><%= link_to 'View Client', client, class: "btn" %></td>
+    	<td><%= link_to 'Edit', edit_client_path(client), class: "btn" %></td>
+  	</tr>
+	<% end %>
 </table>
+<%= will_paginate @clients %>
 
 <br />
 
