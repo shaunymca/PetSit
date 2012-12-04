@@ -8,7 +8,7 @@
 
 ##Todo  
 
-*Finish up clients view  
+* Finish up clients view  
 ** Add pagination and ajax search to client index  
 ** Make the "show" client page better  
 ** Add map to "show" client page, or link, whatever.  
