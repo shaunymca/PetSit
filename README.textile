@@ -1,53 +1,26 @@
-PetSitting Admin App
-========================
+#PetSitting Admin App  
+##Done  
 
-Done
-----
 * Sign up, login
 * Subscription
 * User Roles
-* Password colors
+* Add clients to database
 
-Todo
-----
-  create_table "clients"
-    t.string   "name"
-    t.string   "email"
-    t.string   "address"
-    t.string   "address 2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
+##Todo  
 
-	create_table "payment profiles"
- 		t.string   "day_of_week"
-    t.string   "visit_type"
-    t.integer  "price"
-    t.integer  "client_id"
-  
-
-  create_table "invoices"
-    t.text     "notes"
-    t.string   "status"
-    t.integer  "client_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "terms"
-  end
-
-  create_table "Visits"
-  	t.integer  "client_id"
-    t.datetime "visitdate"
-    t.string   "Day_of_week"
-    t.string   "visit_type" (morning, afternoon, evening, petsitting")
-    t.decimal  "price"
-    t.integer  "invoice_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-end
+*Finish up clients view
+** Add pagination and ajax search to client index
+** Make the "show" client page better
+** Add map to "show" client page, or link, whatever.
+* Create pricing profiles that work
+** Create default pricing table for users
+** Have default pricing automatically applied to clients when they are created (client pricing table)
+** Allow users to edit client pricing table
+* Create new "visits" table
+** Have users input date and type of visit (eg June 1, afternoon OR June 1, birds)
+** Pricing will automatically update based on day of the week and type of visit that coorosponds to the client's pricing table
+** The price feild can be adjusted or changed by the user before or after it is saved
+** Add ability to mark visits as paid or unpaid
+* Create the invoicing functionality
+** Take unpaid visits and add them to the invoice.
+** Add ability to mark invoice as paid/unpaid. When marked "paid" this will update all of the visits as well.
