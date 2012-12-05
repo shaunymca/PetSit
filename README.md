@@ -11,14 +11,14 @@
 
 * Finish up clients view  
 ** ~~Add pagination and search to client index~~  
-*** ~~Make pagination look pretty awesome~~
+*** ~~Make pagination look pretty awesome~~  
 ** ~~Make the "show" client page better~~  
 ** Add map to "show" client page, or link, whatever.  
-* Design:
-** ~~Responsive navbar~~
-** ~~Responsive forms~~
-** Better background
-** Logo
+* Design:  
+** ~~Responsive navbar~~  
+** ~~Responsive forms~~  
+** Better background  
+** Logo  
 * Create pricing profiles that work  
 ** Create default pricing table for users  
 ** Have default pricing automatically applied to clients when they are created (client pricing table)  
