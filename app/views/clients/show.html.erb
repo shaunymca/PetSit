@@ -1,44 +1,57 @@
 <p id="notice"><%= notice %></p>
+<div class="row-fluid">
+	<div class="span4">
+  	<b>First Name:</b>
+  	<%= @client.first_name %>
+	</div>
 
-<p>
-  <b>First Name:</b>
-  <%= @client.first_name %>
-</p>
+	<div class="span8">
+  	<b>Last Name:</b>
+  	<%= @client.last_name %>
+	</div>
+</div>
 
-<p>
-  <b>Last Name:</b>
-  <%= @client.last_name %>
-</p>
+<div class="row-fluid">
+  <div class="span4">
+  	<b>Email:</b>
+  	<%= @client.email %>
+	</div>
+</div>
+<div class="row-fluid">
+  <div class="span4">
+  	<b>Address 1:</b>
+  	<%= @client.address_1 %>
+	</div>
 
-<p>
-  <b>Email:</b>
-  <%= @client.email %>
-</p>
+	<div class="span8">
+  	<b>Address 2:</b>
+  	<%= @client.address_2 %>
+	</div>
+</div>
 
-<p>
-  <b>Address 1:</b>
-  <%= @client.address_1 %>
-</p>
+<div class="row-fluid">
+	<div class="span4">
+  	<b>City:</b>
+  	<%= @client.city %>
+	</div>
 
-<p>
-  <b>Address 2:</b>
-  <%= @client.address_2 %>
-</p>
+	<div class="span8">
+  	<b>State:</b>
+  	<%= @client.state %>
+	</div>
+</div>
 
-<p>
-  <b>City:</b>
-  <%= @client.city %>
-</p>
+<div class="row-fluid">
+	<div class="span4">
+  	<b>Zip:</b>
+  	<%= @client.zip %>
+	</div>
+</div>
 
-<p>
-  <b>State:</b>
-  <%= @client.state %>
-</p>
-
-<p>
-  <b>Zip:</b>
-  <%= @client.zip %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<div class="row-fluid">
+	<div class="span4">
+    <%= link_to 'Edit <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(@client), class: "btn btn-success"%> |
+    <%= link_to 'Clients', clients_path, class: "btn" %> |
+    <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %> 
+  </div>
+</div>
