@@ -1,55 +1,58 @@
 <p id="notice"><%= notice %></p>
-<div class="row-fluid">
-	<div class="span4">
-  	<b>First Name:</b>
-  	<%= @client.first_name %>
-	</div>
-
-	<div class="span8">
-  	<b>Last Name:</b>
-  	<%= @client.last_name %>
-	</div>
+<h1><%= @client.first_name%> <%= @client.last_name %></h1>
+<div class="well">
+  <h3>Client Information</h3>
+	<div class="row-fluid">
+    <div class="span2">
+      <b>First Name:</b>
+      <%= @client.first_name %>
+    </div>
+  
+    <div class="span4">
+      <b>Last Name:</b>
+      <%= @client.last_name %>
+    </div>
+  </div>
+  
+  <div class="row-fluid">
+    <div class="span2">
+      <b>Email:</b>
+      <%= @client.email %>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span2">
+      <b>Address 1:</b>
+      <%= @client.address_1 %>
+    </div>
+  
+    <div class="span4">
+      <b>Address 2:</b>
+      <%= @client.address_2 %>
+    </div>
+  </div>
+  
+  <div class="row-fluid">
+    <div class="span2">
+      <b>City:</b>
+      <%= @client.city %>
+    </div>
+  
+    <div class="span4">
+      <b>State:</b>
+      <%= @client.state %>
+    </div>
+  </div>
+  
+  <div class="row-fluid">
+    <div class="span2">
+      <b>Zip:</b>
+      <%= @client.zip %>
+    </div>
+  </div>
 </div>
-
-<div class="row-fluid">
-  <div class="span4">
-  	<b>Email:</b>
-  	<%= @client.email %>
-	</div>
-</div>
-<div class="row-fluid">
-  <div class="span4">
-  	<b>Address 1:</b>
-  	<%= @client.address_1 %>
-	</div>
-
-	<div class="span8">
-  	<b>Address 2:</b>
-  	<%= @client.address_2 %>
-	</div>
-</div>
-
-<div class="row-fluid">
-	<div class="span4">
-  	<b>City:</b>
-  	<%= @client.city %>
-	</div>
-
-	<div class="span8">
-  	<b>State:</b>
-  	<%= @client.state %>
-	</div>
-</div>
-
-<div class="row-fluid">
-	<div class="span4">
-  	<b>Zip:</b>
-  	<%= @client.zip %>
-	</div>
-</div>
-
-<div class="row-fluid">
-	<div class="span4">
+<div class="row">
+	<div class="span9">
     <%= link_to 'Edit <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(@client), class: "btn btn-success"%> |
     <%= link_to 'Clients', clients_path, class: "btn" %> |
     <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %> 
