@@ -28,3 +28,4 @@ gem "letter_opener", :group => :development
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'turbolinks'
+gem 'thin'
