@@ -8,6 +8,9 @@
     <%= button_tag(:type => 'submit', :class => 'btn') do %>
 			Search <i class="icon-search"></i>
 <% end %>
+    <% if params.has_key?(:'search') %>
+    	<%= link_to 'All Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %>
+    <% end %>
     <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %>
   </p>
 <% end %>
