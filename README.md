@@ -15,7 +15,8 @@
 ** ~~Make the "show" client page better~~  
 ** Add map to "show" client page, or link, whatever.  
 * Design:  
-** ~~Responsive navbar~~  
+** ~~Responsive navbar~~
+** ~~Added dropdown in navbar with links for clients (bootstrap)~~
 ** ~~Responsive forms~~  
 ** Better background  
 ** Logo  
