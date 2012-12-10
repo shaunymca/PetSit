@@ -46,3 +46,5 @@
     <%= link_to 'Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %> 
   </div>
 </div>
+
+<%= gmaps("map_options" => {"zoom" => 15, "auto_zoom" => false},"markers" => { "data" => @json }) %>
