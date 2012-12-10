@@ -2,40 +2,45 @@
 <h1><%= @client.first_name%> <%= @client.last_name %></h1>
 <div class="well">
   <h3>Client Information</h3>
-  <div class="row-fluid">
-    <div class="span4">
-      <b>Email:</b>
-      <%= @client.email %>
-    </div>
-  </div>
-  <div class="row-fluid">
-    <div class="span2">
-      <b>Address 1:</b>
-      <%= @client.address_1 %>
-    </div>
-  
-    <div class="span4">
-      <b>Address 2:</b>
-      <%= @client.address_2 %>
-    </div>
-  </div>
-  
-  <div class="row-fluid">
-    <div class="span2">
-      <b>City:</b>
-      <%= @client.city %>
-    </div>
-  
-    <div class="span4">
-      <b>State:</b>
-      <%= @client.state %>
-    </div>
-  </div>
-  
-  <div class="row-fluid">
-    <div class="span2">
-      <b>Zip:</b>
-      <%= @client.zip %>
+  <div class="container-fluid">
+    <div class="row-fluid">
+			<div class= "span5" >
+        <div>
+          <b>Email:</b>
+          <%= @client.email %>
+        </div>
+        <div>
+	        <b>Address 1:</b>
+  	      <%= @client.address_1 %>
+        </div>
+        <div>
+          <b>Address 2:</b>
+          <%= @client.address_2 %>
+        </div>
+        <div>
+          <b>City:</b>
+          <%= @client.city %>
+        </div>
+        <div>
+          <b>State:</b>
+          <%= @client.state %>
+        </div>
+        <div>
+          <b>Zip:</b>
+          <%= @client.zip %>
+        </div>
+        <div class="visible-phone">
+          <br>
+          	<%= link_to 'View on Map', "https://maps.google.com/maps?q=#{@client.address_1}+#{@client.address_2}+#{@client.city}+#{@client.state}", class: "btn btn-info", :target => "_blank" %>
+        </div>  
+      </div>
+			<div class="span5 hidden-phone">
+        <div class="row-fluid">
+          <div class="span5">
+					<%= gmaps("map_options" => {:container_class => "map_container_renamed", "zoom" => 15, "auto_zoom" => false},"markers" => { "data" => @json }) %>
+          </div>
+      	</div>
+      </div>
     </div>
   </div>
 </div>
@@ -46,5 +51,3 @@
     <%= link_to 'Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %> 
   </div>
 </div>
-
-<%= gmaps("map_options" => {"zoom" => 15, "auto_zoom" => false},"markers" => { "data" => @json }) %>
