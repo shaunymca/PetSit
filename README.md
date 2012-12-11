@@ -1,17 +1,17 @@
 #PetSitting Admin App  
 ##Done  
 
-* Sign up, login
-* Subscription
-* User Roles
+* Sign up, login  
+* Subscription  
+* User Roles  
 * Add clients to database  
-* Implemented turbolinks, speeding up the application greatly.
-* Finish up clients view (with maps!)
+* Implemented turbolinks, speeding up the application greatly.  
+* Finish up clients view (with maps!)  
 
 ##Todo  
 * Design:  
-** ~~Responsive navbar~~
-** ~~Added dropdown in navbar with links for clients (bootstrap)~~
+** ~~Responsive navbar~~  
+** ~~Added dropdown in navbar with links for clients (bootstrap)~~  
 ** ~~Responsive forms~~  
 ** Better background  
 ** Logo  
