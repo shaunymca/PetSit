@@ -6,14 +6,9 @@
 * User Roles
 * Add clients to database  
 * Implemented turbolinks, speeding up the application greatly.
+* Finish up clients view (with maps!)
 
 ##Todo  
-
-* Finish up clients view  
-** ~~Add pagination and search to client index~~  
-*** ~~Make pagination look pretty awesome~~  
-** ~~Make the "show" client page better~~  
-** ~~Add map to "show" client page. It is a link if the page is loaded in a mobile browser. Had to remove turbolinks on client/show page for now, due to the way javascript is loaded.~~  
 * Design:  
 ** ~~Responsive navbar~~
 ** ~~Added dropdown in navbar with links for clients (bootstrap)~~
