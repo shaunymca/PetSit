@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
           </a>
           <a class="brand" href="#">ProPetSit</a>
-          <div class="nav-collapse">
+          <div class="nav-collapse collapse">
             <ul class="nav">
               <% if user_signed_in? %>
               	<li>
@@ -34,10 +34,8 @@
                 	<%= link_to 'Edit account', edit_user_registration_path %>
               	</li>
                 <li class="dropdown">
-                  <a  id="dlabel" class="dropdown-toggle" data-toggle="dropdown" href='#'>
-                    Clients <b class="caret"></b> 
-                  </a>
-                  <ul class="dropdown-menu" role="menu" >
+                  <a  href="#" class="dropdown-toggle" data-toggle="dropdown">Clients <b class="caret"></b> ></a>                  
+                  <ul class="dropdown-menu" >
                     <li><%= link_to 'Clients <i class="icon-group"></i>'.html_safe, clients_path %></li>
                     <li><%= link_to 'New Client <i class="icon-plus"></i>'.html_safe, new_client_path %></li>
                   </ul>
