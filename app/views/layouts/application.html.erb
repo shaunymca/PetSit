@@ -33,15 +33,15 @@
               	<li>
                 	<%= link_to 'Edit account', edit_user_registration_path %>
               	</li>
-                <li id="clentdropdown" class="dropdown">
+                <div class="dropdown">
                   <a  id="dlabel" class="dropdown-toggle" data-toggle="dropdown" href='#'>
                     Clients <b class="caret"></b> 
                   </a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="clentdropdown">
+                  <ul class="dropdown-menu" role="menu" >
                     <li><%= link_to 'Clients <i class="icon-group"></i>'.html_safe, clients_path %></li>
                     <li><%= link_to 'New Client <i class="icon-plus"></i>'.html_safe, new_client_path %></li>
                   </ul>
-                </li> 
+              </div> 
               	<% if current_user.has_role? :admin %>
               		<li>
                 		<%= link_to 'Admin', users_path %>
