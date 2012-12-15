@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require twitter/bootstrap
+//= require jquery_nested_form
 //= require_tree .

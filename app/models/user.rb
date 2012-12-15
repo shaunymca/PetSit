@@ -8,10 +8,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :stripe_token
+
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes
   attr_accessor :stripe_token
   before_save :update_stripe
   before_destroy :cancel_subscription
+  has_many :default_prices
+  accepts_nested_attributes_for :default_prices, :allow_destroy => true
+  
 
   def update_plan(role)
     self.role_ids = []

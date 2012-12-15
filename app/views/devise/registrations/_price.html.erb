@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Visit type</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @default_prices.each do |default_price| %>
+  <tr>
+    <td><%= default_price.visit_type %></td>
+    <td><%= default_price.price %></td>
+    <td><%= link_to 'Show', default_price %></td>
+    <td><%= link_to 'Edit', edit_default_price_path(default_price) %></td>
+    <td><%= link_to 'Destroy', default_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

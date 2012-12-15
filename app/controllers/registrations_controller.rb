@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-
+  
   def new
     @plan = params[:plan]
     if @plan
@@ -23,4 +23,5 @@ class RegistrationsController < Devise::RegistrationsController
       resource.add_role(params[:plan])
     end
   end
+
 end

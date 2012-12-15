@@ -1,0 +1,24 @@
+<h1>Listing default_prices</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Visit type</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @default_prices.each do |default_price| %>
+  <tr>
+    <td><%= default_price.visit_type %></td>
+    <td><%= default_price.price %></td>
+    <td><%= link_to 'Edit', edit_default_price_path(default_price) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Default price', new_default_price_path %>

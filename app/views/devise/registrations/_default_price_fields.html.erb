@@ -1,0 +1,8 @@
+<div class='span12'>
+  <%= f.input :user_id, :as => :hidden, :value => current_user.id, :required => false  %>
+  <%= f.input :visit_type, :placeholder => "Morning Weekday Visit", :required => false, :wrapper_html => { :class => 'span3' } %>
+  <%= f.input :price, :wrapper => :prepend, :placeholder => "20", :required => false, :wrapper_html => { :class => 'span3' }, :label => "Price" do %>
+  	<%= content_tag :span, "$", :class => "add-on" %>
+  	<%= f.input_field :price %>
+  <% end %>
+</div>

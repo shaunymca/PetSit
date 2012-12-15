@@ -15,8 +15,11 @@
 ** ~~Responsive forms~~  
 ** Better background  
 ** Logo  
+* UI  
+** On login, go to user settings and set default pricing.  
 * Create pricing profiles that work  
 ** Create default pricing table for users  
+*** client_id:integer, visit_type:string, price:decimal 
 ** Have default pricing automatically applied to clients when they are created (client pricing table)  
 ** Allow users to edit client pricing table  
 * Create new "visits" table  

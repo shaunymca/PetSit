@@ -33,3 +33,4 @@ gem 'thin'
 gem 'jquery-turbolinks'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem "nested_form"

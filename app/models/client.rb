@@ -8,6 +8,7 @@ class Client < ActiveRecord::Base
   end  
   geocoded_by :fulladdress, :if => :fulladdressed_changed?
   after_validation :geocode 
+  
   def self.search(search)
   	if search
       where("lower(last_name) LIKE ?", "%#{search.downcase}%")

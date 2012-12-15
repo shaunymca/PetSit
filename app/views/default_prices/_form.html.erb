@@ -1,0 +1,15 @@
+<%= form_for @default_price do |f| %>
+
+	<div class="form-inline">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label :visit_type %>:
+    <%= f.text_field :visit_type, :placeholder => "Morning Weekday Visit" %>
+    <%= f.label :price %>:
+    <div class="input-prepend input-append">
+      <span class="add-on">$</span>
+      <%= f.text_field :price, :class => "span2", :id => 'appendedPrependedInput' %>
+      <span class="add-on">.00</span>
+      <%= f.button :submit, :class => 'btn btn-success' %>
+  </div>
+
+<% end %>
