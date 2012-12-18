@@ -3,12 +3,13 @@ gem 'rails', '3.2.9'
 gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
 group :assets do
-  gem 'less-rails'
+  gem 'less'
   gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'therubyracer'
 end
-gem 'jquery-rails'
+
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
 gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
@@ -16,8 +17,6 @@ gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "launchy", ">= 2.1.2", :group => :test
 gem "capybara", ">= 1.1.2", :group => :test
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
-gem "therubyracer"
-gem "twitter-bootstrap-rails"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
@@ -34,3 +33,6 @@ gem 'jquery-turbolinks'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "nested_form"
+gem 'twitter-bootstrap-rails', :git => 'git@github.com:toadkicker/twitter-bootstrap-rails.git'
+gem 'less-rails'
+gem 'jquery-rails'

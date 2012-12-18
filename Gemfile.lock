@@ -1,3 +1,12 @@
+GIT
+  remote: git@github.com:toadkicker/twitter-bootstrap-rails.git
+  revision: f87de2e4e3796eec4d25181d2cb7ecad2d9274e6
+  specs:
+    twitter-bootstrap-rails (2.1.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,13 +42,13 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
     cancan (1.6.8)
-    capybara (1.1.3)
+    capybara (2.0.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
-      xpath (~> 0.1.4)
+      xpath (~> 1.0.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     coffee-rails (3.2.2)
@@ -79,7 +88,7 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
-    ffi (1.1.5)
+    ffi (1.2.0)
     geocoder (1.1.5)
     gherkin (2.11.5)
       json (>= 1.4.6)
@@ -87,9 +96,9 @@ GEM
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
-    jquery-rails (2.1.3)
-      railties (>= 3.1.0, < 5.0)
-      thor (~> 0.14)
+    jquery-rails (2.1.4)
+      railties (>= 3.0, < 5.0)
+      thor (>= 0.14, < 2.0)
     jquery-turbolinks (0.2.1)
       rails (>= 3.1.0)
     json (1.7.5)
@@ -103,14 +112,15 @@ GEM
     letter_opener (1.0.0)
       launchy (>= 2.0.4)
     libv8 (3.3.10.4)
-    libwebsocket (0.1.5)
+    libwebsocket (0.1.7.1)
       addressable
+      websocket
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
-    multi_json (1.3.7)
+    multi_json (1.5.0)
     nested_form (0.3.1)
     nokogiri (1.5.5)
     orm_adapter (0.4.0)
@@ -140,14 +150,14 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.1)
+    rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rolify (3.2.0)
-    rspec-core (2.12.0)
-    rspec-expectations (2.12.0)
+    rspec-core (2.12.2)
+    rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.12.0)
     rspec-rails (2.12.0)
@@ -163,7 +173,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    selenium-webdriver (2.26.0)
+    selenium-webdriver (2.27.2)
       childprocess (>= 0.2.5)
       libwebsocket (~> 0.1.3)
       multi_json (~> 1.0)
@@ -171,16 +181,16 @@ GEM
     simple_form (2.0.4)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
-    sprockets (2.2.1)
+    sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.6)
-    stripe (1.7.6)
-      multi_json (~> 1.1)
+    stripe (1.7.8)
+      multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
-    stripe_event (0.4.0)
+    stripe_event (0.5.0)
       rails (~> 3.1)
       stripe (~> 1.6)
     therubyracer (0.10.2)
@@ -196,20 +206,17 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (0.6.1)
       coffee-rails
-    twitter-bootstrap-rails (2.1.7)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    websocket (1.0.4)
     will_paginate (3.0.3)
     will_paginate-bootstrap (0.2.1)
       will_paginate (>= 3.0.3)
-    xpath (0.1.4)
+    xpath (1.0.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
@@ -229,6 +236,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   launchy (>= 2.1.2)
+  less
   less-rails
   letter_opener
   nested_form
@@ -245,7 +253,7 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
   will_paginate-bootstrap
