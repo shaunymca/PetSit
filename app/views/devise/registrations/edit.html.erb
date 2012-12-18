@@ -1,6 +1,6 @@
 <h1>Account Settings</h1>
 <div class="tabbable">
-  <ul class="nav nav-tabs nav-stacked">
+  <ul class="nav nav-tabs">
     <li class="active">
       <a href="#profile" data-toggle="tab">Profile</a>
     </li>
@@ -11,31 +11,40 @@
       <a href="#subscription" data-toggle="tab">Subscription</a>
     </li>
   </ul>
-  <div class="tab-content">
+  <div class="tab-content well">
     <div class="tab-pane active" id="profile">
       <h3>Proflie</h3>
       <div id="stripe_error" class="alert alert-error" style="display:none" ></div>
-      <%= simple_nested_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
       <%= f.error_notification %>
-        <div class="controls controls-row">  
-          <%= f.input :name, :autofocus => true %>
-          <%= f.input :email, :required => true %>
-          <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-          <%= f.input :password_confirmation, :required => false %>
-                <h3>Default Client Pricing</h3>
-      <%= f.simple_fields_for :default_prices %>    
-      <%= f.link_to_add "Add a default price", :default_prices, :class => 'btn btn-success' %>
-        </div>
+      <div class="controls controls-row">  
+        <%= f.input :name, :autofocus => true %>
+        <%= f.input :email, :required => true %>
+        <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
+        <%= f.input :password_confirmation, :required => false %>
+      </div>
+      <div class="controls">
+        <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+        <%= f.button :submit, :class => 'btn btn-primary' %>
+      </div>
+      <% end %>
     </div>
       
     <div class="tab-pane" id="pricing">
-
-    </div>
+      <h3>Default Client Pricing</h3>
+      <%= simple_nested_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
+      <div class="controls controls-row"> 	
+      <%= f.simple_fields_for :default_prices %>   
+      </div>
+      <%= f.link_to_add "Add a default price", :default_prices, :class => 'btn btn-success' %>
       <div class="controls">
         <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
         <%= f.button :submit, :class => 'btn btn-primary' %>
       </div>
     <% end %>
+    </div>
+
+
     
     <div class="tab-pane" id="subscription">
       <h3>Subscription Plan</h3>

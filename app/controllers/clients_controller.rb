@@ -16,7 +16,8 @@ class ClientsController < ApplicationController
   # GET /clients/1.json
   def show
     @client = Client.find(params[:id])
-		@json =Client.find(params[:id]).to_gmaps4rails
+    @client_prices = @client.client_prices
+		@json = Client.find(params[:id]).to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @client }

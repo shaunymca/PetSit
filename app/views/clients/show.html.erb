@@ -51,3 +51,21 @@
     <%= link_to 'Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %> 
   </div>
 </div>
+<div class='well'>
+  <h3>Client Pricing</h3>
+  <table class="table table-hover">
+      <thead>
+        <th>Visit Type</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
+        <% @client_prices.each do |client_price| %>
+          <tr>
+            <td><%= client_price.visit_type %></td>
+            <td><%= client_price.price %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+

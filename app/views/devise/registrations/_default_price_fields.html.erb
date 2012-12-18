@@ -1,8 +1,10 @@
-<div class='span12'>
+<div class='span10'>
   <%= f.input :user_id, :as => :hidden, :value => current_user.id, :required => false  %>
-  <%= f.input :visit_type, :placeholder => "Morning Weekday Visit", :required => false, :wrapper_html => { :class => 'span3' } %>
-  <%= f.input :price, :wrapper => :prepend, :placeholder => "20", :required => false, :wrapper_html => { :class => 'span3' }, :label => "Price" do %>
+  <%= f.input :visit_type, :placeholder => "Morning Weekday Visit", :required => false, :wrapper_html => { :class => 'span2' } %>
+  <%= f.input :price, :wrapper => :prepend, :placeholder => "20", :required => false, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
   	<%= content_tag :span, "$", :class => "add-on" %>
   	<%= f.input_field :price %>
+	<%= f.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span3 pull-left' } %>
+
   <% end %>
 </div>
