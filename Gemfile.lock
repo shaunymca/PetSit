@@ -1,12 +1,3 @@
-GIT
-  remote: git@github.com:toadkicker/twitter-bootstrap-rails.git
-  revision: f87de2e4e3796eec4d25181d2cb7ecad2d9274e6
-  specs:
-    twitter-bootstrap-rails (2.1.6)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -206,6 +197,10 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (0.6.1)
       coffee-rails
+    twitter-bootstrap-rails (2.1.7)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -253,7 +248,7 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
-  twitter-bootstrap-rails!
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
   will_paginate-bootstrap
