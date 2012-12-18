@@ -33,6 +33,6 @@ gem 'jquery-turbolinks'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "nested_form"
-gem 'twitter-bootstrap-rails', :git => 'git@github.com:toadkicker/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'jquery-rails'
