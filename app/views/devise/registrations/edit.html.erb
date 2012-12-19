@@ -36,7 +36,7 @@
       <div class="controls controls-row"> 	
       <%= f.simple_fields_for :default_prices %>   
       </div>
-      <%= f.link_to_add "Add a default price", :default_prices, :class => 'btn btn-success', 'data-no-turbolink' => true %>
+      <%= f.link_to_add "Add a default price", :default_prices, :class => 'btn btn-success' %>
       <div class="controls">
         <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
         <%= f.button :submit, :class => 'btn btn-primary' %>
