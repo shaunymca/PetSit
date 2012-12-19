@@ -1,46 +1,47 @@
 <h1>Clients</h1>
-<p>
-<%= form_tag clients_path, :method => 'get' do %>
-	<%= hidden_field_tag :direction, params[:direction] %>
-	<%= hidden_field_tag :sort, params[:sort] %>
+<div class='well'>
   <p>
-    <%= text_field_tag :search, params[:search], class: "input-medium search-query", placeholder: "Last Name" %>
-    <%= button_tag(:type => 'submit', :class => 'btn') do %>
-			Search <i class="icon-search"></i>
-<% end %>
-    <% if params.has_key?(:'search') %>
-    	<%= link_to 'All Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %>
-    <% end %>
-    <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %>
-  </p>
-<% end %>
-<p>
-<div class="row">
-  <div class="span8">
-    <table class="table table-hover">
-      <thead>
-        <th><%= sortable "last_name", "Last name" %></th>
-        <th><%= sortable "first_name", "First name" %></th>
-        <th><%= sortable "email", "Email" %></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <% for client in @clients %>
-          <tr>
-            <td><%= client.last_name %></td>
-            <td><%= client.first_name %></td>
-            <td><%= client.email %></td>
-            <td><%= link_to 'View Client <i class="icon-user icon-black"></i>'.html_safe, client, class: "btn", 'data-no-turbolink' => true %>   
-            <%= link_to 'Edit <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(client), class: "btn btn-success"%></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-	</div>
+  <%= form_tag clients_path, :method => 'get' do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <p>
+      <%= text_field_tag :search, params[:search], class: "input-medium search-query", placeholder: "Last Name" %>
+      <%= button_tag(:type => 'submit', :class => 'btn') do %>
+        Search <i class="icon-search"></i>
+  <% end %>
+      <% if params.has_key?(:'search') %>
+        <%= link_to 'All Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %>
+      <% end %>
+      <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %>
+    </p>
+  <% end %>
+  <p>
+  <div class="row">
+    <div class="span10">
+      <table class="table table-hover">
+        <thead>
+          <th><%= sortable "last_name", "Last name" %></th>
+          <th><%= sortable "first_name", "First name" %></th>
+          <th><%= sortable "email", "Email" %></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% for client in @clients %>
+            <tr>
+              <td><%= client.last_name %></td>
+              <td><%= client.first_name %></td>
+              <td><%= client.email %></td>
+              <td><%= link_to 'View Client <i class="icon-user icon-black"></i>'.html_safe, client, class: "btn", 'data-no-turbolink' => true %>   
+              <%= link_to 'Edit <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(client), class: "btn btn-success"%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="pagination">
+    <%= will_paginate @clients, :renderer => BootstrapPagination::Rails %>
+  </div>
 </div>
-<div class="pagination">
-	<%= will_paginate @clients, :renderer => BootstrapPagination::Rails %>
-</div>
-
