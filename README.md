@@ -22,6 +22,7 @@
 ** ~~Create default pricing table for users~~  
 *** ~~client_id:integer, visit_type:string, price:decimal~~ 
 ** ~~Have default pricing automatically applied to clients when they are created (client pricing table)~~  
+** ~~Head back to user's edit page after adding default pricing (or any edit to users page~~  
 ** Allow users to edit client pricing table(rethinking how this is done)  
 * Create new "visits" table  
 ** Have users input date and type of visit (eg June 1, afternoon OR June 1, birds)  

@@ -23,5 +23,13 @@ class RegistrationsController < Devise::RegistrationsController
       resource.add_role(params[:plan])
     end
   end
+  
+  protected
+
+    def after_update_path_for(resource)
+      edit_user_registration_path(resource)
+    end
+  
+  
 
 end
