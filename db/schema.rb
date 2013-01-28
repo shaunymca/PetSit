@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217020030) do
+ActiveRecord::Schema.define(:version => 20130102154811) do
 
   create_table "client_prices", :force => true do |t|
     t.decimal  "price"
     t.string   "visit_type"
     t.integer  "client_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "default_price_id"
   end
 
   create_table "clients", :force => true do |t|

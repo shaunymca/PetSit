@@ -7,7 +7,7 @@ class Client < ActiveRecord::Base
   
   before_create do
   	user.default_prices.each do |default_price|
-      client_prices.build(default_price.attributes.slice("price", "visit_type"))
+      client_prices.build("price" => default_price.price, "visit_type" => default_price.visit_type, "default_price_id" => default_price.id)
     end
   end
 

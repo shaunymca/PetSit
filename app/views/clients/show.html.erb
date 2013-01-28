@@ -57,12 +57,14 @@
       <thead>
         <th>Visit Type</th>
         <th>Price</th>
+        <th>Default Price ID</th>
       </thead>
       <tbody>
         <% @client_prices.each do |client_price| %>
           <tr>
             <td><%= client_price.visit_type %></td>
             <td><%= client_price.price %> </td>
+            <td><%= client_price.default_price_id %> </td>
           </tr>
         <% end %>
       </tbody>
