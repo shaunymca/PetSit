@@ -7,7 +7,7 @@ class Client < ActiveRecord::Base
   
   before_create do
   	user.default_prices.each do |default_price|
-      client_prices.build("price" => default_price.price, "visit_type" => default_price.visit_type, "default_price_id" => default_price.id)
+      client_prices.build("price" => default_price.price, "visit_type" => default_price.visit_type, "default_price_id" => default_price.id, "custom" => 0)
     end
   end
 
@@ -24,4 +24,12 @@ class Client < ActiveRecord::Base
     	scoped
   	end
 	end
+  
+  def default_client_prices
+    client_prices.where(custom: false)
+  end
+
+  def custom_client_prices
+    client_prices.where(custom: true)
+  end
 end
