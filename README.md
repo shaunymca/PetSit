@@ -8,6 +8,12 @@
 * Implemented turbolinks, speeding up the application greatly.  
 * Finish up clients view (with maps!)  
 * Allow uploading of clients as csv or excell
+* Create pricing profiles that work  
+** ~~Create default pricing table for users~~  
+*** ~~client_id:integer, visit_type:string, price:decimal~~ 
+** ~~Have default pricing automatically applied to clients when they are created (client pricing table)~~  
+** ~~Head back to user's edit page after adding default pricing (or any edit to users page~~  
+** ~~Allow users to edit client pricing table(rethinking how this is done)~~    
 
 ##Todo  
 * Design:  
@@ -19,12 +25,7 @@
 ** Logo  
 * UI  
 ** On login, go to user settings and set default pricing.  
-* Create pricing profiles that work  
-** ~~Create default pricing table for users~~  
-*** ~~client_id:integer, visit_type:string, price:decimal~~ 
-** ~~Have default pricing automatically applied to clients when they are created (client pricing table)~~  
-** ~~Head back to user's edit page after adding default pricing (or any edit to users page~~  
-** Allow users to edit client pricing table(rethinking how this is done)  
+
 * Create new "visits" table  
 ** Have users input date and type of visit (eg June 1, afternoon OR June 1, birds)  
 ** Pricing will automatically update based on day of the week and type of visit that coorosponds to the client's pricing table  
