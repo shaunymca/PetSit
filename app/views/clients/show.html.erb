@@ -44,46 +44,58 @@
     </div>
   </div>
 </div>
+
+<div class='well'>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+  			<h3><%= 'Client Pricing <i class="icon-chevron-down"></i>'.html_safe %></h3>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <%= simple_nested_form_for @client do |f| %>
+        <%= f.fields_for :client_prices do |def_price_form| %>
+        <div class="controls controls-row">
+          <div class='span10'>
+            <% if def_price_form.object.custom == true  %>
+              <% if def_price_form.object.default_price_id.nil? %>
+                <%= def_price_form.input :custom, disabled: true, :wrapper_html => { :class => 'span1' } %>
+              <% else %>
+                <%= def_price_form.input :custom, :wrapper_html => { :class => 'span1' } %>
+              <% end %>
+              <%= def_price_form.input :visit_type, :wrapper_html => { :class => 'span2' } %>
+              <%= def_price_form.input :price, disabled: true, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
+                <%= content_tag :span, "$", :class => "add-on" %>
+                <%= def_price_form.input_field :price %>
+              	<%= def_price_form.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span3 pull-left' } %>
+                <%end%>
+            <% else %>
+              <%= def_price_form.input :custom, :hidden => false, :wrapper_html => { :class => 'span1' } %>
+              <%= def_price_form.input :visit_type, disabled: true, :wrapper_html => { :class => 'span2' } %>
+              <%= def_price_form.input :price, disabled: :custom, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
+                <%= content_tag :span, "$", :class => "add-on" %>
+                <%= def_price_form.input_field :price, disabled: true %>
+                <%end%>
+            <%end%>
+          </div>
+        </div>
+        <% end %>
+        <%= f.link_to_add "Add a custom price", :client_prices, :class => 'btn btn-success' %>
+        <p>&nbsp;</p>
+        <div class="controls">
+          <%= f.button :submit, :class => 'btn btn-primary' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="row">
 	<div class="span9">
-    <%= link_to 'Edit <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(@client), class: "btn btn-success"%> |
+    <%= link_to 'Edit Client <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(@client), class: "btn btn-success"%> |
     <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %> |
     <%= link_to 'Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %> 
   </div>
-</div>
-<div class='well'>
-  <h3>Client Pricing</h3>
-  <%= simple_nested_form_for @client do |f| %>
-  <%= f.fields_for :client_prices do |def_price_form| %>
-  <div class="controls controls-row">
-    <div class='span10'>
-      <% if def_price_form.object.custom == true  %>
-        <% if def_price_form.object.default_price_id.nil? %>
-      		<%= def_price_form.input :custom, disabled: true, :wrapper_html => { :class => 'span1' } %>
-        <% else %>
-          <%= def_price_form.input :custom, :wrapper_html => { :class => 'span1' } %>
-        <% end %>
-        <%= def_price_form.input :visit_type, :wrapper_html => { :class => 'span2' } %>
-        <%= def_price_form.input :price, disabled: true, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
-          <%= content_tag :span, "$", :class => "add-on" %>
-          <%= def_price_form.input_field :price %>
-        <%= def_price_form.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span3 pull-left' } %>
-          <%end%>
-      <% else %>
-        <%= def_price_form.input :custom, :hidden => false, :wrapper_html => { :class => 'span1' } %>
-        <%= def_price_form.input :visit_type, disabled: true, :wrapper_html => { :class => 'span2' } %>
-        <%= def_price_form.input :price, disabled: :custom, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
-          <%= content_tag :span, "$", :class => "add-on" %>
-          <%= def_price_form.input_field :price, disabled: true %>
-          <%end%>
-      <%end%>
-    </div>
-  </div>
-  <% end %>
-  <%= f.link_to_add "Add a custom price", :client_prices, :class => 'btn btn-success' %>
-  <p>&nbsp;</p>
-  <div class="controls">
-    <%= f.button :submit, :class => 'btn btn-primary' %>
-  </div>
-  <% end %>
 </div>
