@@ -7,6 +7,7 @@
 * Add clients to database  
 * Implemented turbolinks, speeding up the application greatly.  
 * Finish up clients view (with maps!)  
+* Allow uploading of clients as csv or excell
 
 ##Todo  
 * Design:  
@@ -33,5 +34,4 @@
 ** Take unpaid visits and add them to the invoice.  
 ** Add ability to mark invoice as paid/unpaid. When marked "paid" this will update all of the visits as well.  
 ** On Invoice creation, download a pdf of the invoice  
-* Clients
-** Allow uploading of users as a csv  
+ 
