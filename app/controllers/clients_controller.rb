@@ -11,18 +11,12 @@ class ClientsController < ApplicationController
       format.json { render json: @clients }
     end
   end
-  
-  def import
-    @user = current_user
-    Client.import(params[:file],params[:user_id])
-    redirect_to clients_path, notice: "Client imported."
-	end
 
   # GET /clients/1
   # GET /clients/1.json
   def show
     @client = Client.find(params[:id])
-		@json = Client.find(params[:id]).to_gmaps4rails
+    @json = @client.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @client }
@@ -89,6 +83,12 @@ class ClientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+    
+  def import
+    @user = current_user
+    Client.import(params[:file],params[:user_id])
+    redirect_to clients_path, notice: "Client imported."
+	end
   
     private
   

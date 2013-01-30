@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
       when 'admin'
         users_path
       when 'silver'
-        content_silver_path
+      	clients_path
       when 'gold'
-        content_gold_path
+        clients_path
       when 'platinum'
-        content_platinum_path
+        clients_path
       else
         root_path
     end

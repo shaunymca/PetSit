@@ -8,7 +8,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
 
 
   mount StripeEvent::Engine => '/stripe'
-  get "content/gold"
+  get "clients/gold"
   get "content/silver"
   get "content/platinum"
   authenticated :user do
