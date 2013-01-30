@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :user_id, :zip, :client_prices_attributes
   belongs_to :user
-  has_many :client_prices
+  has_many :client_prices, :dependent => :destroy
   acts_as_gmappable :process_geocoding => false
   accepts_nested_attributes_for :client_prices, :allow_destroy => true
   
