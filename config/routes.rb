@@ -2,7 +2,9 @@ RailsStripeMembershipSaas::Application.routes.draw do
   resources :default_prices
 
 
-  resources :clients
+  resources :clients do
+  	collection { post :import }
+	end
 
 
   mount StripeEvent::Engine => '/stripe'

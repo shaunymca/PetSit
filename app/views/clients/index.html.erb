@@ -44,4 +44,12 @@
   <div class="pagination">
     <%= will_paginate @clients, :renderer => BootstrapPagination::Rails %>
   </div>
+<h2>Import Clients</h2>
+
+<%= form_tag import_clients_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= hidden_field_tag(:user_id, @user.id) %>
+  <%= submit_tag "Import" %>
+<% end %>
 </div>
+

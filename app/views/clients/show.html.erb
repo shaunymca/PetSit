@@ -55,30 +55,18 @@
   <h3>Client Pricing</h3>
   <h4>Default Prices</h4>
   <%= simple_nested_form_for @client do |f| %>
-  	<%= f.fields_for @client_prices do |def_price_form| %>
-        <div class='span10'>
-          <%= def_price_form.input :custom %>
-          <%= def_price_form.input :visit_type, disabled: true, hint: 'This is not a custom price', :wrapper_html => { :class => 'span2' } %>
-          <%= def_price_form.input :price, disabled: true, hint: 'This is not a custom price', :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
+  <%= f.fields_for :client_prices do |def_price_form| %>
+        <div class='span8'>
+          <% unless :custom == true %>
+            <%= def_price_form.input :custom %>
+            <%= def_price_form.input :visit_type, disabled: true, :wrapper_html => { :class => 'span2' } %>
+            <%= def_price_form.input :price, disabled: :custom, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
             <%= content_tag :span, "$", :class => "add-on" %>
-            <%= def_price_form.input_field :price %>
-        	<%end%>
-				</div>
-		<%end%>
-  	
-    <h4>Custom Prices</h4>	
-  	<%= f.fields_for @client_prices do |custom_price_form| %>
-  		<% if :custom == true %>
-  			<div class='span10'>
-          <%= custom_price_form.input :custom %>
-          <%= custom_price_form.input :visit_type, :wrapper_html => { :class => 'span2' } %>
-          <%= custom_price_form.input :price, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
-            <%= content_tag :span, "$", :class => "add-on" %>
-            <%= custom_price_form.input_field :price %>
+            <%= def_price_form.input_field :price, disabled: :custom %>
+            <%end%>
           <%end%>
 				</div>
-  		<%end%>
-  	<%end%>        
+		<%end%>
 		<%= f.button :submit, :class => 'btn btn-primary' %>
   <% end %>
 </div>

@@ -1,5 +1,31 @@
 #client {
-	#default form {
+  h2 {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  #default_price form {
     margin: 5px 0;
+  }
+
+  #custom_price form {
+    font-size: 12px;
+    color: #777;
+    margin: 3px 0;
+    label { text-decoration: line-through; }
+  }
+
+  .edit_price {
+    a {
+      color: #999;
+      font-size: 12px;
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+
+  .loading {
+    margin-left: 10px;
+    color: #777;
   }
 }

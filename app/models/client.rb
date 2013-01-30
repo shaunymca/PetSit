@@ -3,7 +3,7 @@ class Client < ActiveRecord::Base
   belongs_to :user
   has_many :client_prices
   acts_as_gmappable :process_geocoding => false
-  accepts_nested_attributes_for :client_prices
+  accepts_nested_attributes_for :client_prices, :allow_destroy => true
   
   before_create do
   	user.default_prices.each do |default_price|
@@ -24,12 +24,24 @@ class Client < ActiveRecord::Base
     	scoped
   	end
 	end
-  
-  def default_client_prices
-    client_prices.where(custom: false)
-  end
 
-  def custom_client_prices
-    client_prices.where(custom: true)
+  def self.import(file,user_id)
+    spreadsheet = open_spreadsheet(file)
+    header = spreadsheet.row(1)
+    (2..spreadsheet.last_row).each do |i|
+      row = Hash[[header, spreadsheet.row(i)].transpose]
+      row["user_id"] = user_id
+      Client.create! row.to_hash
+    end
   end
+  
+  def self.open_spreadsheet(file)
+    case File.extname(file.original_filename)
+    when ".csv" then Csv.new(file.path, nil, :ignore)
+    when ".xls" then Excel.new(file.path, nil, :ignore)
+    when ".xlsx" then Excelx.new(file.path, nil, :ignore)
+    else raise "Unknown file type: #{file.original_filename}"
+    end
+  end
+  
 end

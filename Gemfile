@@ -36,3 +36,4 @@ gem "nested_form"
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'jquery-rails'
+gem 'roo'

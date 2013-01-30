@@ -11,13 +11,13 @@ class DefaultPrice < ActiveRecord::Base
 	private
 		def new_client_price
       clients.each do |c|
-        self.client_prices.create(:price => self.price, :visit_type => self.visit_type, :client_id => c.id, :custom => 0)
+        self.client_prices.create(:price => self.price, :visit_type => self.visit_type, :client_id => c.id, :custom => false)
 			end
     end
   
     def update_clients_price
       self.client_prices.each do |p|
-        if p.custom == 0
+        if p.custom == false
           p.price = self.price
         	p.visit_type = self.visit_type
           p.save
