@@ -1,0 +1,6 @@
+<%= form_for client_price, remote: true do |f| %>
+  <%= f.check_box :custom %>
+  <%= f.text_field :visit_type %>
+	<%= f.text_field :price %>
+  <%= link_to "(remove)", client_price, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+<% end %>

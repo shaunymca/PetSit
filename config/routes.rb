@@ -5,7 +5,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
   resources :clients do
   	collection { post :import }
 	end
-
+  resources :client_prices
 
   mount StripeEvent::Engine => '/stripe'
   get "clients/gold"
