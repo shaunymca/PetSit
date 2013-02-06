@@ -7,13 +7,16 @@
         <%= f.input :custom, :wrapper_html => { :class => 'span1' } %>
       <% end %>
       <%= f.input :visit_type, :wrapper_html => { :class => 'span2' } %>
-      <%= f.input :price, disabled: true, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
+      <%= f.input :price, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
         <%= content_tag :span, "$", :class => "add-on" %>
         <%= f.input_field :price %>
-        <%= f.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span3 pull-left' } %>
+    		<% if f.object.default_price_id.nil? %>
+        	<%= f.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span3 pull-left' } %>
+    		<% else %>
+    		<% end %>
         <%end%>
     <% else %>
-      <%= f.input :custom, :hidden => false, :wrapper_html => { :class => 'span1' } %>
+      <%= f.input :custom, :wrapper_html => { :class => 'span1' } %>
       <%= f.input :visit_type, disabled: true, :wrapper_html => { :class => 'span2' } %>
       <%= f.input :price, disabled: :custom, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
         <%= content_tag :span, "$", :class => "add-on" %>

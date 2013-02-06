@@ -53,33 +53,9 @@
     </div>
     <div id="collapseOne" class="accordion-body collapse">
       <div class="accordion-inner">
-        <%= simple_nested_form_for @client, remote: true do |f| %>
-          <%= f.fields_for :client_prices do |def_price_form| %>
-          <div class="controls controls-row">
-            <div class='span10'>
-              <% if def_price_form.object.custom == true  %>
-                <% if def_price_form.object.default_price_id.nil? %>
-                  <%= def_price_form.input :custom, disabled: true, :wrapper_html => { :class => 'span1' } %>
-                <% else %>
-                  <%= def_price_form.input :custom, :wrapper_html => { :class => 'span1' } %>
-                <% end %>
-                <%= def_price_form.input :visit_type, :wrapper_html => { :class => 'span2' } %>
-                <%= def_price_form.input :price, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
-                  <%= content_tag :span, "$", :class => "add-on" %>
-                  <%= def_price_form.input_field :price %>
-                  <%= def_price_form.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span3 pull-left' } %>
-                  <%end%>
-              <% else %>
-                <%= def_price_form.input :custom, :hidden => false, :wrapper_html => { :class => 'span1' } %>
-                <%= def_price_form.input :visit_type, disabled: true,  :wrapper_html => { :class => 'span2' } %>
-                <%= def_price_form.input :price, :wrapper => :prepend, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
-                  <%= content_tag :span, "$", :class => "add-on" %>
-                  <%= def_price_form.input_field :price, disabled: true %>
-                  <%end%>
-              <%end%>
-            </div>
-          </div>
-          <% end %>
+        <%= simple_nested_form_for @client do |f| %>
+          <%= f.fields_for :client_prices %>
+
           <%= f.link_to_add "Add a custom price", :client_prices, :class => 'btn btn-success' %>
           <p>&nbsp;</p>
           <div class="controls">
