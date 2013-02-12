@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Visit type:</b>
+  <%= @visit_block.visit_type %>
+</p>
+
+<p>
+  <b>Visit price:</b>
+  <%= @visit_block.visit_price %>
+</p>
+
+<p>
+  <b>Visit date start:</b>
+  <%= @visit_block.visit_date_start %>
+</p>
+
+<p>
+  <b>Visit date end:</b>
+  <%= @visit_block.visit_date_end %>
+</p>
+
+<p>
+  <b>Monday:</b>
+  <%= @visit_block.monday %>
+</p>
+
+<p>
+  <b>Tuesday:</b>
+  <%= @visit_block.tuesday %>
+</p>
+
+<p>
+  <b>Wednesday:</b>
+  <%= @visit_block.wednesday %>
+</p>
+
+<p>
+  <b>Thursday:</b>
+  <%= @visit_block.thursday %>
+</p>
+
+<p>
+  <b>Friday:</b>
+  <%= @visit_block.friday %>
+</p>
+
+<p>
+  <b>Saturday:</b>
+  <%= @visit_block.saturday %>
+</p>
+
+<p>
+  <b>Sunday:</b>
+  <%= @visit_block.sunday %>
+</p>
+
+<%= link_to 'Edit', edit_visit_block_path(@visit_block) %> |
+<%= link_to 'Back', visit_blocks_path %>

@@ -1,0 +1,43 @@
+visits_block table:
+id:integer
+visit_type:text
+visit_price:integer
+visit_date_start:datetime
+visit_date_end:
+monday:boolean
+tuesday:boolean
+wednesday:boolean
+thursday:boolean
+friday:boolean
+saturday:boolean
+sunday:boolean
+
+Visits table:
+
+id:integer
+client_id:integer
+visit_type:text
+visit_price:integer
+visit_date:datetime
+invoice_id:integer
+
+Invoices table:
+client_id:integer
+
+
+
+
+User clicks create new visit button
+Loads "Visits block" form
+User live searches for client name.
+Visit_type dropdown includes visity types from that client
+Visit price prefills with appropriate price
+2 datepickers
+1 time picker
+7 checkboxes for days of the week.
+
+
+On save, the number of days is computed and individual visits are built in the visits table.
+
+
+Go to schedule?
