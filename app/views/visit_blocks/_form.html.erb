@@ -1,19 +1,20 @@
 <%= simple_form_for(@visit_block) do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :visit_type %>
-    <%= f.input :visit_price %>
-    <%= f.input :visit_date_start %>
-    <%= f.input :visit_date_end %>
-    <%= f.input :monday %>
-    <%= f.input :tuesday %>
-    <%= f.input :wednesday %>
-    <%= f.input :friday %>
-    <%= f.input :saturday %>
-    <%= f.input :sunday %>
-  </div>
-
+  <div class="controls controls-row">
+    <div class="form-inputs">
+      <%= f.input :client_name, input_html: {data: {autocomplete_source: current_user.clients.order(:last_name).map(&:last_name)}} %>
+      <%= f.input :visit_type %>
+      <%= f.input :visit_price %>
+      <%= f.input :visit_date_start %>
+      <%= f.input :visit_date_end %>
+      <%= f.input :monday %>
+      <%= f.input :tuesday %>
+      <%= f.input :wednesday %>
+      <%= f.input :friday %>
+      <%= f.input :saturday %>
+      <%= f.input :sunday %>
+    </div>
+	</div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

@@ -1,5 +1,6 @@
 visits_block table:
 id:integer
+client_id:integer
 visit_type:text
 visit_price:integer
 visit_date_start:datetime
