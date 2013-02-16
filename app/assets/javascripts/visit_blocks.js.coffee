@@ -4,3 +4,14 @@
 jQuery ->
   $('#visit_block_client_name').autocomplete
     source: $('#visit_block_client_name').data('autocomplete-source')
+    
+  visit_types = $('#visit_block_visit_type').html()
+  console.log(visit_types)
+  $('#visit_block_client_name').keyup ->
+    client_name = (visit_block_client_name.value)
+    options = $(visit_types).filter("optgroup[label=#{client_name}]").html()
+    console.log(options)
+    if options
+      $('#visit_block_visit_type').html(options)
+    else
+      $('#visit_block_visit_type').empty()
