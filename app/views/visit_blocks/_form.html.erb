@@ -1,21 +1,23 @@
 <%= form_for(@visit_block) do |f| %>
-
-  <div class="controls controls-row">
-    <div class="form-inputs">
-      <%= f.text_field :client_name, data: {autocomplete_source: current_user.clients.order(:last_name).map(&:last_name)} %>
+  <%= content_tag "div", id: "client_prices_data", data: {visit_source: current_user.client_prices} do %>
+    <div class="controls controls-row">
+      <div class="form-inputs">
+        <%= f.text_field :client_name, data: {autocomplete_source: current_user.clients.order(:last_name).map(&:last_name)} %>
+      </div>
+      <div class="form-inputs">
+        <%= f.grouped_collection_select :client_prices_id, current_user.clients.order(:last_name), :client_prices, :last_name, :id, :visit_type,  include_blank: true %>
+        <%= f.hidden_field :visit_type %>      
+        <%= f.text_field :visit_price %>
+        <%= f.check_box :monday %>
+        <%= f.check_box :tuesday %>
+        <%= f.check_box :wednesday %>
+        <%= f.check_box :friday %>
+        <%= f.check_box :saturday %>
+        <%= f.check_box :sunday %>
+      </div>
     </div>
-    <div class="form-inputs">
-      <%= f.grouped_collection_select :visit_type, current_user.clients.order(:last_name), :client_prices, :last_name, :visit_type, :visit_type,  include_blank: true %>
-      <%= f.text_field :visit_price %>
-      <%= f.check_box :monday %>
-      <%= f.check_box :tuesday %>
-      <%= f.check_box :wednesday %>
-      <%= f.check_box :friday %>
-      <%= f.check_box :saturday %>
-      <%= f.check_box :sunday %>
+    <div class="form-actions">
+      <%= f.button :submit %>
     </div>
-	</div>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <% end %>
 <% end %>

@@ -25,7 +25,8 @@ class VisitBlocksController < ApplicationController
   # GET /visit_blocks/new.json
   def new
     @visit_block = VisitBlock.new
-    @clients = current_user.clients
+    @user = current_user
+    @client_prices = current_user.client_prices
 
     respond_to do |format|
       format.html # new.html.erb
