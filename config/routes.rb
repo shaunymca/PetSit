@@ -19,6 +19,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
   end
   root :to => "home#index"
   match "index.html" => "home#index"
+  match "cgi-sys/defaultwebpage.cgi" => "home#index"
   devise_for :users, :controllers => { :registrations => 'registrations' }
   resources :users
 end
