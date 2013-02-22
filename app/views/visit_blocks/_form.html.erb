@@ -1,22 +1,30 @@
 <%= form_for(@visit_block) do |f| %>
   <%= content_tag "div", id: "client_prices_data", data: {visit_source: current_user.client_prices} do %>
     <div class="controls controls-row">
-      <div class="form-inputs">
+      <div class="form-inputs span12">
         <%= f.label :client_name %>
         <%= f.text_field :client_name, placeholder: 'Last Name', class: "input-medium search-query", data: {autocomplete_source: current_user.clients.order(:last_name).map(&:last_name)} %>
       </div>
-      <div class="form-inputs">
-        <%= f.label :client_prices_id, label: "Service Type" %>
-        <%= f.grouped_collection_select :client_prices_id, current_user.clients.order(:last_name), :client_prices, :last_name, :id, :visit_type,  include_blank: true %>
+      <div class="form-inputs span12">
+        <%= f.label :client_prices_id, 'Service Type', class: "span3" %>
+        <%= f.label :visit_price, class: "span2", label: "Price" %>
+      </div>
+      <div class="form-inputs span12">
+        <div class="span3">
+          <%= f.grouped_collection_select :client_prices_id, current_user.clients.order(:last_name), :client_prices, :last_name, :id, :visit_type,  include_blank: true, class: "span2" %>
+        </div>
+        <div class="span2">
         <%= f.hidden_field :visit_type %>
-        <%= f.label :visit_price, label: "Price" %>
-        <%= f.text_field :visit_price %>
-        <%= f.label :visit_date_start, label: "First Visit Date" %>
-        <%= f.text_field :visit_date_start, :value=>Date.today.strftime('%m-%d-%Y'), :id =>"start_date" %>
-        <%= f.label :visit_date_start, label: "Last Visit Date" %>
+        <%= f.text_field :visit_price, class: "span2" %>
+        </div>
+      </div>
+      <div class="form-inputs span12"
+        <%= f.label :visit_date_start, class: "span2", label: "First Visit Date" %>
+        <%= f.text_field :visit_date_start, class: "span2", :value=>Date.today.strftime('%m-%d-%Y'), :id =>"start_date" %>
+        <%= f.label :visit_date_start, class: "span2", label: "Last Visit Date" %>
         <%= f.text_field :visit_date_end, :value=>Date.today.strftime('%m-%d-%Y'), :id =>"end_date", label: "Last Visit Date" %>  
         <div class="input-append bootstrap-timepicker">
-        	<%= f.text_field :visit_time %>
+          <%= f.text_field :visit_time, class: "span2" %>
           <span class="add-on"><i class="icon-time"></i></span>
         </div>
         <%= f.check_box :monday %>
