@@ -2,14 +2,25 @@
   <%= content_tag "div", id: "client_prices_data", data: {visit_source: current_user.client_prices} do %>
     <div class="controls controls-row">
       <div class="form-inputs">
-        <%= f.text_field :client_name, data: {autocomplete_source: current_user.clients.order(:last_name).map(&:last_name)} %>
+        <%= f.label :client_name %>
+        <%= f.text_field :client_name, placeholder: 'Last Name', class: "input-medium search-query", data: {autocomplete_source: current_user.clients.order(:last_name).map(&:last_name)} %>
       </div>
       <div class="form-inputs">
+        <%= f.label :client_prices_id, label: "Service Type" %>
         <%= f.grouped_collection_select :client_prices_id, current_user.clients.order(:last_name), :client_prices, :last_name, :id, :visit_type,  include_blank: true %>
-        <%= f.hidden_field :visit_type %>      
+        <%= f.hidden_field :visit_type %>
+        <%= f.label :visit_price, label: "Price" %>
         <%= f.text_field :visit_price %>
+        <%= f.label :visit_date_start, label: "First Visit Date" %>
+        <%= f.text_field :visit_date_start, :value=>Date.today.strftime('%m-%d-%Y'), :id =>"start_date" %>
+        <%= f.label :visit_date_start, label: "Last Visit Date" %>
+        <%= f.text_field :visit_date_end, :value=>Date.today.strftime('%m-%d-%Y'), :id =>"end_date", label: "Last Visit Date" %>  
+        <div class="input-append bootstrap-timepicker">
+        	<%= f.text_field :visit_time %>
+          <span class="add-on"><i class="icon-time"></i></span>
+        </div>
         <%= f.check_box :monday %>
-        <%= f.check_box :tuesday %>
+        <%= f.button :tuesday %>
         <%= f.check_box :wednesday %>
         <%= f.check_box :friday %>
         <%= f.check_box :saturday %>
