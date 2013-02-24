@@ -1,4 +1,7 @@
 RailsStripeMembershipSaas::Application.routes.draw do
+  resources :visits
+
+
   resources :visit_blocks
 
 

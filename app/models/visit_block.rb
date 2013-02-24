@@ -4,6 +4,7 @@ class VisitBlock < ActiveRecord::Base
   belongs_to :client
   has_many :visits
   
+
   
   def client_prices_id
   end
