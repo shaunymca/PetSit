@@ -55,5 +55,13 @@
   <%= @visit_block.sunday %>
 </p>
 
+<p>
+  <b>Client id:</b>
+  <%= @visit_block.client_id %>
+</p>
+<p>
+  <b>Visit Time:</b>
+  <%= @visit_block.visit_time %>
+</p>
 <%= link_to 'Edit', edit_visit_block_path(@visit_block) %> |
 <%= link_to 'Back', visit_blocks_path %>

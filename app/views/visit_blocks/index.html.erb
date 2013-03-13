@@ -10,7 +10,8 @@
     <th>Tuesday</th>
     <th>Wednesday</th>
     <th>Thurs</th>
-    <th></th>
+    <th>Client ID</th>
+    <th>Visit Time</th>
     <th></th>
     <th></th>
   </tr>
@@ -24,7 +25,9 @@
     <td><%= visit_block.monday %></td>
     <td><%= visit_block.tuesday %></td>
     <td><%= visit_block.wednesday %></td>
-    <td><%= visit_block.thurs %></td>
+    <td><%= visit_block.thursday %></td>
+    <td><%= visit_block.client_id %></td>
+    <td><%= visit_block.visit_time %></td>
     <td><%= link_to 'Show', visit_block %></td>
     <td><%= link_to 'Edit', edit_visit_block_path(visit_block) %></td>
     <td><%= link_to 'Destroy', visit_block, method: :delete, data: { confirm: 'Are you sure?' } %></td>

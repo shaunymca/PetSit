@@ -19,5 +19,4 @@
 //= require jquery_nested_form
 //= require gmaps4rails/gmaps4rails.base
 //= require gmaps4rails/gmaps4rails.googlemaps
-//= require bootstrap-datepicker
 //= require_directory .

@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  helper_method :date_formatted
+  def date_formatted(datetime)
+    return nil if datetime.blank?
+    datetime.strftime("%m/%d/%Y")
+  end
+  
 end

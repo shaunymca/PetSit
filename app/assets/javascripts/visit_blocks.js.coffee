@@ -32,11 +32,10 @@ jQuery ->
       visit = vsts[0]
       $("#visit_block_visit_type").val visit.visit_type
       $("#visit_block_visit_price").val visit.price
+      $("#visit_block_client_id").val visit.client_id
 
-  $("#start_date").datepicker(format: "mm-dd-yyyy").on "changeDate", (ev) ->
-    $("#start_date").datepicker "hide"
+  $("#start_date").datepicker format: "mm-dd-yyyy"
     
-  $("#end_date").datepicker(format: "mm-dd-yyyy").on "changeDate", (ev) ->
-    $("#end_date").datepicker "hide"
+  $("#end_date").datepicker format: "mm-dd-yyyy"
     
-  $("#visit_block_visit_time").timepicker()
+  $("#visit_block_time_text").timepicker()
