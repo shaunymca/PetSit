@@ -32,6 +32,7 @@ GEM
     american_date (1.0.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bootstrap-datetimepicker-rails (0.0.10)
     builder (3.0.4)
     cancan (1.6.8)
     capybara (2.0.1)
@@ -253,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   american_date
+  bootstrap-datetimepicker-rails
   cancan (>= 1.6.8)
   capybara (>= 1.1.2)
   coffee-rails (~> 3.2.1)

@@ -34,8 +34,12 @@ jQuery ->
       $("#visit_block_visit_price").val visit.price
       $("#visit_block_client_id").val visit.client_id
 
-  $("#start_date").datepicker format: "mm-dd-yyyy"
+	$("#start_date").datetimepicker
+    language: "en"
+    pick12HourFormat: true
     
-  $("#end_date").datepicker format: "mm-dd-yyyy"
+  $("#visit_block_american_end_date").datetimepicker
+    language: "en"
+    pick12HourFormat: true
     
   $("#visit_block_time_text").timepicker()
