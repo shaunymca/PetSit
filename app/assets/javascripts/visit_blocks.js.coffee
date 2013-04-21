@@ -44,10 +44,10 @@ jQuery ->
       $("#visit_block_visit_type").val visit.visit_type
       $("#visit_block_visit_price").val visit.price
 
-  $("#start_date").datepicker(format: "mm-dd-yyyy").on "changeDate", (ev) ->
+  $("#start_date").datepicker(format: "mm/dd/yyyy").on "changeDate", (ev) ->
     $("#start_date").datepicker "hide"
     
-  $("#end_date").datepicker(format: "mm-dd-yyyy").on "changeDate", (ev) ->
+  $("#end_date").datepicker(format: "mm/dd/yyyy").on "changeDate", (ev) ->
     $("#end_date").datepicker "hide"
     
   $("#visit_block_time_text").timepicker()

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225202042) do
+ActiveRecord::Schema.define(:version => 20130421183637) do
 
   create_table "client_prices", :force => true do |t|
     t.decimal  "price"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20130225202042) do
   create_table "visit_blocks", :force => true do |t|
     t.string   "visit_type"
     t.integer  "visit_price"
-    t.date     "visit_date_start"
-    t.date     "visit_date_end"
+    t.datetime "visit_date_start"
+    t.datetime "visit_date_end"
     t.boolean  "monday"
     t.boolean  "tuesday"
     t.boolean  "wednesday"

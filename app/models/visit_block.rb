@@ -5,7 +5,7 @@ class VisitBlock < ActiveRecord::Base
   has_many :visits
   accepts_nested_attributes_for :visits
   attr_writer :american_start_date, :american_end_date, :time_text
-  before_save :save_american_start_date, :save_american_end_date, :save_time_text
+  before_save :save_american_start_date, :save_american_end_date
   
   after_commit :new_visit
 
@@ -24,11 +24,6 @@ class VisitBlock < ActiveRecord::Base
   end
   
   def time_text
-    @time_text || visit_time.try(:strftime, "%H:%M:%S")
-  end
-  
-  def save_time_text
-    self.visit_time = @time_text if @time_text.present?
   end
   
   def american_start_date
@@ -36,7 +31,7 @@ class VisitBlock < ActiveRecord::Base
   end
   
   def save_american_start_date
-    self.visit_date_start = DateTime.strptime(@american_start_date, '%m-%d-%Y') if @american_start_date.present?
+    self.visit_date_start = Chronic.parse("#{american_start_date} #{time_text}").in_time_zone if @american_start_date.present?
   end
   
   def american_end_date
@@ -44,7 +39,7 @@ class VisitBlock < ActiveRecord::Base
   end
   
   def save_american_end_date
-    self.visit_date_end = DateTime.strptime(@american_end_date, '%m-%d-%Y') if @american_end_date.present?
+    self.visit_date_end = Chronic.parse("#{american_end_date} #{time_text}").in_time_zone if @american_start_date.present?
   end
   
   private  
