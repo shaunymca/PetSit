@@ -59,11 +59,11 @@ class VisitBlocksController < ApplicationController
   # PUT /visit_blocks/1.json
   def update
     @visit_block = VisitBlock.find(params[:id])
+    @visits = Visit.all
 
     respond_to do |format|
       if @visit_block.update_attributes(params[:visit_block])
-        format.html { redirect_to @visit_block, notice: 'Visit block was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to visits_path }
       else
         format.html { render action: "edit" }
         format.json { render json: @visit_block.errors, status: :unprocessable_entity }

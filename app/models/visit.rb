@@ -6,4 +6,12 @@ class Visit < ActiveRecord::Base
   def visit_block_id
   end
   
+  def future_visit
+    if Chronic.parse("#{self.visit_date}") >= Chronic.parse("this morning at 00:00")
+      true
+    else
+      false
+    end
+  end
+  
 end

@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
-
+<div class='span10'>
+  <%= simple_nested_form_for @visit_block do |f| %>
+    <div class="controls">
+      <%= f.button :submit, "Save", :class => 'btn btn-primary' %>
+    </div>	
+    <div class='span9'>
+  	<%= f.fields_for :visits %>
+  
+    <%= f.link_to_add "Add a visit", :visits, :class => 'btn btn-success' %>
+    <p>&nbsp;</p>
+    <div class="controls">
+      <%= f.button :submit, "Save", :class => 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>
+</div>
 <p>
   <b>Visit type:</b>
   <%= @visit_block.visit_type %>

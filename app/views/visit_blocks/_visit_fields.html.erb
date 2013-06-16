@@ -1,0 +1,12 @@
+<div class="controls controls-row">
+  <div class='span10'>
+    <%= f.input :visit_type, disabled: true, :wrapper_html => { :class => 'span1' } %>
+    <%= f.input :visit_date, as: :string, :wrapper_html => { :class => 'span'} %>
+    <%= f.input :visit_price, :wrapper => :prepend, :wrapper_html => { :class => 'span1' }, :label => "Price" do %> %>
+    <%= content_tag :span, "$", :class => "btn btn-success add-on disabled" %>
+    <%= f.input_field :visit_price %>
+    <%= f.link_to_remove '<i class="icon-remove"></i>'.html_safe, :class => 'btn btn-danger', :wrapper_html => { :class => 'span1 pull-left' } %>
+    <% end %>
+    
+  </div>
+</div>
