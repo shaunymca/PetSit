@@ -3,5 +3,6 @@ class ClientPrice < ActiveRecord::Base
 
   belongs_to :client
   belongs_to :default_price
+  has_many :visits
   
 end

@@ -1,15 +1,20 @@
-<%= simple_form_for(@visit) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :client_id %>
-    <%= f.input :visit_type %>
-    <%= f.input :visit_price %>
-    <%= f.input :visit_date %>
-    <%= f.input :invoice_id %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div class="well">
+  <%= simple_form_for(@visit) do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= f.association :client, label_method: :full_name %>
+      <%= f.input :american_start_date, input_html: { id: 'visit_date' } %>
+      <div class="input-append bootstrap-timepicker">
+        <%= f.text_field :time_text %>
+        <span class="add-on"><i class="icon-time"></i></span>
+      </div>
+      <%= f.input :visit_price, as: :string %>
+      
+    </div>
+  
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

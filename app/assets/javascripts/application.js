@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-ui
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.turbolinks
@@ -20,4 +20,8 @@
 //= require gmaps4rails/gmaps4rails.base
 //= require gmaps4rails/gmaps4rails.googlemaps
 //= require bootstrap-datetimepicker
+//= require fullcalendar
+//= require calendar
+//= require gcal
 //= require_directory .
+

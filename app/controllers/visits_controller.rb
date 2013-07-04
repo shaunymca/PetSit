@@ -2,11 +2,14 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
-
+    @visits = Visit.scoped  
+    @visits = @visits.after(params['start']) if (params['start'])
+    @visits = @visits.before(params['end']) if (params['end'])
+    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @visits }
+      format.xml  { render :xml => @visits }
+      format.js  { render :json => @visits }
     end
   end
 
@@ -17,7 +20,8 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @visit }
+      format.xml  { render :xml => @visit }
+      format.js { render :json => @visit.to_json }
     end
   end
 
@@ -29,6 +33,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @visit }
+      format.xml  { render :xml => @visit }
     end
   end
 
@@ -44,27 +49,33 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
-        format.json { render json: @visit, status: :created, location: @visit }
+        format.html { redirect_to(@visit, :notice => 'Visit was successfully created.') }
+        format.xml  { render :xml => @visit, :status => :created, :location => @visit }
       else
-        format.html { render action: "new" }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @visit.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   # PUT /visits/1
   # PUT /visits/1.json
+
+  # when we drag a visit on the calendar (from day to day on the month view, or stretching
+  # it on the week or day view), this method will be called to update the values.
+  # viv la REST!
   def update
     @visit = Visit.find(params[:id])
-
+    
     respond_to do |format|
       if @visit.update_attributes(params[:visit])
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to(@visit, :notice => 'Visit was successfully updated.') }
+        format.xml  { head :ok }
+        format.js { head :ok}
       else
-        format.html { render action: "edit" }
-        format.json { render json: @visit.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @visit.errors, :status => :unprocessable_entity }
+        format.js  { render :js => @visit.errors, :status => :unprocessable_entity }
       end
     end
   end

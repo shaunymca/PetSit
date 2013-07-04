@@ -34,7 +34,6 @@ jQuery ->
     vsts = undefined
     selectedVisitid = visit_block_client_prices_id.value
     data = $("#client_prices_data").data("visit-source")
-    visit_hash = $.parseJSON(data)
     vsts = $.grep(data, (n, i) ->
       n.id.toString() is selectedVisitid
     )

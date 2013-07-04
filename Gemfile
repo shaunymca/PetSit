@@ -10,6 +10,11 @@ group :assets do
   gem 'therubyracer'
 end
 
+group :development do
+  gem 'meta_request'
+end
+gem 'fullcalendar-rails'
+gem 'event-calendar', :require => 'event_calendar'
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
 gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
@@ -36,6 +41,7 @@ gem "nested_form"
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'roo'
 gem 'bootstrap-datetimepicker-rails'
 gem 'chronic'

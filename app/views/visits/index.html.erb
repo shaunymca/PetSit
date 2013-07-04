@@ -1,26 +1,35 @@
+
 <h1>Listing visits</h1>
 
-
+<table>
+  <tr>
+    <th>Client</th>
+    <th>Visit type</th>
+    <th>Visit price</th>
+    <th>Visit date</th>
+    <th>Visit time</th>
+    <th>SOMETHING</th>
+    <th>End time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
 <% @visits.each do |visit| %>
-  <% if visit.future_visit %>
-  <%= simple_form_for visit do |f| %>
-  	<div class="controls controls-row">
-      <div class='span10'>
-        <%= f.input :visit_type, disabled: true, :wrapper_html => { :class => 'span1' } %>
-        <%= f.input :visit_date, as: :string, :wrapper_html => { :class => 'span2' } %>
-        <%= f.input :visit_price, :wrapper => :prepend, :wrapper_html => { :class => 'span1' }, :label => "Price" do %> %>
-        <%= content_tag :span, "$", :class => "btn btn-success add-on disabled" %>
-        <%= f.input_field :visit_price %>
-        <%= f.button :submit, :class => 'btn btn-danger', :wrapper_html => { :class => 'span1 pull-left', :method => :delete } %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>		
-
-  <% else %>
-  <% end %>
+  <tr>
+    <td><%= visit.client_name %></td>
+    <td><%= visit.visit_type %></td>
+    <td><%= visit.visit_price %></td>
+    <td><%= visit.american_start_date %></td>
+    <td><%= visit.time_text %></td>
+    <td> SOMETHING </td>
+    <td><%= visit.end_time %></td>
+    <td><%= link_to 'Show', visit %></td>
+    <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
+    <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
+</table>
 
 <br />
 
