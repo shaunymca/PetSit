@@ -27,9 +27,9 @@
 ** On login, go to user settings and set default pricing.  
 
 * Create new "visits" table  
-** Have users input date and type of visit (eg June 1, afternoon OR June 1, birds)  
-** Pricing will automatically update based on day of the week and type of visit that coorosponds to the client's pricing table  
-** The price feild can be adjusted or changed by the user before or after it is saved  
+** ~~Have users input date and type of visit (eg June 1, afternoon OR June 1, birds)~~  
+** ~~Pricing will automatically update based on day of the week and type of visit that coorosponds to the client's pricing table~~  
+** ~~The price feild can be adjusted or changed by the user before or after it is saved~~  
 ** Add ability to mark visits as paid or unpaid  
 * Create the invoicing functionality  
 ** Take unpaid visits and add them to the invoice.  
