@@ -7,3 +7,4 @@ jQuery ->
     $("#visit_date").datepicker "hide"
     
   $("#visit_time_text").timepicker()
+  $("#visit_end_time_text").timepicker()

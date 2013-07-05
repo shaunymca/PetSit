@@ -32,23 +32,22 @@
           <span class="add-on"><i class="icon-time"></i></span>
         </div>
       <div class="controls controls-row">
-        <div>
-          &nbsp;
-        </div>
-        <%= f.label :monday, "Monday", class: "checkbox inline" %>
-        <%= f.check_box :monday %>
-        <%= f.label :tuesday, "Tuesday", class: "checkbox inline" %>
-        <%= f.check_box :tuesday %>
-        <%= f.label :wednesday, "Wednesday", class: "checkbox inline" %>
-        <%= f.check_box :wednesday %>
-        <%= f.label :thursday, "Thursday", class: "checkbox inline" %>
-        <%= f.check_box :thursday %>
-        <%= f.label :friday, "Friday", class: "checkbox inline" %>
-        <%= f.check_box :friday %>
-        <%= f.label :saturday, "Saturday", class: "checkbox inline" %>
-        <%= f.check_box :saturday %>
-        <%= f.label :sunday, "Sunday", class: "checkbox inline" %>
-        <%= f.check_box :sunday %>
+        <%= f.check_box :monday, :style => 'visibility: hidden' %>
+        <%= f.check_box :tuesday, :style => 'visibility: hidden' %>
+        <%= f.check_box :wednesday, :style => 'visibility: hidden' %>
+        <%= f.check_box :thursday, :style => 'visibility: hidden' %>
+        <%= f.check_box :friday, :style => 'visibility: hidden' %>
+        <%= f.check_box :saturday, :style => 'visibility: hidden' %>
+        <%= f.check_box :sunday, :style => 'visibility: hidden' %>
+      </div>
+      <div class="btn-group" data-toggle="buttons-checkbox">
+        <button id= "monday_toggle" type="button" class="btn btn-primary">Monday</button>
+        <button id= "tuesday_toggle" type="button" class="btn btn-primary">Tuesday</button>
+        <button id= "wednesday_toggle" type="button" class="btn btn-primary">Wednesday</button>
+        <button id= "thursday_toggle" type="button" class="btn btn-primary">Thursday</button>
+        <button id= "friday_toggle" type="button" class="btn btn-primary">Friday</button>
+        <button id= "saturday_toggle" type="button" class="btn btn-primary">Saturday</button>
+        <button id= "sunday_toggle" type="button" class="btn btn-primary">Sunday</button>
       </div>
       <div class="form-actions">
         <%= f.button :submit, class: 'btn-success' %>

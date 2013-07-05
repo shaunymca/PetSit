@@ -3,10 +3,6 @@ class Visit < ActiveRecord::Base
   belongs_to :client_prices 
   belongs_to :visit_block
   belongs_to :client  
-
-  def end_time
-    self.visit_date + 1.hours
-  end
   
   def start_time
     self.visit_date
@@ -23,6 +19,10 @@ class Visit < ActiveRecord::Base
   end
  def time_text
     @time_text || visit_date.try(:strftime, "%I:%M %P")
+  end
+  
+  def end_time_text
+    @end_time_text || end_time.try(:strftime, "%I:%M %P")
   end
     
   def american_start_date
