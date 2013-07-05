@@ -31,10 +31,21 @@
                 <li><%= link_to 'New Client <i class="icon-plus"></i>'.html_safe, new_client_path %></li>
               </ul>
             </li> 
+            <li class="dropdown">
+              <a  href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Visits <b class="caret"></b>
+              </a>                  
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Visits <i class="icon-calendar"></i>'.html_safe, visits_path %></li>
+                <li><%= link_to 'Schedule Visits <i class="icon-plus"></i>'.html_safe, new_visit_block_path %></li>
+              </ul>
+            </li> 
             <% if current_user.has_role? :admin %>
             <li>
               <%= link_to 'Admin', users_path %>
             </li>
+            <li>
+           
             <% end %>
           <%end %>
         </ul>

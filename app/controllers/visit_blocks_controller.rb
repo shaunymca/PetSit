@@ -46,7 +46,7 @@ class VisitBlocksController < ApplicationController
 
     respond_to do |format|
       if @visit_block.save
-        format.html { redirect_to @visit_block, notice: 'Visit block was successfully created.' }
+        format.html { redirect_to visits_path, notice: 'Visit block was successfully created.' }
         format.json { render json: @visit_block, status: :created, location: @visit_block }
       else
         format.html { render action: "new" }

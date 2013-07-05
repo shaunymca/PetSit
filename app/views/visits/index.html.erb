@@ -1,36 +1,8 @@
-
-<h1>Listing visits</h1>
-
-<table>
-  <tr>
-    <th>Client</th>
-    <th>Visit type</th>
-    <th>Visit price</th>
-    <th>Visit date</th>
-    <th>Visit time</th>
-    <th>SOMETHING</th>
-    <th>End time</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @visits.each do |visit| %>
-  <tr>
-    <td><%= visit.client_name %></td>
-    <td><%= visit.visit_type %></td>
-    <td><%= visit.visit_price %></td>
-    <td><%= visit.american_start_date %></td>
-    <td><%= visit.time_text %></td>
-    <td> SOMETHING </td>
-    <td><%= visit.end_time %></td>
-    <td><%= link_to 'Show', visit %></td>
-    <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-    <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Visit', new_visit_path %>
+<div class='well'>
+  <h1>Listing visits</h1>
+  <%= link_to 'New Visit', new_visit_block_path %>
+  
+  <div id='calendar'></div>
+  
+  <%= link_to 'New Visit', new_visit_block_path %>
+</div>
