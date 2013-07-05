@@ -45,7 +45,11 @@ $(document).ready(function() {
         },
 
         // http://arshaw.com/fullcalendar/docs/mouse/eventClick/
-        eventClick: function(event, jsEvent, view){
+        eventClick: function(event){
+          if (event.url) {
+            window.location = event.url + "/edit";
+            return false;
+          }
           // would like a lightbox here.
         },
 	});
