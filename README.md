@@ -31,6 +31,7 @@
 ** ~~Pricing will automatically update based on day of the week and type of visit that coorosponds to the client's pricing table~~  
 ** ~~The price feild can be adjusted or changed by the user before or after it is saved~~  
 ** Add ability to mark visits as paid or unpaid  
+
 * Create the invoicing functionality  
 ** Take unpaid visits and add them to the invoice.  
 ** Add ability to mark invoice as paid/unpaid. When marked "paid" this will update all of the visits as well.  
