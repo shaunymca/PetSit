@@ -96,10 +96,10 @@ ActiveRecord::Schema.define(:version => 20130703164137) do
     t.boolean  "monday"
     t.boolean  "tuesday"
     t.boolean  "wednesday"
-    t.boolean  "thursday",
-    t.boolean  "friday",
-    t.boolean  "saturday",
-    t.boolean  "sunday",
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.integer  "client_id"
