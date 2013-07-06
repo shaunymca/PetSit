@@ -37,7 +37,7 @@
               </a>                  
               <ul class="dropdown-menu">
                 <li><%= link_to 'Visits <i class="icon-calendar"></i>'.html_safe, visits_path %></li>
-                <li><%= link_to 'Schedule Visits <i class="icon-plus"></i>'.html_safe, new_visit_block_path %></li>
+                <li><%= link_to 'Schedule Visits <i class="icon-plus"></i>'.html_safe, new_visit_block_path, 'data-no-turbolink' => true %></li>
               </ul>
             </li> 
             <% if current_user.has_role? :admin %>
