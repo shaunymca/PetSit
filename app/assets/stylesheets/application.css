@@ -7,5 +7,6 @@
  *= require fullcalendar
  *= require fullcalendar.print
  *= require jquery.ui.all
+ *= require select2
  *= require_tree .
 */

@@ -19,6 +19,7 @@
   
     <div class="form-actions">
       <%= f.button :submit %>
+      <%= link_to 'Destroy', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %>
 </div>

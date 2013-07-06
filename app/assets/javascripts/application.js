@@ -23,5 +23,6 @@
 //= require fullcalendar
 //= require calendar
 //= require gcal
+//= require select2
 //= require_directory .
 

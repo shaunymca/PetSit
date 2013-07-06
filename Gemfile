@@ -45,3 +45,4 @@ gem 'jquery-ui-rails'
 gem 'roo'
 gem 'bootstrap-datetimepicker-rails'
 gem 'chronic'
+gem "select2-rails"
