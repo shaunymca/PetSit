@@ -25,8 +25,14 @@ az_subtle.png: az_subtle-0e8930891acb218a5b23c9eedb8c485f.png
 az_subtle/index.png: az_subtle-0e8930891acb218a5b23c9eedb8c485f.png
 az_subtle_@2X.png: az_subtle_@2X-3afa2363c69fdbc18a7a412ac05a837e.png
 az_subtle_@2X/index.png: az_subtle_@2X-3afa2363c69fdbc18a7a412ac05a837e.png
+blu_stripes.png: blu_stripes-fa6bba80d89b9509d636bc98cfcefdc6.png
+blu_stripes/index.png: blu_stripes-fa6bba80d89b9509d636bc98cfcefdc6.png
+blu_stripes_@2X.png: blu_stripes_@2X-43819eb8714567b5126879a63b2406ea.png
+blu_stripes_@2X/index.png: blu_stripes_@2X-43819eb8714567b5126879a63b2406ea.png
 cream_dust.png: cream_dust-01cc6dd9b8bf3ba501ff1463a4564c5c.png
 cream_dust/index.png: cream_dust-01cc6dd9b8bf3ba501ff1463a4564c5c.png
+cross_scratches.png: cross_scratches-11243ae8e3446bf0e115427a1ae35525.png
+cross_scratches/index.png: cross_scratches-11243ae8e3446bf0e115427a1ae35525.png
 debut_light.png: debut_light-c4ce7b5ee36ccdbdcae03ced9532ba0d.png
 debut_light/index.png: debut_light-c4ce7b5ee36ccdbdcae03ced9532ba0d.png
 polaroid.png: polaroid-75aa648cbc5add67c18a172677d0e1ad.png
@@ -41,8 +47,8 @@ whitediamond.png: whitediamond-e5c2e910829c0c59ce1733201c51ffd1.png
 whitediamond/index.png: whitediamond-e5c2e910829c0c59ce1733201c51ffd1.png
 application.js: application-6756ca4bdbe55c8427c9e8ad0bf44cd9.js
 application/index.js: application-6756ca4bdbe55c8427c9e8ad0bf44cd9.js
-application.css: application-938d5f794840c5df2e9a2d4a03806610.css
-application/index.css: application-938d5f794840c5df2e9a2d4a03806610.css
+application.css: application-b4e5808b57f9d0b2a4846f4996e71b24.css
+application/index.css: application-b4e5808b57f9d0b2a4846f4996e71b24.css
 select2-spinner.gif: select2-spinner-efec87a6e4d665ab02c27f9049095490.gif
 select2-spinner/index.gif: select2-spinner-efec87a6e4d665ab02c27f9049095490.gif
 select2.png: select2-dd52d2a9fb1c9fa4a36a773d90c1a549.png
