@@ -28,7 +28,7 @@ $(document).ready(function() {
             url: '/visits',
             color: 'blue',
             textColor: 'black',
-            ignoreTimezone: false
+            ignoreTimezone: true
         }],
         
         timeFormat: 'h:mm t{ - h:mm t} ',

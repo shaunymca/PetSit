@@ -24,6 +24,10 @@ invoice_id:integer
 
 Invoices table:
 client_id:integer
+due_date :datetime
+paid : boolean
+user_id:integer
+
 
 
 

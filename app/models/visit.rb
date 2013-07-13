@@ -2,7 +2,8 @@ class Visit < ActiveRecord::Base
   attr_accessible :client_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time
   belongs_to :client_prices 
   belongs_to :visit_block
-  belongs_to :client  
+  belongs_to :client
+  belongs_to :invoice
   
   def start_time
     self.visit_date

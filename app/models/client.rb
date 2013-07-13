@@ -3,6 +3,7 @@ class Client < ActiveRecord::Base
   belongs_to :user
   has_many :client_prices, :dependent => :destroy
   has_many :visits
+  has_many :invoices
   geocoded_by :fulladdress, :if => :fulladdressed_changed?
   acts_as_gmappable :process_geocoding => false
   accepts_nested_attributes_for :client_prices, :allow_destroy => true

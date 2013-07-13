@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   before_destroy :cancel_subscription
   has_many :default_prices
   has_many :client_prices, :through => :clients
+  has_many :invoices
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
   
 
