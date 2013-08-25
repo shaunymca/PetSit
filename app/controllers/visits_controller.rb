@@ -1,6 +1,7 @@
 class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
+  
   def index
     @visits = Visit.scoped  
     @visits = @visits.after(params['start']) if (params['start'])

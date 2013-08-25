@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
@@ -25,5 +25,11 @@ class ApplicationController < ActionController::Base
     return nil if datetime.blank?
     datetime.strftime("%m/%d/%Y")
   end
+  
+  private
+  def set_timezone
+    Time.zone = cookies["time_zone"]
+  end
+
   
 end

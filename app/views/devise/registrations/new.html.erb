@@ -11,12 +11,13 @@
   <%= f.input :name, :autofocus => true %> 
   <%= f.input :email, :required => true %>
   <%= f.input :password, :required => true %>
-			<div id="one"></div>
-			<div id="two"></div>
-			<div id="three"></div>
+  <div id="one"></div>
+  <div id="two"></div>
+  <div id="three"></div>
 
-		<div style="clear:both"></div>
-		<p>
+  <div style="clear:both"></div>
+&nbsp;
+  <%= f.hidden_field :time_zone, as: :string %>
   <%= f.input :password_confirmation, :required => true %>
   <% if @user.stripe_token %>
     Credit card has been accepted.

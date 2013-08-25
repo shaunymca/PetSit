@@ -94,6 +94,8 @@ jQuery ->
   $("#start_date").datepicker(format: "mm/dd/yyyy").on "changeDate", (ev) ->
     $("#start_date").datepicker "hide"
     
+  $("#time_zone").set_timezone format: "city"
+    
   $("#end_date").datepicker(format: "mm/dd/yyyy").on "changeDate", (ev) ->
     $("#end_date").datepicker "hide"
     

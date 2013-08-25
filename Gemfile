@@ -13,6 +13,7 @@ end
 group :development do
   gem 'meta_request'
 end
+
 gem 'fullcalendar-rails'
 gem 'event-calendar', :require => 'event_calendar'
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
@@ -46,3 +47,4 @@ gem 'roo'
 gem 'bootstrap-datetimepicker-rails'
 gem 'chronic'
 gem "select2-rails"
+gem 'detect_timezone_rails'

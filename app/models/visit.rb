@@ -1,5 +1,6 @@
 class Visit < ActiveRecord::Base
-  attr_accessible :client_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time
+  attr_accessible :client_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time, :american_start_date, :time_text, :end_time_text
+  attr_accessor :american_start_date, :time_text, :end_time_text
   belongs_to :client_prices 
   belongs_to :visit_block
   belongs_to :client
@@ -18,7 +19,8 @@ class Visit < ActiveRecord::Base
   def client_name
     self.client.first_name
   end
- def time_text
+  
+  def time_text
     @time_text || visit_date.try(:strftime, "%I:%M %P")
   end
   
