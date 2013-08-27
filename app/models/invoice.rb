@@ -4,6 +4,8 @@ class Invoice < ActiveRecord::Base
   belongs_to :user
   belongs_to :client
   
+  after_create :update_visits
+  
   def start_date
   end
   
@@ -11,5 +13,11 @@ class Invoice < ActiveRecord::Base
   end
   
   
-  
+  def update_visits
+    clients.visits.each do |v|
+      if self.start_time >= invoice.start_date && self.start_date < invoice.end_date
+        v.invoice_id = self.id
+      end
+    end
+  end
 end

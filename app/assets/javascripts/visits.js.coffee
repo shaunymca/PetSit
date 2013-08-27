@@ -10,3 +10,4 @@ jQuery ->
   $("#visit_end_time_text").timepicker()
   
   $("#visit_client_id").select2()
+  
