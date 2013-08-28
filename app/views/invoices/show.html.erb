@@ -25,7 +25,7 @@
             <% @visits.each do |visit| %>
               <tr>
                 <td><%= visit.vtype %></td>
-                <td>$<%= visit.vprice.floor %></td>
+                <td>$<%= visit.vprice.to_i.floor %></td>
                 <td><%= visit.count %></td>
                 <td>$<%= visit.total %></td>
               </tr>
