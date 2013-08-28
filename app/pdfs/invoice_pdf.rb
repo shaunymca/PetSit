@@ -35,7 +35,7 @@ class InvoicePdf < Prawn::Document
   end
   
   def invoice_header
-    text "#{@invoce.company_name}", size: 40, style: :bold
+    text "#{@invoice.company_name}", size: 40, style: :bold
     text "#{@invoice.client.full_name} \nInvoice \##{@invoice.id}", size: 30, style: :bold
   end
 end
