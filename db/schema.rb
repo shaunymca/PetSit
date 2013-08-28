@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827213142) do
+ActiveRecord::Schema.define(:version => 20130828184027) do
 
   create_table "client_prices", :force => true do |t|
     t.decimal  "price"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20130827213142) do
     t.string   "customer_id"
     t.string   "last_4_digits"
     t.string   "time_zone"
+    t.string   "company_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

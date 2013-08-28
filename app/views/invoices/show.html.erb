@@ -6,11 +6,12 @@
       <%= f.button :submit %>
     <% end %>
   <% else %>
-  <H1>PAID</H1>
+  <H2>PAID</H2>
+  <H1><%= @invoice.company_name %><H1>
   <% end %>
   
   <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
-  <p><%= link_to "Printable Invoice (PDF)", invoice_path(@invoice, format: "pdf") %></p>
+  <p><%= link_to "Printable Invoice (PDF)", invoice_path(@invoice, format: "pdf"), :target => "_blank" %></p>
   
   <div class="span6">
     <div class="row">

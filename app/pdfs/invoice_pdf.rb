@@ -28,13 +28,14 @@ class InvoicePdf < Prawn::Document
   def total_amount
     move_down 20
     if @invoice.paid == false
-      text "Total Due: $#{@invoice.total_price}"
+      text "Total Due: $#{@invoice.total_price}", size: 16, style: :bold
     else @invoce
-      text "Total Paid: $#{@invoice.total_price}"
+      text "Total Paid: $#{@invoice.total_price}", size: 16, style: :bold
     end
   end
   
   def invoice_header
+    text "#{@invoce.company_name}", size: 40, style: :bold
     text "#{@invoice.client.full_name} \nInvoice \##{@invoice.id}", size: 30, style: :bold
   end
 end

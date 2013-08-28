@@ -9,6 +9,7 @@
   <%= hidden_field_tag 'plan', params[:plan] %>
   <%= f.error_notification %>
   <%= f.input :name, :autofocus => true %> 
+  <%= f.input :company_name, :required => true %>
   <%= f.input :email, :required => true %>
   <%= f.input :password, :required => true %>
   <div id="one"></div>
@@ -17,7 +18,6 @@
 
   <div style="clear:both"></div>
 &nbsp;
-  <%= f.hidden_field :time_zone, as: :string %>
   <%= f.input :password_confirmation, :required => true %>
   <% if @user.stripe_token %>
     Credit card has been accepted.

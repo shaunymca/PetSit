@@ -1,29 +1,42 @@
-<h1>Listing invoices</h1>
+<div class='well'>
 
-<table>
-  <tr>
-    <th>Client</th>
-    <th>Due date</th>
-    <th>Paid</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @invoices.each do |invoice| %>
-  <tr>
-    <td><%= invoice.client_id %></td>
-    <td><%= invoice.due_date %></td>
-    <td><%= invoice.paid %></td>
-    <td><%= invoice.user_id %></td>
-    <td><%= link_to 'Show', invoice %></td>
-    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-    <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Invoice', new_invoice_path %>
+  <h1>Invoices</h1>
+  
+  <div class="row">
+    <div class="span10">
+      <table class="table table-hover">
+        <thead>
+          <th>Invoice #</th>
+          <th>Client</th>
+          <th>Invoice Amount</th>
+          <th>Paid</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @invoices.each do |invoice| %>
+            <% if invoice.paid == true %>
+              <tr class="success">
+            <% else %>
+              <tr class="warning">
+            <%end%>
+                <td>
+                  <div class="text-center"><%= invoice.id %></div></td>
+                <td><%= invoice.client.full_name %></td>
+                <td><div class="text-center">$<%= invoice.total_price %></div></td>
+                <td><%= invoice.paid_text %></td>
+                <td><%= link_to 'Show', invoice %></td>
+                <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+                <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <br />
+  
+  <%= link_to 'New Invoice', new_invoice_path %>
+</div>

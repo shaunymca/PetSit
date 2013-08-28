@@ -51,4 +51,18 @@ class Invoice < ActiveRecord::Base
     # convert to array so it doesn't try to do sum on database directly
     visits.to_a.sum(&:visit_price)
   end
+  
+  def paid_text
+    if self.paid == true
+      "Paid"
+    else
+      "Unpaid"
+    end
+  end
+  
+  def company_name
+    user.company_name
+  end
+  
+  
 end
