@@ -19,9 +19,11 @@ class InvoicesController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @invoice }
       format.pdf do
-        pdf = Prawn::Document.new
+        pdf = InvoicePdf.new(@invoice, @visits)
         pdf.text "Hello World"
-        send_data pdf.render
+        send_data pdf.render, filename: "invoice_#{@invoice.id}",
+                              type: "application/pdf",
+                              disposition: "inline"
       end
     end
   end

@@ -10,6 +10,7 @@
   <% end %>
   
   <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
+  <p><%= link_to "Printable Invoice (PDF)", invoice_path(@invoice, format: "pdf") %></p>
   
   <div class="span6">
     <div class="row">
