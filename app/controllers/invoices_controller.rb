@@ -14,7 +14,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/1.json
   def show
     @invoice = Invoice.find(params[:id])
-    @visits = @invoice.visits.select('*, COUNT(*) AS count, SUM(visit_price) AS total').group('visit_type')
+    @visits = @invoice.visits.select('distinct visit_type AS vtype, AVG(visit_price) AS vprice, COUNT(*) AS count, SUM(visit_price) AS total').group('visit_type')
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @invoice }

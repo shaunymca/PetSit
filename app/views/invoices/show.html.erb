@@ -17,15 +17,15 @@
           <table class="table table-hover">
             <thead>
               <th>Visit Type</th>
-              <th>Price</th>
+              <th>Price per Visit</th>
               <th>Number of Visits</th>
               <th>Total</th>
             </thead>
             <tbody>
             <% @visits.each do |visit| %>
               <tr>
-                <td><%= visit.visit_type %></td>
-                <td><%= visit.visit_price %></td>
+                <td><%= visit.vtype %></td>
+                <td><%= visit.vprice %></td>
                 <td><%= visit.count %></td>
                 <td><%= visit.total %></td>
               </tr>
