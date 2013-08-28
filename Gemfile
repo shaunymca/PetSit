@@ -48,3 +48,4 @@ gem 'bootstrap-datetimepicker-rails'
 gem 'chronic'
 gem "select2-rails"
 gem 'detect_timezone_rails'
+gem 'prawn'
