@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :client_prices, :through => :clients
   has_many :invoices
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
-  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
+  
   
 
   def update_plan(role)
