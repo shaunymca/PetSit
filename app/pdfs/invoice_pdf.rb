@@ -4,22 +4,22 @@ class InvoicePdf < Prawn::Document
     @invoice = invoice
     @visits = visits
     invoice_header
-    line_items
+    visit_items
   end
   
-  def line_items
+  def visit_items
     move_down 20
-    table line_item_rows
+    table visit_item_rows
   end
   
-  def line_item_rows
+  def visit_item_rows
     [["Visit Type", "Price per Visit", "Number of Visits", "Total"]] +
-    @visits.map do |item|
-      [visit.vtype, "$" + visit.vprice.to_i.floor, visit.count, "$" + visit.total]
+    @visits.map do |visit|
+      [visit.vtype, "$" + visit.vprice.to_i.floor.to_s, visit.count, "$" + visit.total.to_s]
     end
   end
   
   def invoice_header
-    text "#{order.full_name} | Invoice \##{@order.order_number}", size: 30, style: :bold
+    text "#{@invoice.client.full_name} | Invoice \##{@invoice.id}", size: 30, style: :bold
   end
 end
