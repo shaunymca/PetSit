@@ -10,7 +10,7 @@ class InvoicePdf < Prawn::Document
   
   def visit_items
     move_down 20
-    table line_item_rows do
+    table visit_item_rows do
       row(0).font_style = :bold
       columns(1..3).align = :right
       self.row_colors = ["DDDDDD", "FFFFFF"]
