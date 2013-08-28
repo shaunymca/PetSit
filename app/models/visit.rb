@@ -47,7 +47,7 @@ class Visit < ActiveRecord::Base
   def as_json(options = {})
     {
       :id => self.id,
-      :title => self.client.first_name + self.visit_type,
+      :title => self.client.full_name + " -\n" + self.visit_type,
       :description => self.visit_type || "",
       :start => self.visit_date,
       :end => self.end_time,

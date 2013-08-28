@@ -1,14 +1,14 @@
 <div class="well">
   <%= simple_form_for(@invoice) do |f| %>
     <%= f.error_notification %>
-  
+
     <div class="form-inputs">
       <%= f.association :client, label_method: :full_name %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.input :due_date %>
+      <%= f.input :american_start_date, input_html: { id: 'start_date' } %>
+      <%= f.input :american_end_date, input_html: { id: 'end_date' } %>
+      <%= f.input :american_due_date, input_html: { id: 'due_date' } %>
       <%= f.input :paid %>
-      <%= f.input :user_id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
     </div>
   
     <div class="form-actions">
