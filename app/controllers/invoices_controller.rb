@@ -20,7 +20,6 @@ class InvoicesController < ApplicationController
       format.json { render json: @invoice }
       format.pdf do
         pdf = InvoicePdf.new(@invoice, @visits)
-        pdf.text "Hello World"
         send_data pdf.render, filename: "invoice_#{@invoice.id}",
                               type: "application/pdf",
                               disposition: "inline"
