@@ -1,8 +1,8 @@
 <div class='well'>
-  <h1>Listing visits</h1>
-  <%= link_to 'New Visit', new_visit_block_path, 'data-no-turbolink' => true %>
-  
+  <h1>Visit Calendar</h1>
+  <%= link_to 'New Visit <i class="icon-plus"></i>'.html_safe, new_visit_block_path, class: "btn", 'data-no-turbolink' => true %>
+   <br><br />
   <div id='calendar'></div>
-  
-  <%= link_to 'New Visit', new_visit_block_path, 'data-no-turbolink' => true %>
+  <br><br />
+  <%= link_to 'New Visit <i class="icon-plus"></i>'.html_safe, new_visit_block_path, class: "btn", 'data-no-turbolink' => true %>
 </div>

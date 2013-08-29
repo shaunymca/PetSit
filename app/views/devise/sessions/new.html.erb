@@ -1,18 +1,20 @@
-<header>
-  <%= javascript_include_tag "password/rgb_password" %>
-</header>
-<h2>Sign in</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.input :email, :autofocus => true %>
- 	 <%= f.input :password %>
-			<div id="one"></div>
-			<div id="two"></div>
-			<div id="three"></div>
-
-		<div style="clear:both"></div>
-		<p>
-
-  <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  <%= f.button :submit, "Sign in", :class => 'btn-primary' %>
-<% end %>
-<%= render "devise/shared/links" %>
+<div class='well'>
+  <header>
+    <%= javascript_include_tag "password/rgb_password" %>
+  </header>
+  <h2>Sign in</h2>
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+    <%= f.input :email, :autofocus => true %>
+     <%= f.input :password %>
+        <div id="one"></div>
+        <div id="two"></div>
+        <div id="three"></div>
+  
+      <div style="clear:both"></div>
+      <p>
+  
+    <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.button :submit, "Sign in", :class => 'btn-primary' %>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>

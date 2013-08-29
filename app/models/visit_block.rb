@@ -48,7 +48,7 @@ class VisitBlock < ActiveRecord::Base
     def new_visit  
       day = 0
       date_range = (visit_date_start.to_date..visit_date_end.to_date)
-      dates = date_range.count
+      dates = date_range.count - 1
       while day <= dates
         date = visit_date_start + day.day
         date_end = date + 30.minutes

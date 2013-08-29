@@ -9,8 +9,12 @@
         </div>
         <%= f.label :client_prices_id, 'Service Type', class: 'inline' %>
         <%= f.grouped_collection_select :client_prices_id, current_user.clients.order(:last_name), :client_prices, :last_name, :id, :visit_type,  include_blank: true %>
-        <%= f.label :visit_price, 'Price', class: 'inline' %>
-        <%= f.text_field :visit_price %>
+
+          <%= f.label :visit_price, 'Price', class: 'inline' %>
+        <div class="input-prepend">
+          <span class="add-on">$</span>
+          <%= f.text_field :visit_price %>
+        </div>
         <%= f.hidden_field :visit_type %>
         <%= f.hidden_field :client_id %>
         

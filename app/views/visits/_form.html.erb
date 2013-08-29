@@ -4,23 +4,33 @@
   
     <div class="form-inputs">
       <%= f.association :client, label_method: :full_name %>
-      <%= f.input :american_start_date, input_html: { id: 'visit_date' } %>
+      <%= f.input :american_start_date,label: 'Visit Date', input_html: { id: 'visit_date' } %>
+      
       <div class="input-append bootstrap-timepicker">
+        <%= f.label :time_text, label: 'Start time' %>
         <%= f.text_field :time_text %>
         <span class="add-on"><i class="icon-time"></i></span>
       </div>
       <div class="input-append bootstrap-timepicker">
-        <%= f.text_field :end_time_text %>
+        <%= f.label :end_time_text, label: 'End time' %>
+        <%= f.text_field :end_time_text, label: 'End Time' %>
         <span class="add-on"><i class="icon-time"></i></span>
       </div>
-      <%= f.input :visit_price, as: :string %>
-      <%= f.input :invoice_id, disabled: true %>
+      <%= f.label :visit_price, lable: 'Visit Price' %>
+      <div class="input-prepend">
+          <span class="add-on">$</span>
+          <%= f.text_field :visit_price, as: :string %>
+      </div>
+      <% if @visit.invoice_id %>
+        <%= f.input :invoice_id, as: :string, label: 'Invoice #', disabled: true %>
+      <% else %>
+      <% end %>
       
     </div>
   
     <div class="form-actions">
       <%= f.button :submit %>
-      <%= link_to 'Destroy', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Delete', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %>
 </div>

@@ -30,7 +30,7 @@
         </div>
         <% end %>
       </div>
-        
+
       <div class="tab-pane" id="pricing">
         <h3>Default Client Pricing</h3>
         <%= simple_nested_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
@@ -38,7 +38,9 @@
         <%= f.simple_fields_for :default_prices %>   
         </div>
         <%= f.link_to_add "Add a default price", :default_prices, :class => 'btn btn-success' %>
+        <br><br/>
         <div class="controls">
+          
           <%= f.button :submit, :class => 'btn btn-primary' %>
         </div>
       <% end %>
@@ -47,6 +49,7 @@
   
       
       <div class="tab-pane" id="subscription">
+        
         <h3>Subscription Plan</h3>
         <p>
           <%= @user.roles.first.name.titleize %>
@@ -64,25 +67,23 @@
         <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini' %></p>
         
         <div id="plan-options" class="modal" style="display: none;">
-          <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:method => :put, :class => 'form-horizontal' } do |f| %>
+          <%= simple_form_for resource, :as => resource_name, :url => update_plan_path, :html => {:method => :put, :class => 'form-horizontal' } do |f| %>
             <div class="modal-header">
               <a class="close" data-dismiss="modal">&#215;</a>
               <h3>Change Plan</h3>
             </div>
             <div class="modal-body">
               <%= f.input :role_ids, :collection => Role.all.delete_if {|i| i.name == 'admin'}, :as => :radio_buttons, :label_method => lambda {|t| t.name.titleize}, :label => false, :item_wrapper_class => 'inline' %>
-              <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password %></div>
             </div>
             <div class="modal-footer">
-              <%= f.submit "Change Plan", :class => "btn.btn-success" %>
+              <%= f.submit "Change Plan", :class => "btn btn-primary" %>
               <a class="btn" data-dismiss="modal" href="#">Close</a>
             </div>
           <% end %>
         </div>
         
         <div id="card-data" class="modal" style="display: none;">
-          <%= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name) , :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
+          <%= simple_form_for resource, :as => resource_name, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
             <div class="modal-header">
               <a class="close" data-dismiss="modal">&#215;</a>
               <h3>Change Credit Card</h3>
@@ -101,14 +102,12 @@
                 <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
                 <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
               </div>
-              <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password %></div>
               <%= f.hidden_field :name %>
               <%= f.hidden_field :email %>
               <%= f.hidden_field :stripe_token %>
             </div>
             <div class="modal-footer">
-              <%= f.submit "Change Credit Card", :class => "btn.btn-success" %>
+              <%= f.submit "Change Credit Card", :class => "btn btn-primary" %>
               <a class="btn" data-dismiss="modal" href="#">Close</a>
             </div>
           <% end %>

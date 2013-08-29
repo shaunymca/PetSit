@@ -3,14 +3,13 @@
   <h1>Invoices</h1>
   
   <div class="row">
-    <div class="span10">
+    <div class="span8">
       <table class="table table-hover">
         <thead>
           <th>Invoice #</th>
           <th>Client</th>
           <th>Invoice Amount</th>
           <th>Paid</th>
-          <th></th>
           <th></th>
           <th></th>
         </thead>
@@ -21,14 +20,12 @@
             <% else %>
               <tr class="warning">
             <%end%>
-                <td>
-                  <div class="text-center"><%= invoice.id %></div></td>
+                <td><div class="text-center"><%= invoice.id %></div></td>
                 <td><%= invoice.client.full_name %></td>
                 <td><div class="text-center">$<%= invoice.total_price %></div></td>
                 <td><%= invoice.paid_text %></td>
-                <td><%= link_to 'Show', invoice %></td>
-                <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-                <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'View Invoice <i class="icon-file"></i>'.html_safe, invoice, class: "btn" %></td>
+                <td><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(invoice, format: "pdf"), :target => "_blank", class: "btn" %></td>
             </tr>
           <% end %>
         </tbody>
