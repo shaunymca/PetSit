@@ -47,7 +47,6 @@ class User < ActiveRecord::Base
           :card => stripe_token,
           :plan => roles.first.name
         )
-      end
     else
       customer = Stripe::Customer.retrieve(customer_id)
       if stripe_token.present?
