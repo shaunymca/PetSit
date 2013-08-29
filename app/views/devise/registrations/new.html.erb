@@ -1,4 +1,7 @@
 <div class="well">
+  <header>
+    <%= javascript_include_tag "password/rgb_password" %>
+  </header>
   <% content_for :head do %>
     <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
   <% end %>
