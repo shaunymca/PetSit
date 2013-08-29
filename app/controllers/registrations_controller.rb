@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :authenticate_user!
   
   def new
     @plan = params[:plan]

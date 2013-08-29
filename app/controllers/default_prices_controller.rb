@@ -1,4 +1,5 @@
 class DefaultPricesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /default_prices
   # GET /default_prices.json
   def index

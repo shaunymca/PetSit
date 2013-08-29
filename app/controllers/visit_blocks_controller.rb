@@ -1,4 +1,5 @@
 class VisitBlocksController < ApplicationController
+  before_filter :authenticate_user!
   # GET /visit_blocks
   # GET /visit_blocks.json
   def index
