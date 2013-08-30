@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       when 'admin'
         users_path
       else
-        clients_path
+        root_path
     end
   end
   
