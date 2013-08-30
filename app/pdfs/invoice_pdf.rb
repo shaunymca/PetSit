@@ -4,6 +4,7 @@ class InvoicePdf < Prawn::Document
     @invoice = invoice
     @visits = visits
     invoice_header
+    date_range
     visit_items
     total_amount
   end
