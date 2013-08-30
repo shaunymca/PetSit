@@ -1,14 +1,4 @@
 <div class='well span11'>
-
- <% if @invoice.paid == false %>
-    <%= simple_form_for(@invoice) do |f| %>
-      <%= f.input :paid %>
-      <%= f.button :submit %>
-    <% end %>
-  <% else %>
-  <H2>PAID</H2>
-  <H1><%= @invoice.company_name %><H1>
-  <% end %>
   
   <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
   <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
@@ -38,6 +28,15 @@
     </div>
   </div>
   <div class='span3'>
+    <% if @invoice.paid == false %>
+      <%= simple_form_for(@invoice) do |f| %>
+        <%= f.input :paid %>
+        <%= f.button :submit %>
+      <% end %>
+    <% else %>
+      <H2>PAID</H2>
+      <H1><%= @invoice.company_name %><H1>
+    <% end %>
     <% if @invoice.paid != true %>
       <H3>Total Amount Due: $<%= @invoice.total_price %></H3>
     <% else %>
