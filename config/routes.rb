@@ -12,7 +12,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
   authenticated :user do
     root :to => 'clients#index'
   end
-
+  match "/help" => "help#index"
   match "index.html" => "home#index"
   match "cgi-sys/defaultwebpage.cgi" => "home#index"
   devise_scope :user do

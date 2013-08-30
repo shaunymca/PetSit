@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag "application", :media => "all" %>
   	<%= javascript_include_tag "application" %>
+    <script language='javascript' async='true' type='text/javascript' src='//whatfix.com/embed/embed.nocache.js'></script>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render 'layouts/navigation' %>
-    
     <div id="main" role="main">
       <div class="container">
         <div class="content">
