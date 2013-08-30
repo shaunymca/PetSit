@@ -1,11 +1,10 @@
 <div class='well span11'>
-  
-  <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
-  <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
-  <p>For services rendered
-    <%= @invoice.american_start_date + " through " + @invoice.american_end_date %>
-  </p>
   <div class="span6">
+    <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
+    <p>For services rendered
+      <%= @invoice.american_start_date + " through " + @invoice.american_end_date %>
+    </p>
+  
     <div class="row">
         <div class="span5">
           <table class="table table-hover">
@@ -30,6 +29,8 @@
     </div>
   </div>
   <div class='span3'>
+    <br>
+    <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
     <% if @invoice.paid == false %>
       <%= simple_form_for(@invoice) do |f| %>
         <%= f.input :paid %>
