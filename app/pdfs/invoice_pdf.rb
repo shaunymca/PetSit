@@ -34,6 +34,11 @@ class InvoicePdf < Prawn::Document
     end
   end
   
+  def date_range
+    move_down 10
+    "For services rendered #{@invoice.american_start_date} through #{@invoice.american_end_date}.", size: 16
+  end
+  
   def invoice_header
     text "#{@invoice.company_name}", size: 40, style: :bold
     text "#{@invoice.client.full_name} \nInvoice \##{@invoice.id}", size: 30, style: :bold

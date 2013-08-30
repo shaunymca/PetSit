@@ -40,7 +40,7 @@ class Invoice < ActiveRecord::Base
   #Searches for invoices between the start and end range. Gives the visits the invoice_id.
   def update_visits
     client.visits.each do |v|
-      if self.start_date <= v.visit_date && self.end_date > v.visit_date
+      if self.start_date <= v.visit_date && self.end_date >= v.visit_date
         v.invoice_id = self.id
         v.save
       end

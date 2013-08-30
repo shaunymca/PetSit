@@ -2,7 +2,9 @@
   
   <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
   <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
-  
+  <p>For services rendered
+    <%= @invoice.american_start_date + " through " + @invoice.american_end_date %>
+  </p>
   <div class="span6">
     <div class="row">
         <div class="span5">
@@ -35,7 +37,6 @@
       <% end %>
     <% else %>
       <H2>PAID</H2>
-      <H1><%= @invoice.company_name %><H1>
     <% end %>
     <% if @invoice.paid != true %>
       <H3>Total Amount Due: $<%= @invoice.total_price %></H3>
