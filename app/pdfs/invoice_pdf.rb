@@ -36,7 +36,7 @@ class InvoicePdf < Prawn::Document
   
   def date_range
     move_down 10
-    "For services rendered #{@invoice.american_start_date} through #{@invoice.american_end_date}.", size: 16
+    text "For services rendered #{@invoice.american_start_date} through #{@invoice.american_end_date}.", size: 16
   end
   
   def invoice_header
