@@ -1,10 +1,10 @@
-<div class='well span5 offset3'>
+<div class='well span3 offset4'>
   <header>
     <%= javascript_include_tag "password/rgb_password" %>
   </header>
-  <div class='offset1'>
+  <div class=''>
   <h2>Sign in</h2>
-  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+  <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical span3', }) do |f| %>
     <%= f.input :email, :autofocus => true %>
      <%= f.input :password %>
         <div id="one"></div>
