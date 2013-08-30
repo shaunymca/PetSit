@@ -9,9 +9,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
   	collection { post :import }
 	end
   resources :client_prices
-  authenticated :user do
-    root :to => 'clients#index'
-  end
+
   match "/help" => "help#index"
   match "index.html" => "home#index"
   match "cgi-sys/defaultwebpage.cgi" => "home#index"
