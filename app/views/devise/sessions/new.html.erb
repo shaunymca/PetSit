@@ -1,8 +1,8 @@
-<div class='well span4 offset4'>
+<div class='well span5 offset3'>
   <header>
     <%= javascript_include_tag "password/rgb_password" %>
   </header>
-  <div class='span2 offset1'>
+  <div class='offset1'>
   <h2>Sign in</h2>
   <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
     <%= f.input :email, :autofocus => true %>
