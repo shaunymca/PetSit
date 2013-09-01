@@ -1,4 +1,4 @@
-<div class="well span12">
+<div class="well span11">
   <header>
     <%= javascript_include_tag "password/rgb_password" %>
   </header>
@@ -51,8 +51,9 @@
     </div>
     
     <div class="span5">
-    <%= f.hidden_field :stripe_token %>
-    <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+      <%= f.hidden_field :stripe_token %>
+      <BR>&nbsp;<BR>
+      <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
     </div>
   <% end %>
 </div>
