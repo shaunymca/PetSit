@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :default_prices
   has_many :client_prices, :through => :clients
   has_many :invoices
+  has_many :visits, :through => :clients
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
   
   

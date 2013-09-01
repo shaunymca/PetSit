@@ -4,7 +4,7 @@ class VisitsController < ApplicationController
   # GET /visits.json
   
   def index
-    @visits = Visit.scoped  
+    @visits = current_user.visits.scoped
     @visits = @visits.after(params['start']) if (params['start'])
     @visits = @visits.before(params['end']) if (params['end'])
     
@@ -71,7 +71,7 @@ class VisitsController < ApplicationController
     
     respond_to do |format|
       if @visit.update_attributes(params[:visit])
-        format.html { redirect_to(@visit, :notice => 'Visit was successfully updated.') }
+        format.html { redirect_to visits_path, :notice => 'Visit was successfully updated.' }
         format.xml  { head :ok }
         format.js { head :ok}
       else

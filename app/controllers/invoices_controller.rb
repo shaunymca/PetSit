@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all
+    @invoices = current_user.invoices
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,6 +32,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new.json
   def new
     @invoice = Invoice.new
+    @user = current_user
 
     respond_to do |format|
       format.html # new.html.erb

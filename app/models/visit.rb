@@ -5,6 +5,7 @@ class Visit < ActiveRecord::Base
   belongs_to :visit_block
   belongs_to :client
   belongs_to :invoice
+  belongs_to :user
   
   def start_time
     self.visit_date

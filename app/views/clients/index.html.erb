@@ -51,7 +51,7 @@
   <%= file_field_tag :file %>
   <%= hidden_field_tag(:user_id, @user.id) %>
   <div></div>
-  <%= button_tag(:type => 'submit', :class => 'btn btn-info') do %>
+  <%= button_tag(:type => 'submit', :class => 'btn btn-info', :id => 'uploadclients') do %>
     Upload <i class="icon-upload-alt"></i>
   <% end %>
 <% end %>
