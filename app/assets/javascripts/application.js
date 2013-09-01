@@ -26,4 +26,5 @@
 //= require select2
 //= require detect_timezone
 //= require jquery.detect_timezone
+//= require skeuocard
 //= require_directory .

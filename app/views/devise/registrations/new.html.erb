@@ -8,8 +8,8 @@
   <h2>Sign up</h2>
   <div id="stripe_error" class="alert alert-error" style="display:none" >
   </div>
-  <div class='span5'
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical' }) do |f| %>
+  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical' }) do |f| %>
+    <div class="span4">  
       <h3><%= params[:plan].titleize if params[:plan] %> Subscription Plan</h3>
       <%= hidden_field_tag 'plan', params[:plan] %>
       <%= f.error_notification %>
@@ -26,26 +26,33 @@
       &nbsp;
       <%= f.input :password_confirmation, :required => true %>
     </div>
-    <div class='span5'>
+    <div class='credit-card-input no-js span6' id="skeuocard">
     <% if @user.stripe_token %>
       <p>Credit card acceptance is pending.</p>
     <% else %>
-      <div class="field">
-        <%= label_tag :card_number, "Credit Card Number" %>
-        <%= text_field_tag :card_number, nil, name: nil %>
-      </div>
-      <div class="field">
-        <%= label_tag :card_code, "Card Security Code (CVV)" %>
-        <%= text_field_tag :card_code, nil, name: nil %>
-      </div>
-      <div class="field">
-        <%= label_tag :card_month, "Card Expiration" %>
-        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
-      </div>
+      <label for="cc_type">Card Type</label>
+      <select name="cc_type">
+        <option value="">...</option>
+        <option value="visa">Visa</option>
+        <option value="discover">Discover</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="amex">American Express</option>
+        <option value="dinersclubintl">Diners Club</option>
+      </select>
+        <%= label_tag :cc_number, "Card Number", label_html: { for: 'cc_type' } %>
+        <%= text_field_tag :card_number, nil, name: "cc_number" %>
+        <%= label_tag :cc_exp, "Expiration Date (mm/yy)" %>
+        <%= text_field_tag :cc_exp, nil, name: 'cc_exp' %>
+        <%= label_tag :cc_name, "Card Name" %>
+        <%= text_field_tag :cc_name, nil, name: "cc_name" %>
+        <%= label_tag :cc_cvc, "Card Validation Code" %>
+        <%= text_field_tag :card_code, nil, name: "cc_cvc" %>
     <% end %>
+    </div>
+    
+    <div class="span5">
     <%= f.hidden_field :stripe_token %>
     <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
+    </div>
   <% end %>
-  </div>
 </div>

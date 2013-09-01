@@ -209,6 +209,8 @@ GEM
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
+    skeuocard-rails (0.1.0)
+      railties (>= 3.1.0)
     spreadsheet (0.8.5)
       ruby-ole (>= 1.0)
     sprockets (2.2.2)
@@ -295,6 +297,7 @@ DEPENDENCIES
   sass-rails
   select2-rails
   simple_form (>= 2.0.4)
+  skeuocard-rails
   sqlite3
   stripe (>= 1.7.4)
   stripe_event (>= 0.4.0)

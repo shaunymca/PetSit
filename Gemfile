@@ -51,3 +51,4 @@ gem 'detect_timezone_rails'
 gem 'prawn'
 gem "figaro"
 gem "better_errors", ">= 0.7.2", :group => :development
+gem 'skeuocard-rails'

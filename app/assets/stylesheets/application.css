@@ -8,5 +8,7 @@
  *= require fullcalendar.print
  *= require jquery.ui.all
  *= require select2
+ *= require src/skeuocard.reset
+ *= require src/skeuocard
  *= require_tree .
 */
