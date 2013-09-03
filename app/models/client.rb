@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :user_id, :zip, :client_prices_attributes
+  attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :user_id, :phone_number, :cell_phone, :emergency_phone, :security_code, :additional_notes, :zip, :client_prices_attributes
   belongs_to :user
   has_many :client_prices, :dependent => :destroy
   has_many :visits

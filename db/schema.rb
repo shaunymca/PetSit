@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828184027) do
+ActiveRecord::Schema.define(:version => 20130903011847) do
 
   create_table "client_prices", :force => true do |t|
     t.decimal  "price"
@@ -32,13 +32,18 @@ ActiveRecord::Schema.define(:version => 20130828184027) do
     t.string   "zip"
     t.integer  "user_id"
     t.boolean  "active"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.string   "phone_number"
+    t.string   "cell_phone"
+    t.string   "emergency_phone"
+    t.string   "security_code"
+    t.text     "additional_notes"
   end
 
   create_table "default_prices", :force => true do |t|
