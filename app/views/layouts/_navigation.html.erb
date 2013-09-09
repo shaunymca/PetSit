@@ -34,7 +34,7 @@
               </a>                  
               <ul class="dropdown-menu">
                 <li><%= link_to 'Invoices <i class="icon-file"></i>'.html_safe, invoices_path %></li>
-                <li><%= link_to 'New Invoice <i class="icon-plus"></i>'.html_safe, new_invoice_path %></li>
+                <li><%= link_to 'New Invoice <i class="icon-plus"></i>'.html_safe, new_invoice_path, 'data-no-turbolink' => true  %></li>
               </ul>
             </li> 
             <% if current_user.has_role? :admin %>
