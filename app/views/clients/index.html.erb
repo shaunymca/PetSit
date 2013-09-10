@@ -46,7 +46,7 @@
     <%= will_paginate @clients, :renderer => BootstrapPagination::Rails %>
   </div>
 <h2>Import Clients</h2>
-  <%= link_to "Excel Template" , '/public/assets/client_upload_template.xlsx' %>
+  <%= link_to "Excel Template" , '/assets/client_upload_template.xlsx' %>
 <%= form_tag import_clients_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= hidden_field_tag(:user_id, @user.id) %>
