@@ -7,6 +7,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
   resources :default_prices
   resources :clients do
   	collection { post :import }
+    get :download, :on => :collection
 	end
   resources :client_prices
   authenticated :user do

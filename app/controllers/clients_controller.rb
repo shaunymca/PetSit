@@ -90,6 +90,10 @@ class ClientsController < ApplicationController
     redirect_to clients_path, notice: "Client imported."
 	end
   
+  #def download
+  #  send_file "#{RAILS_ROOT}/public/data/#{params[:file_name]}"
+  #end
+
     private
   
   def sort_column
@@ -100,4 +104,5 @@ class ClientsController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
   
+
 end

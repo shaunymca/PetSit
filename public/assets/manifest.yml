@@ -27,6 +27,8 @@ cross_scratches.png: cross_scratches-11243ae8e3446bf0e115427a1ae35525.png
 cross_scratches/index.png: cross_scratches-11243ae8e3446bf0e115427a1ae35525.png
 application.js: application-d68fb4f865d19eef05b06d9173639829.js
 application/index.js: application-d68fb4f865d19eef05b06d9173639829.js
+client_upload_template.xlsx: client_upload_template-897b93213204d661b161bf4ef3051cf2.xlsx
+client_upload_template/index.xlsx: client_upload_template-897b93213204d661b161bf4ef3051cf2.xlsx
 application.css: application-0e7109db15de9e42bf8349adfe6948c8.css
 application/index.css: application-0e7109db15de9e42bf8349adfe6948c8.css
 ocra-webfont.eot: ocra-webfont-c985ad3aaf0dfce2849f911975967781.eot
