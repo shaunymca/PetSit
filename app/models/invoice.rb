@@ -4,6 +4,7 @@ class Invoice < ActiveRecord::Base
   belongs_to :user
   belongs_to :client
   accepts_nested_attributes_for :visits, :client
+  validates_presence_of :client_id, :american_start_date, :american_end_date
   attr_writer :american_start_date, :american_end_date, :american_due_date
   before_save :save_american_start_date, :save_american_end_date, :save_american_due_date
   after_create :update_visits
