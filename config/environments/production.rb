@@ -70,7 +70,7 @@ RailsStripeMembershipSaas::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.mandrillapp.com",
     port: 587,
     domain: "app.petsitterspal.com",
     authentication: "plain",
