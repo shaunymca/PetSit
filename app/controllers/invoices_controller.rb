@@ -31,7 +31,7 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   # GET /invoices/new.json
   def new
-    @invoice = Invoice.new
+    @invoice = current_user.invoices.new
     @user = current_user
 
     respond_to do |format|

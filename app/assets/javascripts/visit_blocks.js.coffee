@@ -15,6 +15,7 @@ jQuery ->
     client_name = visit_block_client_name.value
     options = $(visit_type_ids).filter("optgroup[label=" + client_name + "]").html()
     console.log client_name
+    console.log options
     if options
       $("#visit_block_client_prices_id").html options
       $("#visit_block_client_prices_id").trigger "change"

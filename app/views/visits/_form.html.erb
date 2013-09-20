@@ -3,7 +3,8 @@
     <%= f.error_notification %>
   
     <div class="form-inputs">
-      <%= f.association :client, label_method: :full_name %>
+      <%= f.association :client, collection: current_user.clients.all(order: 'first_name'), label_method: :full_name, :required => true %>
+
       <%= f.input :american_start_date,label: 'Visit Date', input_html: { id: 'visit_date' } %>
       
       <div class="input-append bootstrap-timepicker">
