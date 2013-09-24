@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :clients
+  belongs_to :account
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :name, :company_name, :time_zone, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes, :client_prices_attributes
+  attr_accessible :name, :account_attributes, :account, :time_zone, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes, :client_prices_attributes
   attr_accessor :stripe_token
   before_save :update_stripe
   before_destroy :cancel_subscription
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
   has_many :invoices
   has_many :visits, :through => :clients
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
+  accepts_nested_attributes_for :account
   
   
 

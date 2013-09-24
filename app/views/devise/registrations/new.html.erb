@@ -15,7 +15,11 @@
       <%= f.error_notification %>
       <%= display_base_errors resource %>
       <%= f.input :name, :autofocus => true %> 
-      <%= f.input :company_name, :required => true %>
+      <%= f.simple_fields_for :account_attributes, resource.account do |account_form| %>
+        <div>
+          <%= account_form.input :name, label: "Company Name" %>
+        </div>
+      <% end %>
       <%= f.input :email, :required => true %>
       <%= f.input :password, :required => true %>
       <div id="one"></div>
@@ -53,7 +57,7 @@
     <div class="span5">
       <%= f.hidden_field :stripe_token %>
       <BR>&nbsp;<BR>
-      <%= f.button :submit, 'Sign up', :class => 'btn-primary btn-large' %>
+      <%= f.button :submit, 'Get Started!', :class => 'btn-danger btn-large' %>
     </div>
   <% end %>
 </div>

@@ -21,6 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   def new
     @plan = params[:plan]
+    @account = Account.create(params[:account])
     if @plan != "admin"
       super
     else

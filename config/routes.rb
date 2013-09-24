@@ -1,4 +1,7 @@
 RailsStripeMembershipSaas::Application.routes.draw do
+  resources :accounts
+
+
   mount StripeEvent::Engine => '/stripe'
   resources :invoices
   get "calendar/index"
