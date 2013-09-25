@@ -1,7 +1,9 @@
 class AccountsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /accounts
   # GET /accounts.json
   def index
+    authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @accounts = Account.all
 
     respond_to do |format|
@@ -13,6 +15,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+    authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @account = Account.find(params[:id])
 
     respond_to do |format|
