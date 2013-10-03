@@ -1,5 +1,6 @@
 class VisitsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /visits
   # GET /visits.json
   

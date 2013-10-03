@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   
   def update
     # required for settings form to submit when password is left blank
