@@ -15,7 +15,7 @@
       <%= f.input :cell_phone %>
       <%= f.input :emergency_phone %>
       <%= f.input :security_code %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :account_id, :value => @account.id %>
       <%= f.input :active, :input_html => { :checked => true } %>
       <%= f.input :additional_notes, :input_html => { :rows => '6' } %>
       <div class="controls">

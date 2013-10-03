@@ -1,5 +1,9 @@
-class AddAccountToUsers < ActiveRecord::Migration
+class AddAccountToModels < ActiveRecord::Migration
+
   def change
-    add_column :users, :account_id, :integer
+    add_column :clients, :account_id, :integer
+    add_column :default_prices, :account_id, :integer
+    add_column :visits, :account_id, :integer
+    add_column :invoices, :account_id, :integer
   end
 end
