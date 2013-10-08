@@ -7,7 +7,6 @@ class Ability
       can :manage, :all
     else user.has_role? :walker
       can :read, Visit
-      can :read, Client
     end
   end
 end
