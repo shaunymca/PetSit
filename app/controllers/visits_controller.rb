@@ -5,7 +5,7 @@ class VisitsController < ApplicationController
   # GET /visits.json
   
   def index
-    @visits = current_user.visits.scoped
+    @visits = current_user.account.visits.scoped
     @visits = @visits.after(params['start']) if (params['start'])
     @visits = @visits.before(params['end']) if (params['end'])
     

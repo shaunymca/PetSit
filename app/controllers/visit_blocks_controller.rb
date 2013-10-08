@@ -29,7 +29,7 @@ class VisitBlocksController < ApplicationController
     @visit_block = VisitBlock.new
     @user = current_user
     @client_prices = current_user.client_prices
-    @clients = current_user.clients
+    @clients = current_user.account.clients
 
     respond_to do |format|
       format.html # new.html.erb

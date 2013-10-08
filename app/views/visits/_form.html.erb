@@ -3,8 +3,14 @@
     <%= f.error_notification %>
   
     <div class="form-inputs">
-      <%= f.association :client, collection: current_user.clients.all(order: 'first_name'), label_method: :full_name, :required => true %>
-
+      <div class='span12'>
+        <div class='span2'>
+          <%= f.association :client, collection: current_user.account.clients.all(order: 'first_name'), label_method: :full_name, :required => true %>
+        </div>
+        <div class='span2'>
+          <%= f.association :user, collection: current_user.account.users.all(order: 'name'), label_method: :name, :requirement => true %>
+        </div>      
+      </div>
       <%= f.input :american_start_date,label: 'Visit Date', input_html: { id: 'visit_date' } %>
       
       <div class="input-append bootstrap-timepicker">

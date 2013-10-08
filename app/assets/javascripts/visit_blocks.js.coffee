@@ -8,6 +8,11 @@ jQuery ->
     placeholder: "Choose an option.",
     allowClear: true
     )
+    
+  $("#visit_block_user_name").select2(
+    placeholder: "Choose an option.",
+    allowClear: true
+    )
 
   $("#visit_block_client_name").ready ->
     client_name = undefined
