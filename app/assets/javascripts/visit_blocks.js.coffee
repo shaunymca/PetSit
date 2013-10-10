@@ -9,7 +9,12 @@ jQuery ->
     allowClear: true
     )
     
-  $("#visit_block_user_name").select2(
+  $("#visit_block_user_id").select2(
+    placeholder: "Choose an option.",
+    allowClear: true
+    )
+    
+  $("#visit_block_client_prices_id").select2(
     placeholder: "Choose an option.",
     allowClear: true
     )

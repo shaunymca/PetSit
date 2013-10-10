@@ -27,11 +27,6 @@
         <div class="controls controls-row">  
           <%= f.input :name, :autofocus => true %>
           <%= f.input :email, :required => true %>
-          <%= f.simple_fields_for :account_attributes, resource.account do |account_form| %>
-            <div>
-              <%= account_form.input :name, label: "Company Name" %>
-            </div>
-          <% end %>
           <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %> 
           <%= f.input :password_confirmation, :required => false %>
         </div>
