@@ -1,7 +1,8 @@
 class Invoice < ActiveRecord::Base
-  attr_accessible :client_id, :due_date, :paid, :user_id, :visit_id, :start_date, :end_date, :american_start_date, :american_end_date, :american_due_date, :visits_attributes, :client_attributes
+  resourcify
+  attr_accessible :client_id, :due_date, :paid, :account_id, :visit_id, :start_date, :end_date, :american_start_date, :american_end_date, :american_due_date, :visits_attributes, :client_attributes
   has_many :visits
-  belongs_to :user
+  belongs_to :account
   belongs_to :client
   accepts_nested_attributes_for :visits, :client
   validates_presence_of :client_id, :american_start_date, :american_end_date
@@ -62,7 +63,7 @@ class Invoice < ActiveRecord::Base
   end
   
   def company_name
-    user.company_name
+    account.company_name
   end
   
   

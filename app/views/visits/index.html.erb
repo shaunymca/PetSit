@@ -1,8 +1,12 @@
 <div class='well'>
   <h1>Visit Calendar</h1>
-  <%= link_to 'New Visit <i class="icon-plus"></i>'.html_safe, new_visit_block_path, class: "btn", 'data-no-turbolink' => true %>
-   <br><br />
-  <div id='calendar'></div>
-  <br><br />
-  <%= link_to 'New Visit <i class="icon-plus"></i>'.html_safe, new_visit_block_path, class: "btn", 'data-no-turbolink' => true %>
+  <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier %>
+    <%= link_to 'New Visit <i class="icon-plus"></i>'.html_safe, new_visit_block_path, class: "btn", 'data-no-turbolink' => true %>
+    <br><br />
+    <div id='calendar'></div>
+    <br><br />
+    <%= link_to 'New Visit <i class="icon-plus"></i>'.html_safe, new_visit_block_path, class: "btn", 'data-no-turbolink' => true %>
+  <% else %>
+    <div id='walker_calendar'></div>
+  <% end %>
 </div>

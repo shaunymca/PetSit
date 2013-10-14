@@ -1,11 +1,13 @@
 class ClientsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   helper_method :sort_column, :sort_direction
   # GET /clients
   # GET /clients.json
   def index
-    @clients = current_user.clients.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
-    @user = current_user
+    @clients = current_user.account.clients.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+    
+    @account = current_user.account
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clients }
@@ -27,6 +29,7 @@ class ClientsController < ApplicationController
   # GET /clients/new.json
   def new
     @client = Client.new
+    @account = current_user.account
     @user = current_user
 
     respond_to do |format|
@@ -86,7 +89,8 @@ class ClientsController < ApplicationController
     
   def import
     @user = current_user
-    Client.import(params[:file],params[:user_id])
+    @account = current_user.account
+    Client.import(params[:file],params[:account_id])
     redirect_to clients_path, notice: "Client imported."
 	end
   

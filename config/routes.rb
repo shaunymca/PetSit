@@ -14,7 +14,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
 	end
   resources :client_prices
   authenticated :user do
-    root :to => 'clients#index'
+    root :to => 'visits#index'
   end
   match "/help" => "help#index"
   match "index.html" => "home#index"

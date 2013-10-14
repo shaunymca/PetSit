@@ -6,18 +6,19 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :invitable
 
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :name, :account_attributes, :account, :time_zone, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes, :client_prices_attributes
+  attr_accessible :role_ids, :account_id, :name, :account_attributes, :account, :time_zone, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes, :client_prices_attributes
   attr_accessor :stripe_token
   before_save :update_stripe
   before_destroy :cancel_subscription
   has_many :default_prices
   has_many :client_prices, :through => :clients
   has_many :invoices
-  has_many :visits, :through => :clients
+  has_many :visits
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
   accepts_nested_attributes_for :account
   
@@ -40,6 +41,7 @@ class User < ActiveRecord::Base
   def update_stripe
     return if email.include?(ENV['ADMIN_EMAIL'])
     return if email.include?('@example.com') and not Rails.env.production?
+    return if invited_by_id.present?
     if customer_id.nil?
       if !stripe_token.present?
         raise "Stripe token not present. Can't create account."
@@ -89,4 +91,8 @@ class User < ActiveRecord::Base
     destroy
   end
   
+  def account_name
+    self.account.name
+  end
+     
 end

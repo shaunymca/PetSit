@@ -49,7 +49,7 @@
   <%= link_to "Excel Template" , '/assets/client_upload_template.xlsx' %>
 <%= form_tag import_clients_path, multipart: true do %>
   <%= file_field_tag :file %>
-  <%= hidden_field_tag(:user_id, @user.id) %>
+  <%= hidden_field_tag(:account_id, @account.id) %>
   <div></div>
   <%= button_tag(:type => 'submit', :class => 'btn btn-info', :id => 'uploadclients') do %>
     Upload <i class="icon-upload-alt"></i>

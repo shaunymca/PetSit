@@ -1,7 +1,8 @@
 class DefaultPrice < ActiveRecord::Base
-  attr_accessible :price, :user_id, :visit_type, :id, :clients_attributes, :client_prices_attributes
+  attr_accessible :price, :user_id, :account_id, :visit_type, :id, :clients_attributes, :client_prices_attributes
   belongs_to :user
-  has_many :clients, :through => :user
+  belongs_to :account
+  has_many :clients, :through => :account
   has_many :client_prices, :dependent => :destroy
   accepts_nested_attributes_for :clients
   accepts_nested_attributes_for :client_prices

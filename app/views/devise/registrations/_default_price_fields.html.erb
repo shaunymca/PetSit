@@ -1,5 +1,6 @@
 <div class='span10'>
-  <%= f.input :user_id, :as => :hidden, :value => current_user.id, :required => false  %>
+  <%= f.input :user_id, :as => :hidden, :value => current_user.id, :required => true  %>
+  <%= f.input :account_id, :as => :hidden, :required => true, :input_html => { :value => current_user.account_id }  %>
   <%= f.input :visit_type, :placeholder => "Morning Weekday Visit", :required => false, :wrapper_html => { :class => 'span2' } %>
   <%= f.input :price, :wrapper => :prepend, :placeholder => "20", :required => false, :wrapper_html => { :class => 'span2' }, :label => "Price" do %>
   	<%= content_tag :span, "$", :class => "add-on" %>

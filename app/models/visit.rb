@@ -1,11 +1,12 @@
 class Visit < ActiveRecord::Base
-  attr_accessible :client_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time, :american_start_date, :time_text, :end_time_text
+  attr_accessible :client_id, :user_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time, :american_start_date, :time_text, :end_time_text
   attr_accessor :american_start_date, :time_text, :end_time_text
   belongs_to :client_prices 
   belongs_to :visit_block
   belongs_to :client
   belongs_to :invoice
   belongs_to :user
+  belongs_to :account
   
   def start_time
     self.visit_date
@@ -48,7 +49,7 @@ class Visit < ActiveRecord::Base
   def as_json(options = {})
     {
       :id => self.id,
-      :title => self.client.full_name + " -\n" + self.visit_type,
+      :title => self.user.name + "\n" + self.client.full_name + " -\n" + self.visit_type,
       :description => self.visit_type || "",
       :start => self.visit_date,
       :end => self.end_time,

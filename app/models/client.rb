@@ -1,6 +1,6 @@
 class Client < ActiveRecord::Base
-  attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :user_id, :phone_number, :cell_phone, :emergency_phone, :security_code, :additional_notes, :zip, :client_prices_attributes
-  belongs_to :user
+  attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :account_id, :phone_number, :cell_phone, :emergency_phone, :security_code, :additional_notes, :zip, :client_prices_attributes
+  belongs_to :account
   has_many :client_prices, :dependent => :destroy
   has_many :visits
   has_many :invoices
@@ -9,7 +9,7 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :client_prices, :allow_destroy => true
   
   before_create do
-  	user.default_prices.each do |default_price|
+    account.default_prices.each do |default_price|
       client_prices.build("price" => default_price.price, "visit_type" => default_price.visit_type, "default_price_id" => default_price.id, "custom" => 0)
     end
   end
@@ -32,12 +32,12 @@ class Client < ActiveRecord::Base
   	end
 	end
 
-  def self.import(file,user_id)
+  def self.import(file,account_id)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      row["user_id"] = user_id
+      row["account_id"] = account_id
       Client.create! row.to_hash
     end
   end

@@ -1,5 +1,6 @@
 class VisitBlocksController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /visit_blocks
   # GET /visit_blocks.json
   def index
@@ -28,7 +29,7 @@ class VisitBlocksController < ApplicationController
     @visit_block = VisitBlock.new
     @user = current_user
     @client_prices = current_user.client_prices
-    @clients = current_user.clients
+    @clients = current_user.account.clients
 
     respond_to do |format|
       format.html # new.html.erb

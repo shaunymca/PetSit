@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-
+  load_and_authorize_resource
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
-    @default_prices = :user.defaultprices.new
     role = Role.find(params[:user][:role_ids]) unless params[:user][:role_ids].nil?
     params[:user] = params[:user].except(:role_ids)
     if @user.update_attributes(params[:user])
