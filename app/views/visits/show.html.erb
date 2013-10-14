@@ -25,12 +25,6 @@
       <b>Visit price:</b>
       <%= '$' + @visit.visit_price.to_s %>
     </p>    
-    <p>
-      <% unless @visit.invoice_id.nil? %>
-      <b>Invoice:</b>
-      <%= link_to invoice_path(@visit.invoice, format: "html") %>
-    </p>
-      <% end %>
     <% end %>
   </div>
   <div class='span5'>
@@ -38,7 +32,7 @@
       <b>Address:</b>
     </p>
     <p>
-      <%= @visit.client.address_1 + ', ' + @visit.client.address_2 %>
+      <%= @visit.client.address_1 %>, <%= @visit.client.address_2 %>
     </p>
     <p>
       <%= @visit.client.city + ', ' + @visit.client.state %>
