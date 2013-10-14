@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = current_user.invoices
+    @invoices = current_user.account.invoices
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,8 +32,8 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   # GET /invoices/new.json
   def new
-    @invoice = current_user.invoices.new
-    @user = current_user
+    @invoice = current_user.account.invoices.new
+    @account = current_user.account
 
     respond_to do |format|
       format.html # new.html.erb

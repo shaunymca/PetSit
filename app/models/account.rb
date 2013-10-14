@@ -5,4 +5,5 @@ class Account < ActiveRecord::Base
   has_many :default_prices
   has_many :client_prices, :through => :clients
   has_many :visits, :through => :clients
+  has_many :invoices
 end

@@ -3,12 +3,12 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.association :client, collection: current_user.clients.all(order: 'first_name'), label_method: :full_name, :required => true %>
+      <%= f.association :client, collection: current_user.account.clients.all(order: 'first_name'), label_method: :full_name, :required => true %>
       <%= f.input :american_start_date, label: 'Start Date', input_html: { id: 'start_date' }, :required => true %>
       <%= f.input :american_end_date, label: 'End Date', input_html: { id: 'end_date' }, :required => true %>
       <%# f.input :american_due_date, input_html: { id: 'due_date' } %>
       <%= f.input :paid %>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :account_id, :value => current_user.account.id %>
     </div>
   
     <div class="form-actions">
