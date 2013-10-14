@@ -5,10 +5,13 @@ class VisitsController < ApplicationController
   # GET /visits.json
   
   def index
-    @visits = current_user.account.visits.scoped
+    if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier
+      @visits = current_user.account.visits.scoped
+    else
+      @visits = current_user.visits.scoped
+    end
     @visits = @visits.after(params['start']) if (params['start'])
     @visits = @visits.before(params['end']) if (params['end'])
-    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @visits }
@@ -20,7 +23,7 @@ class VisitsController < ApplicationController
   # GET /visits/1.json
   def show
     @visit = Visit.find(params[:id])
-
+    @json = @visit.client.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @visit }
