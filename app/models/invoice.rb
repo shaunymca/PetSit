@@ -63,7 +63,7 @@ class Invoice < ActiveRecord::Base
   end
   
   def company_name
-    account.company_name
+    account.name
   end
   
   
