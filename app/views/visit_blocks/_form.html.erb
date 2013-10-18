@@ -24,8 +24,8 @@
         <div class='span4'>
           <%= f.label :visit_price, 'Price', class: 'inline' %>
           <div class="input-prepend">
-            <span class="add-on success">$</span>
-            <%= f.text_field :visit_price %>
+            <span class="add-on">$</span>
+            <%= f.text_field :visit_price, :class => 'span1' %>
           </div>
         </div>
         <%= f.hidden_field :visit_type %>
