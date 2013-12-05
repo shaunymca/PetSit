@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.9'
+gem 'ruby', '1.9.2'
 gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
 group :assets do
