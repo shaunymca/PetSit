@@ -5,7 +5,8 @@
   <% content_for :head do %>
     <%= tag :meta, :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
   <% end %>
-  <h2>Free Trial Sign Up</h2>
+  <h2>Get Started With you Free Trial</h2>
+  <h3>Take control of your business!</h3>
   <div id="stripe_error" class="alert alert-error" style="display:none" >
   </div>
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical' }) do |f| %>
@@ -59,6 +60,8 @@
     <div class="span5">
       <%= f.hidden_field :stripe_token %>
       <BR>&nbsp;<BR>
+      <p>Amount: $10.00 per month beginning on <%= Chronic.parse('14 days from now').strftime('%A, %B %d %Y')%> <p>
+      <p><strong>You won't be charged anything during your 14 day trial period</strong>, please contact support@petsitterspal.com for any questions.</p>
       <%= f.button :submit, 'Get Started!', :class => 'btn-danger btn-large' %>
     </div>
   <% end %>
