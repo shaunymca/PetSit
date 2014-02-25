@@ -6,7 +6,7 @@
       <li class="active">
         <a href="#profile" data-toggle="tab">Profile</a>
       </li>
-      <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier %>
+      <% if current_user.has_role? :admin or current_user.has_role? :default or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier %>
       <li>
         <a href="#pricing" data-toggle="tab">Client Pricing</a>
       </li>
