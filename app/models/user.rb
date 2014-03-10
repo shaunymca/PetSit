@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
     end
     true
   rescue Stripe::StripeError => e
-    logger.error "Stripe Error: " + e.message
+    logger.error "Stripe Error: " + e.message + self.email
     errors.add :base, "Unable to update your subscription. #{e.message}."
     false
   end
