@@ -35,23 +35,19 @@
     <% if @user.stripe_token %>
       <p>Credit card acceptance is pending.</p>
     <% else %>
-      <label for="cc_type">Card Type</label>
-      <select name="cc_type">
-        <option value="">...</option>
-        <option value="visa">Visa</option>
-        <option value="discover">Discover</option>
-        <option value="mastercard">MasterCard</option>
-        <option value="amex">American Express</option>
-        <option value="dinersclubintl">Diners Club</option>
-      </select>
-        <%= label_tag :cc_number, "Card Number", label_html: { for: 'cc_type' } %>
-        <%= text_field_tag :card_number, nil, name: "cc_number" %>
-        <%= label_tag :cc_exp, "Expiration Date (mm/yy)" %>
-        <%= text_field_tag :cc_exp, nil, name: 'cc_exp' %>
-        <%= label_tag :cc_name, "Card Name" %>
-        <%= text_field_tag :cc_name, nil, name: "cc_name" %>
-        <%= label_tag :cc_cvc, "Card Validation Code" %>
-        <%= text_field_tag :card_code, nil, name: "cc_cvc" %>
+      <div class="field">
+        <%= label_tag :card_number, "Credit Card Number" %>   
+        <%= text_field_tag :card_number, nil, name: nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_code, "Card Security Code (CVV)" %>
+        <%= text_field_tag :card_code, nil, name: nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_month, "Card Expiration" %>
+        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+      </div>
     <% end %>
     </div>
     

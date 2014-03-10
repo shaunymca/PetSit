@@ -1,12 +1,12 @@
 $('.registrations').ready(function() {
-  card = new Skeuocard($("#skeuocard"));
+
   $.externalScript('https://js.stripe.com/v1/').done(function(script, textStatus) {
       Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
       var subscription = {
         setupForm: function() {
           return $('.card_form').submit(function() {
             $('input[type=submit]').prop('disabled', true);
-            if ((document.getElementsByClassName("group4")[0].value + document.getElementsByClassName("group4")[1].value + document.getElementsByClassName("group4")[2].value + document.getElementsByClassName("group4")[3].value).length) {
+            if ($('#card_number').length) {
               subscription.processCard();
               return false;
             } else {
@@ -17,11 +17,11 @@ $('.registrations').ready(function() {
         processCard: function() {
           var card;
           card = {
-            name: document.getElementsByClassName("cc-name")[0].value,
-            number: document.getElementsByClassName("group4")[0].value + document.getElementsByClassName("group4")[1].value + document.getElementsByClassName("group4")[2].value + document.getElementsByClassName("group4")[3].value,
-            cvc: document.getElementsByClassName("cc-cvc")[0].value,
-            expMonth: document.getElementsByClassName("cc-exp-field-m group2")[0].value,
-            expYear: document.getElementsByClassName("cc-exp-field-y group2")[0].value
+            name: $('#user_name').val(),
+            number: $('#card_number').val(),
+            cvc: $('#card_code').val(),
+            expMonth: $('#card_month').val(),
+            expYear: $('#card_year').val()
           };
           return Stripe.createToken(card, subscription.handleStripeResponse);
         },
