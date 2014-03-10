@@ -31,7 +31,7 @@
       &nbsp;
       <%= f.input :password_confirmation, :required => true %>
     </div>
-    <div class='credit-card-input no-js span6' id="skeuocard">
+    <div >
     <% if @user.stripe_token %>
       <p>Credit card acceptance is pending.</p>
     <% else %>
