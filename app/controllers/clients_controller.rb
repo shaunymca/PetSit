@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
   # GET /clients.json
   def index
     @clients = current_user.account.clients.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
-    
+
     @account = current_user.account
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +18,7 @@ class ClientsController < ApplicationController
   # GET /clients/1.json
   def show
     @client = Client.find(params[:id])
+    @pets = @client.pets
     @json = @client.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb
@@ -86,27 +87,27 @@ class ClientsController < ApplicationController
       format.json { head :no_content }
     end
   end
-    
+
   def import
     @user = current_user
     @account = current_user.account
     Client.import(params[:file],params[:account_id])
     redirect_to clients_path, notice: "Client imported."
 	end
-  
+
   #def download
   #  send_file "#{RAILS_ROOT}/public/data/#{params[:file_name]}"
   #end
 
     private
-  
+
   def sort_column
     Client.column_names.include?(params[:sort]) ? params[:sort] : "last_name"
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
-  
+
 
 end

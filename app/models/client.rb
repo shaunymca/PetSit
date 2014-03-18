@@ -1,12 +1,14 @@
 class Client < ActiveRecord::Base
-  attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :account_id, :phone_number, :cell_phone, :emergency_phone, :security_code, :additional_notes, :zip, :client_prices_attributes
+  attr_accessible :active, :address_1, :address_2, :city, :email, :first_name, :last_name, :state, :account_id, :phone_number, :cell_phone, :emergency_phone, :security_code, :additional_notes, :zip, :client_prices_attributes, :client_pets_attributes
   belongs_to :account
   has_many :client_prices, :dependent => :destroy
   has_many :visits
   has_many :invoices
+  has_many :pets
   geocoded_by :fulladdress, :if => :fulladdressed_changed?
   acts_as_gmappable :process_geocoding => false
   accepts_nested_attributes_for :client_prices, :allow_destroy => true
+  accepts_nested_attributes_for :pets, :allow_destroy => true
   
   before_create do
     account.default_prices.each do |default_price|

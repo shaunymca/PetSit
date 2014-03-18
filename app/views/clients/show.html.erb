@@ -11,7 +11,7 @@
             <div class="container-fluid">
               <div class="row-fluid">
                 <div class= "span5" >
-                  <div>   
+                  <div>
                     <b>Email:</b>
                     <%= @client.email %>
                   </div>
@@ -57,8 +57,8 @@
                   </div>
                   <div class="visible-phone">
                     <br>
-                      <%= link_to 'View on Map <i class="icon-map-marker"></i>'.html_safe, "https://maps.google.com/maps?q=#{@client.address_1}+#{@client.address_2}+#{@client.city}+#{@client.state}", class: "btn btn-info", :target => "_blank" %>
-                  </div>  
+                    <%= link_to 'View on Map <i class="icon-map-marker"></i>'.html_safe, "https://maps.google.com/maps?q=#{@client.address_1}+#{@client.address_2}+#{@client.city}+#{@client.state}", class: "btn btn-info", :target => "_blank" %>
+                  </div>
                 </div>
                 <div class="span5 hidden-phone">
                   <div class="row-fluid">
@@ -69,6 +69,7 @@
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -81,23 +82,111 @@
       <div id="collapseTwo" class="accordion-body collapse">
         <div class="accordion-inner">
           <%= simple_nested_form_for @client do |f| %>
-            <%= f.fields_for :client_prices %>
-  
-            <%= f.link_to_add "Add a custom price", :client_prices, :class => 'btn btn-success' %>
-            <p>&nbsp;</p>
-            <div class="controls">
-              <%= f.button :submit, :class => 'btn btn-primary' %>
-            </div>
+          <%= f.fields_for :client_prices %>
+
+          <%= f.link_to_add "Add a custom price", :client_prices, :class => 'btn btn-success' %>
+          <p>&nbsp;</p>
+          <div class="controls">
+            <%= f.button :submit, :class => 'btn btn-primary' %>
+          </div>
           <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+          <h3><%= 'Pets <i class="icon-chevron-down"></i>'.html_safe %></h3>
+        </a>
+      </div>
+      <div id="collapseThree" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <div class="span12">
+            <div class="tabbable">
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a href="#listpets" data-toggle="tab">List</a>
+                </li>
+                <li>
+                  <a href="#addpet" data-toggle="tab">Add a pet</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="listpets">
+                  <div class="row">
+                    <div class="span10">
+                      <table class="table table-hover">
+                        <thead>
+                          <th>Animal Name</th>
+                          <th>Type</th>
+                          <th>Breed</th>
+                          <th>Color</th>
+                          <th>Fixed</th>
+                          <th>BirthDay</th>
+                          <th>Active</th>
+                          <th>Sex</th>
+                          <th></th>
+                        </thead>
+                        <tbody>
+                        <% for pet in @pets %>
+                        <tr>
+                          <td><%= pet.animal_name %></td>
+                          <td><%= pet.pet_type %></td>
+                          <td><%= pet.breed %></td>
+                          <td><%= pet.color %></td>
+                          <td><%= pet.fixed %></td>
+                          <td><%= pet.american_start_date %></td>
+                          <td><%= pet.active %></td>
+                          <td><%= pet.sex %></td>
+                          <td><a href="#myModal" role="button" class="btn" data-toggle="modal">View Notes</a>
+
+                          <!-- Modal -->
+                            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="myModalLabel"><%= pet.animal_name%>'s Notes</h3>
+                              </div>
+                              <div class="modal-body">
+                                <p><%=pet.notes%></p>
+                              </div>
+                              <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                              </div>
+                            </div>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="addpet">
+                  <%= simple_form_for([@client, @client.pets.build]) do |f| %>
+                  <%= f.hidden_field :client_id, value: @client.id %> 
+                  <%= f.input :animal_name %>
+                  <%= f.input :pet_type %>
+                  <%= f.input :breed %>
+                  <%= f.input :color %>
+                  <%= f.input :fixed %>
+                  <%= f.input :american_start_date,label: 'BrithDate', input_html: { id: 'birth_date' } %>
+                  <%= f.input :active %>
+                  <%= f.input :sex %>
+                  <%= f.input :notes %>
+                  <%= f.button :submit %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="row">
-	<div class="span9">
+  <div class="span9">
     <%= link_to 'Edit Client <i class="icon-pencil icon-white"></i>'.html_safe, edit_client_path(@client), class: "btn btn-success"%> |
     <%= link_to 'New Client <i class="icon-plus icon-white"></i>'.html_safe, new_client_path, class: "btn btn-primary" %> |
-    <%= link_to 'Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %> 
+    <%= link_to 'Clients <i class="icon-group icon-white"></i>'.html_safe, clients_path, class: "btn" %>
   </div>
 </div>

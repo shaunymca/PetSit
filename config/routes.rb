@@ -1,4 +1,7 @@
 RailsStripeMembershipSaas::Application.routes.draw do
+  resources :pets
+
+
   resources :accounts
 
 
@@ -11,6 +14,7 @@ RailsStripeMembershipSaas::Application.routes.draw do
   resources :clients do
   	collection { post :import }
     get :download, :on => :collection
+    resources :pets
 	end
   resources :client_prices
   authenticated :user do
