@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :authenticate_user!
-  
+
   def update
     # required for settings form to submit when password is left blank
     if params[:user][:password].blank?
@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
       render "edit"
     end
   end
-  
+
   def new
     @plan = params[:plan]
     @account = Account.create(params[:account])

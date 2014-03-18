@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, :account_id, :name, :account_attributes, :account, :time_zone, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes, :client_prices_attributes
   attr_accessor :stripe_token
   before_save :update_stripe
+  after_create :welcome_email
   before_destroy :cancel_subscription
   has_many :default_prices
   has_many :client_prices, :through => :clients
@@ -21,8 +22,8 @@ class User < ActiveRecord::Base
   has_many :visits
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
   accepts_nested_attributes_for :account
-  
-  
+
+
 
   def update_plan(role)
     self.role_ids = []
@@ -37,7 +38,7 @@ class User < ActiveRecord::Base
     errors.add :base, "Unable to update your subscription. #{e.message}."
     false
   end
-  
+
   def update_stripe
     return if email.include?(ENV['ADMIN_EMAIL'])
     return if email.include?('@example.com') and not Rails.env.production?
@@ -70,7 +71,7 @@ class User < ActiveRecord::Base
     self.stripe_token = nil
     false
   end
-  
+
   def cancel_subscription
     unless customer_id.nil?
       customer = Stripe::Customer.retrieve(customer_id)
@@ -85,14 +86,20 @@ class User < ActiveRecord::Base
     errors.add :base, "Unable to cancel your subscription. #{e.message}."
     false
   end
-  
+
   def expire
     UserMailer.expire_email(self).deliver
     destroy
   end
-  
+
+  def welcome_email
+    unless self.has_role? :walker
+      UserMailer.new_email(self).deliver
+    end
+  end
+
   def account_name
     self.account.name
   end
-     
+
 end
