@@ -8497,3 +8497,24 @@ Processing by ClientsController#show as HTML
   Rendered layouts/_navigation.html.erb (6.3ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 215ms (Views: 200.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/clients/5" for 127.0.0.1 at 2014-03-20 15:05:20 +0000
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  Rendered /home/action/.rvm/gems/ruby-1.9.3-p448@rails-stripe-membership-saas/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.7ms)
+  [1m[35mClientPrice Load (0.2ms)[0m  SELECT "client_prices".* FROM "client_prices" WHERE "client_prices"."client_id" = 5
+  Rendered clients/_client_price_fields.html.erb (7.4ms)
+  Rendered clients/_client_price_fields.html.erb (6.5ms)
+  Rendered clients/_client_price_fields.html.erb (6.7ms)
+  [1m[36mPet Load (0.2ms)[0m  [1mSELECT "pets".* FROM "pets" WHERE "pets"."client_id" = 5[0m
+  Rendered clients/show.html.erb within layouts/application (59.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 213ms (Views: 199.1ms | ActiveRecord: 1.2ms)
