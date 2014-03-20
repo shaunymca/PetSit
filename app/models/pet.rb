@@ -7,7 +7,7 @@ class Pet < ActiveRecord::Base
   before_save :save_american_start_date
 
   def american_start_date
-    @american_start_date || birthdate.try(:strftime, "%m-%d-%Y")
+    @american_start_date || birthdate.try(:strftime, "%m/%d/%Y")
   end
 
   def save_american_start_date

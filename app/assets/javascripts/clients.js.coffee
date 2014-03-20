@@ -16,6 +16,3 @@ jQuery ->
       return
 
     return
-
-		$("#birth_date").datepicker(format: "mm/dd/yyyy").on "changeDate", (ev) ->
-			$("#birth_date").datepicker "hide"

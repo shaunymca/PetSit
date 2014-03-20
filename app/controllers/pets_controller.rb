@@ -61,7 +61,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.update_attributes(params[:pet])
-        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to @pet.client, notice: 'Pet was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

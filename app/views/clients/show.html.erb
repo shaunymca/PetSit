@@ -153,6 +153,33 @@
                                 <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                               </div>
                             </div>
+                          <td><a href="#editModal" role="button" class="btn btn-success" data-toggle="modal">Edit Details</a>
+
+                          <!-- Modal -->
+                            <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModallabel" aria-hidden="true">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h3 id="editModallabel">Edit <%= pet.animal_name%></h3>
+                              </div>
+                              <div class="modal-body">
+                                <%= simple_form_for(pet) do |f| %>
+                                <%= f.input :animal_name %>
+                                <%= f.input :pet_type %>
+                                <%= f.input :breed %>
+                                <%= f.input :color %>
+                                <%= f.input :fixed %>
+                                <%= f.input :american_start_date, label: 'BrithDate' %>
+                                <%= f.input :active %>
+                                <%= f.input :sex %>
+                                <%= f.input :notes %>
+
+                              </div>
+                              <div class="modal-footer">
+                                <%= f.button :submit %>
+                                <% end %>
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                              </div>
+                            </div>
                           </tr>
                         <% end %>
                       </tbody>
@@ -162,7 +189,7 @@
                 </div>
                 <div class="tab-pane" id="addpet">
                   <%= simple_form_for([@client, @client.pets.build]) do |f| %>
-                  <%= f.hidden_field :client_id, value: @client.id %> 
+                  <%= f.hidden_field :client_id, value: @client.id %>
                   <%= f.input :animal_name %>
                   <%= f.input :pet_type %>
                   <%= f.input :breed %>
