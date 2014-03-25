@@ -24,10 +24,10 @@
         <div id="stripe_error" class="alert alert-error" style="display:none" ></div>
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
         <%= f.error_notification %>
-        <div class="controls controls-row">  
+        <div class="controls controls-row">
           <%= f.input :name, :autofocus => true %>
           <%= f.input :email, :required => true %>
-          <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %> 
+          <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
           <%= f.input :password_confirmation, :required => false %>
         </div>
         <div class="controls">
@@ -39,66 +39,45 @@
       <div class="tab-pane" id="pricing">
         <h3>Default Client Pricing</h3>
         <%= simple_nested_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
-        <div class="controls controls-row"> 	
-        <%= f.simple_fields_for :default_prices %>   
+        <div class="controls controls-row">
+        <%= f.simple_fields_for :default_prices %>
         </div>
         <%= f.link_to_add "Add a default price", :default_prices, :class => 'btn btn-success' %>
         <br><br/>
         <div class="controls">
-          
+
           <%= f.button :submit, "Update Settings", :class => 'btn btn-primary' %>
         </div>
       <% end %>
       </div>
-      
+
       <div class="tab-pane" id="walkers">
         <h2><%= t "devise.invitations.new.header"%></h2>
 
       <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
         <%= devise_error_messages! %>
-        <%= f.input :name, :autofocus => true %> 
+        <%= f.input :name, :autofocus => true %>
         <%= f.input :email, :required => true %>
         <%= f.hidden_field :account_id, :value => current_user.account_id %>
         <%= f.hidden_field :role_ids, :value => 6 %>
-      
+
         <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
       <% end %>
       </div>
 
       <div class="tab-pane" id="subscription">
-        
-        <h3>Subscription Plan</h3>
-        <p>
-          <%= @user.roles.first.name.titleize %>
-          <a data-toggle="modal" href="#plan-options" class="btn btn-mini" type="button">Change plan</a>
-        </p>
-        
-        <h3>Card</h3>
+
+        <h3>Update Card</h3>
         <p>
           Using card ending with <%= @user.last_4_digits %>
           <a data-toggle="modal" href="#card-data" class="btn btn-mini" type="button">Change card</a>
         </p>
-        
-        <h3>Cancel my account</h3>
-        
+
+        <h4>Cancel my account</h4>
+
         <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini' %></p>
-        
-        <div id="plan-options" class="modal" style="display: none;">
-          <%= simple_form_for resource, :as => resource_name, :url => update_plan_path, :html => {:method => :put, :class => 'form-horizontal' } do |f| %>
-            <div class="modal-header">
-              <a class="close" data-dismiss="modal">&#215;</a>
-              <h3>Change Plan</h3>
-            </div>
-            <div class="modal-body">
-              <%= f.input :role_ids, :collection => Role.all.delete_if {|i| i.name == 'admin'}, :as => :radio_buttons, :label_method => lambda {|t| t.name.titleize}, :label => false, :item_wrapper_class => 'inline' %>
-            </div>
-            <div class="modal-footer">
-              <%= f.submit "Change Plan", :class => "btn btn-primary" %>
-              <a class="btn" data-dismiss="modal" href="#">Close</a>
-            </div>
-          <% end %>
-        </div>
-        
+
+
         <div id="card-data" class="modal" style="display: none;">
           <%= simple_form_for resource, :as => resource_name, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
             <div class="modal-header">
