@@ -3,9 +3,9 @@ class VisitsController < ApplicationController
   load_and_authorize_resource
   # GET /visits
   # GET /visits.json
-  
+
   def index
-    if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier
+    if current_user.has_role? :admin or current_user.has_role? :default or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier
       @visits = current_user.account.visits.scoped
     else
       @visits = current_user.visits.scoped
@@ -72,7 +72,7 @@ class VisitsController < ApplicationController
   # viv la REST!
   def update
     @visit = Visit.find(params[:id])
-    
+
     respond_to do |format|
       if @visit.update_attributes(params[:visit])
         format.html { redirect_to visits_path, :notice => 'Visit was successfully updated.' }
