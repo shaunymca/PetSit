@@ -55,7 +55,7 @@
     </div>
   </div>
   <div class='span5'>
-  <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier %>
+  <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
   <%= link_to 'Delete', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>
   
   <%= link_to 'Edit', edit_visit_path(@visit) %> |
