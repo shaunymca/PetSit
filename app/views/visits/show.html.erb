@@ -20,7 +20,7 @@
       <b>Visit time:</b>
       <%= @visit.time_text %>
     </p>
-    <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier %>
+    <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
     <p>
       <b>Visit price:</b>
       <%= '$' + @visit.visit_price.to_s %>
