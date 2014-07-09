@@ -1,6 +1,6 @@
 class Visit < ActiveRecord::Base
-  attr_accessible :client_id, :user_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time, :american_start_date, :time_text, :end_time_text
-  attr_accessor :american_start_date, :time_text, :end_time_text
+  attr_accessible :client_id, :day_of_week, :user_id, :invoice_id, :visit_date, :visit_price, :visit_type, :visit_block_id, :client_name, :end_time, :american_start_date, :time_text, :end_time_text
+  attr_accessor :american_start_date, :time_text, :day_of_week, :end_time_text
   belongs_to :client_prices 
   belongs_to :visit_block
   belongs_to :client
@@ -45,6 +45,10 @@ class Visit < ActiveRecord::Base
       false
     end
   end
+
+  def day_of_week
+    self.visit_date.strftime("%A").downcase
+  end
   
   def as_json(options = {})
     {
@@ -63,5 +67,6 @@ class Visit < ActiveRecord::Base
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
   end
+
   
 end

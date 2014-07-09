@@ -1,0 +1,255 @@
+<div class='well span12'>
+    <a href="#" class="btn pull-right" onclick="window.print();return false;"><i class="icon-print"></i> Print Me</a> 
+    <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
+
+        <legend>Monday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'monday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Tuesday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'tuesday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Wednesday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'wednesday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+        <legend>Thursday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'thursday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Friday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'friday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Saturday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'saturday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Sunday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'sunday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %> - <%= visit.user.name %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+    <% else %>
+        <legend>Monday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'monday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Tuesday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'tuesday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Wednesday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'wednesday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+        <legend>Thursday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'thursday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Friday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'friday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Saturday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'saturday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+
+        <legend>Sunday</legend>
+        <% @visits.each do |visit| %>
+                <% if visit.day_of_week == 'sunday' %>
+
+                    <p>
+                    <h4><%= visit.time_text %></h4>
+                    <%= visit.client.full_name %>
+                     | 
+                     <%= visit.visit_type %>
+                    </p>
+                    <p>
+                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+                    <%= visit.client.city + ', ' + visit.client.state %>
+                    <%= visit.client.zip %>
+                    </p>
+                <% end %>
+        <%end %>
+    <% end %>
+</div>

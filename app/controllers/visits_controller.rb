@@ -19,18 +19,7 @@ class VisitsController < ApplicationController
     end
   end
 
-  def print_week
-    if current_user.has_role? :admin or current_user.has_role? :default or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier
-      @visits = current_user.account.visits.group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now).count
-    else
-      @visits = current_user.visits.scoped
-    end
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @visits }
-      format.js  { render :json => @visits }
-    end
-  end
+
 
   # GET /visits/1
   # GET /visits/1.json

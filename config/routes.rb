@@ -1,5 +1,6 @@
 RailsStripeMembershipSaas::Application.routes.draw do
   resources :pets
+  match "prints" => "prints#index" 
 
 
   resources :accounts
