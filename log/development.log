@@ -45759,3 +45759,903 @@ Processing by PrintsController#index as HTML
   Rendered layouts/_navigation.html.erb (7.8ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 248ms (Views: 230.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2014-07-09 21:39:37 +0000
+Processing by VisitsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered visits/index.html.erb within layouts/application (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 294ms (Views: 151.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/visits?start=1404014400&end=1407643200&_=1404941982604" for 127.0.0.1 at 2014-07-09 21:39:49 +0000
+Processing by VisitsController#index as JSON
+  Parameters: {"start"=>"1404014400", "end"=>"1407643200", "_"=>"1404941982604"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70 AND (visit_date > '2014-06-29 04:00:00') AND (end_time < '2014-08-10 04:00:00')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 43ms (Views: 20.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/visits" for 127.0.0.1 at 2014-07-09 21:43:35 +0000
+Processing by VisitsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mVisit Load (0.3ms)[0m  SELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70
+  Rendered visits/index.html.erb within layouts/application (75.9ms)
+Completed 500 Internal Server Error in 102ms
+
+NameError - undefined local variable or method `print_path' for #<#<Class:0x0000000596f0a0>:0x00000005f7afa8>:
+  app/views/visits/index.html.erb:3:in `_app_views_visits_index_html_erb___2848781515059292204_50055580'
+  actionpack (3.2.9) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.9) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.9) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.9) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/action/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.9) lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+  app/controllers/visits_controller.rb:15:in `index'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:458:in `_run__2760666567645877370__process_action__656743636351899739__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.9) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.9) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.9) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `_run__1625979958063441327__call__2144618431650001184__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.9) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.9) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.9) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.9) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  railties (3.2.9) lib/rails/engine.rb:479:in `call'
+  railties (3.2.9) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.9) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.9) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.9) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.9) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `<main>'
+  script/rails:0:in `<main>'
+
+
+
+Started GET "/visits" for 127.0.0.1 at 2014-07-09 21:43:39 +0000
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70[0m
+  Rendered visits/index.html.erb within layouts/application (14.8ms)
+Completed 500 Internal Server Error in 41ms
+
+NameError - undefined local variable or method `print_path' for #<#<Class:0x0000000596f0a0>:0x00000005c879b8>:
+  app/views/visits/index.html.erb:3:in `_app_views_visits_index_html_erb___2848781515059292204_50055580'
+  actionpack (3.2.9) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.9) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.9) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.9) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/action/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.9) lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+  app/controllers/visits_controller.rb:15:in `index'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:458:in `_run__2760666567645877370__process_action__656743636351899739__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.9) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.9) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.9) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `_run__1625979958063441327__call__2144618431650001184__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.9) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.9) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.9) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.9) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  railties (3.2.9) lib/rails/engine.rb:479:in `call'
+  railties (3.2.9) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.9) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.9) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.9) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.9) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `<main>'
+  script/rails:0:in `<main>'
+
+
+
+Started GET "/visits" for 127.0.0.1 at 2014-07-09 21:43:43 +0000
+Processing by VisitsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mVisit Load (0.3ms)[0m  SELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70
+  Rendered visits/index.html.erb within layouts/application (14.7ms)
+Completed 500 Internal Server Error in 41ms
+
+NameError - undefined local variable or method `print_path' for #<#<Class:0x0000000596f0a0>:0x000000057e6878>:
+  app/views/visits/index.html.erb:3:in `_app_views_visits_index_html_erb___2848781515059292204_50055580'
+  actionpack (3.2.9) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.9) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.9) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.9) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/action/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.9) lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+  app/controllers/visits_controller.rb:15:in `index'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:458:in `_run__2760666567645877370__process_action__656743636351899739__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.9) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.9) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.9) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `_run__1625979958063441327__call__2144618431650001184__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.9) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.9) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.9) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.9) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  railties (3.2.9) lib/rails/engine.rb:479:in `call'
+  railties (3.2.9) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.9) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.9) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.9) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.9) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `<main>'
+  script/rails:0:in `<main>'
+
+
+
+Started POST "/__better_errors/47554160/variables" for 127.0.0.1 at 2014-07-09 21:43:48 +0000
+
+
+Started GET "/visits" for 127.0.0.1 at 2014-07-09 21:43:56 +0000
+Processing by VisitsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70[0m
+  Rendered visits/index.html.erb within layouts/application (15.2ms)
+Completed 500 Internal Server Error in 41ms
+
+NameError - undefined local variable or method `print_path' for #<#<Class:0x0000000596f0a0>:0x000000059080a8>:
+  app/views/visits/index.html.erb:3:in `_app_views_visits_index_html_erb___2848781515059292204_50055580'
+  actionpack (3.2.9) lib/action_view/template.rb:145:in `block in render'
+  activesupport (3.2.9) lib/active_support/notifications.rb:125:in `instrument'
+  actionpack (3.2.9) lib/action_view/template.rb:143:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:47:in `block (2 levels) in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:46:in `block in render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:54:in `render_with_layout'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:45:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/template_renderer.rb:18:in `render'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:36:in `render_template'
+  actionpack (3.2.9) lib/action_view/renderer/renderer.rb:17:in `render'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:110:in `_render_template'
+  actionpack (3.2.9) lib/action_controller/metal/streaming.rb:225:in `_render_template'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:103:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/renderers.rb:28:in `render_to_body'
+  actionpack (3.2.9) lib/action_controller/metal/compatibility.rb:50:in `render_to_body'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:88:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/action/.rvm/rubies/ruby-1.9.3-p448/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (3.2.9) lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:83:in `cleanup_view_runtime'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:24:in `cleanup_view_runtime'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:39:in `render'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (3.2.9) lib/action_controller/metal/mime_responds.rb:196:in `respond_to'
+  app/controllers/visits_controller.rb:15:in `index'
+  actionpack (3.2.9) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:167:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:458:in `_run__2760666567645877370__process_action__656743636351899739__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.9) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.9) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.9) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.9) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.9) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.9) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.9) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.9) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.9) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/headers.rb:16:in `call'
+  meta_request (0.2.7) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.9) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.9) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `_run__1625979958063441327__call__2144618431650001184__callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.9) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.9) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (0.9.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.9) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.9) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.9) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.9) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.2) lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  actionpack (3.2.9) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.9) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  railties (3.2.9) lib/rails/engine.rb:479:in `call'
+  railties (3.2.9) lib/rails/application.rb:223:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.9) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.1) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.1) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.1) lib/thin/connection.rb:54:in `process'
+  thin (1.5.1) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.5.1) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.1) lib/thin/server.rb:159:in `start'
+  rack (1.4.5) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.5) lib/rack/server.rb:268:in `start'
+  railties (3.2.9) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.9) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.9) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `<main>'
+  script/rails:0:in `<main>'
+
+
+
+Started GET "/visits" for 127.0.0.1 at 2014-07-09 21:44:01 +0000
+Processing by VisitsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.4ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered visits/index.html.erb within layouts/application (5.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (8.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 229ms (Views: 151.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/visits?start=1404014400&end=1407643200&_=1404942245999" for 127.0.0.1 at 2014-07-09 21:44:11 +0000
+Processing by VisitsController#index as JSON
+  Parameters: {"start"=>"1404014400", "end"=>"1407643200", "_"=>"1404942245999"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mAccount Load (0.2ms)[0m  SELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70 AND (visit_date > '2014-06-29 04:00:00') AND (end_time < '2014-08-10 04:00:00')[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+Completed 200 OK in 99ms (Views: 76.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/prints" for 127.0.0.1 at 2014-07-09 21:44:13 +0000
+Processing by PrintsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'basic') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'standard') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'plus') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'advanced') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'premier') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70 AND ("visit_date" >= ('2014-07-07 00:00:00.000000') AND "visit_date" < ('2014-07-13 12:00:00.000000')) ORDER BY visit_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mVisit Load (0.3ms)[0m  SELECT "visits".* FROM "visits" WHERE "visits"."user_id" = 9 AND ("visit_date" >= ('2014-07-07 00:00:00.000000') AND "visit_date" < ('2014-07-13 12:00:00.000000')) ORDER BY visit_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  Rendered prints/index.html.erb within layouts/application (38.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (8.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 199ms (Views: 179.3ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/prints" for 127.0.0.1 at 2014-07-09 21:44:16 +0000
+Processing by PrintsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'basic') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'standard') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'plus') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'advanced') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'premier') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70 AND ("visit_date" >= ('2014-07-07 00:00:00.000000') AND "visit_date" < ('2014-07-13 12:00:00.000000')) ORDER BY visit_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mVisit Load (0.4ms)[0m  SELECT "visits".* FROM "visits" WHERE "visits"."user_id" = 9 AND ("visit_date" >= ('2014-07-07 00:00:00.000000') AND "visit_date" < ('2014-07-13 12:00:00.000000')) ORDER BY visit_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  Rendered prints/index.html.erb within layouts/application (88.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (7.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 242ms (Views: 222.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/prints" for 127.0.0.1 at 2014-07-09 21:44:19 +0000
+Processing by PrintsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'basic') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'standard') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'plus') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'advanced') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'premier') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mVisit Load (0.3ms)[0m  [1mSELECT "visits".* FROM "visits" INNER JOIN "clients" ON "visits"."client_id" = "clients"."id" WHERE "clients"."account_id" = 70 AND ("visit_date" >= ('2014-07-07 00:00:00.000000') AND "visit_date" < ('2014-07-13 12:00:00.000000')) ORDER BY visit_date[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1[0m
+  [1m[35mVisit Load (0.3ms)[0m  SELECT "visits".* FROM "visits" WHERE "visits"."user_id" = 9 AND ("visit_date" >= ('2014-07-07 00:00:00.000000') AND "visit_date" < ('2014-07-13 12:00:00.000000')) ORDER BY visit_date
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = 8 LIMIT 1
+  Rendered prints/index.html.erb within layouts/application (33.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 194ms (Views: 174.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2014-07-09 21:44:37 +0000
+Processing by ClientsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."account_id" = 70 ORDER BY last_name asc LIMIT 10 OFFSET 0
+  Rendered clients/index.html.erb within layouts/application (8.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (7.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 166ms (Views: 148.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/clients/new" for 127.0.0.1 at 2014-07-09 21:44:39 +0000
+Processing by ClientsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  Rendered clients/_form.html.erb (94.8ms)
+  Rendered clients/new.html.erb within layouts/application (96.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_navigation.html.erb (7.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 246ms (Views: 230.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/clients" for 127.0.0.1 at 2014-07-09 21:44:44 +0000
+Processing by ClientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"suQrPeOUtEAua/jry1fPhQ4c5iz+guukRq0BqJ2bm8w=", "client"=>{"first_name"=>"Shaun", "last_name"=>"McAvinney", "email"=>"dsef@gene.com", "address_1"=>"4318 E Wingohocking Street", "address_2"=>"", "city"=>"Phila", "state"=>"PA", "zip"=>"19124", "phone_number"=>"2672657053", "cell_phone"=>"2672657053", "emergency_phone"=>"2672657053", "security_code"=>"", "account_id"=>"70", "active"=>"1", "additional_notes"=>""}, "commit"=>"Create Client"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mDefaultPrice Load (0.1ms)[0m  SELECT "default_prices".* FROM "default_prices" WHERE "default_prices"."account_id" = 70
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "clients" ("account_id", "active", "additional_notes", "address_1", "address_2", "cell_phone", "city", "created_at", "email", "emergency_phone", "first_name", "gmaps", "last_name", "latitude", "longitude", "phone_number", "security_code", "state", "updated_at", "user_id", "zip") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["account_id", 70], ["active", true], ["additional_notes", ""], ["address_1", "4318 E Wingohocking Street"], ["address_2", ""], ["cell_phone", "2672657053"], ["city", "Phila"], ["created_at", Wed, 09 Jul 2014 21:44:45 UTC +00:00], ["email", "dsef@gene.com"], ["emergency_phone", "2672657053"], ["first_name", "Shaun"], ["gmaps", nil], ["last_name", "McAvinney"], ["latitude", 40.0152487], ["longitude", -75.0930304], ["phone_number", "2672657053"], ["security_code", ""], ["state", "PA"], ["updated_at", Wed, 09 Jul 2014 21:44:45 UTC +00:00], ["user_id", nil], ["zip", "19124"]]
+  [1m[35mSQL (16.1ms)[0m  INSERT INTO "client_prices" ("client_id", "created_at", "custom", "default_price_id", "price", "updated_at", "visit_type") VALUES (?, ?, ?, ?, ?, ?, ?)  [["client_id", 9], ["created_at", Wed, 09 Jul 2014 21:44:45 UTC +00:00], ["custom", false], ["default_price_id", 3], ["price", #<BigDecimal:4dd4060,'0.35E2',9(36)>], ["updated_at", Wed, 09 Jul 2014 21:44:45 UTC +00:00], ["visit_type", "Morning"]]
+  [1m[36m (51.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://lvh.me:3000/clients/9
+Completed 302 Found in 348ms (ActiveRecord: 69.6ms)
+
+
+Started GET "/clients/9" for 127.0.0.1 at 2014-07-09 21:44:45 +0000
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.3ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "9"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1  [["id", "9"]]
+  Rendered /home/action/.rvm/gems/ruby-1.9.3-p448@rails-stripe-membership-saas/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.7ms)
+  [1m[36mClientPrice Load (0.2ms)[0m  [1mSELECT "client_prices".* FROM "client_prices" WHERE "client_prices"."client_id" = 9[0m
+  Rendered clients/_client_price_fields.html.erb (68.5ms)
+  Rendered clients/_client_price_fields.html.erb (9.5ms)
+  [1m[35mPet Load (0.2ms)[0m  SELECT "pets".* FROM "pets" WHERE "pets"."client_id" = 9
+  Rendered clients/show.html.erb within layouts/application (133.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (7.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 290ms (Views: 272.7ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/clients/9" for 127.0.0.1 at 2014-07-09 21:45:02 +0000
+Processing by ClientsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"suQrPeOUtEAua/jry1fPhQ4c5iz+guukRq0BqJ2bm8w=", "id"=>"9"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "9"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1  [["id", "9"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mClientPrice Load (0.2ms)[0m  SELECT "client_prices".* FROM "client_prices" WHERE "client_prices"."client_id" = 9
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "client_prices" WHERE "client_prices"."id" = ?[0m  [["id", 16]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "clients" WHERE "clients"."id" = ?  [["id", 9]]
+  [1m[36m (74.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://lvh.me:3000/clients
+Completed 302 Found in 97ms (ActiveRecord: 76.3ms)
+
+
+Started GET "/clients" for 127.0.0.1 at 2014-07-09 21:45:03 +0000
+Processing by ClientsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = 70 LIMIT 1[0m
+  [1m[35mClient Load (0.3ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."account_id" = 70 ORDER BY last_name asc LIMIT 10 OFFSET 0
+  Rendered clients/index.html.erb within layouts/application (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 163ms (Views: 144.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/clients/8" for 127.0.0.1 at 2014-07-09 21:45:47 +0000
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.1ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "8"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1  [["id", "8"]]
+  Rendered /home/action/.rvm/gems/ruby-1.9.3-p448@rails-stripe-membership-saas/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.7ms)
+  [1m[36mClientPrice Load (0.2ms)[0m  [1mSELECT "client_prices".* FROM "client_prices" WHERE "client_prices"."client_id" = 8[0m
+  Rendered clients/_client_price_fields.html.erb (10.7ms)
+  Rendered clients/_client_price_fields.html.erb (9.7ms)
+  [1m[35mPet Load (0.2ms)[0m  SELECT "pets".* FROM "pets" WHERE "pets"."client_id" = 8
+  Rendered clients/show.html.erb within layouts/application (49.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (7.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 208ms (Views: 191.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/clients/8" for 127.0.0.1 at 2014-07-09 21:46:18 +0000
+Processing by ClientsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mClient Load (0.2ms)[0m  [1mSELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1[0m  [["id", "8"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "clients".* FROM "clients" WHERE "clients"."id" = ? LIMIT 1  [["id", "8"]]
+  Rendered /home/action/.rvm/gems/ruby-1.9.3-p448@rails-stripe-membership-saas/gems/gmaps4rails-1.5.6/app/views/gmaps4rails/_gmaps4rails.html.erb (0.7ms)
+  [1m[36mClientPrice Load (0.2ms)[0m  [1mSELECT "client_prices".* FROM "client_prices" WHERE "client_prices"."client_id" = 8[0m
+  Rendered clients/_client_price_fields.html.erb (10.6ms)
+  Rendered clients/_client_price_fields.html.erb (9.6ms)
+  [1m[35mPet Load (0.2ms)[0m  SELECT "pets".* FROM "pets" WHERE "pets"."client_id" = 8
+  Rendered clients/show.html.erb within layouts/application (46.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'default') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 205ms (Views: 188.7ms | ActiveRecord: 1.4ms)

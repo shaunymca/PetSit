@@ -3,7 +3,7 @@
     <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
 
         <legend>Monday</legend>
-        <% @visits.each do |visit| %>
+        <% @adminvisits.each do |visit| %>
                 <% if visit.day_of_week == 'monday' %>
 
                     <p>
