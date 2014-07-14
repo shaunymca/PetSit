@@ -11,13 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140314212733) do
+ActiveRecord::Schema.define(:version => 20140714035143) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "ahoy_visits", :force => true do |t|
+    t.string   "visit_token"
+    t.string   "visitor_token"
+    t.string   "ip"
+    t.text     "user_agent"
+    t.text     "referrer"
+    t.text     "landing_page"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "referring_domain"
+    t.string   "search_keyword"
+    t.string   "browser"
+    t.string   "os"
+    t.string   "device_type"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "utm_source"
+    t.string   "utm_medium"
+    t.string   "utm_term"
+    t.string   "utm_content"
+    t.string   "utm_campaign"
+    t.datetime "created_at"
+  end
+
+  add_index "ahoy_visits", ["user_id", "user_type"], :name => "index_ahoy_visits_on_user_id_and_user_type"
+  add_index "ahoy_visits", ["visit_token"], :name => "index_ahoy_visits_on_visit_token", :unique => true
 
   create_table "client_prices", :force => true do |t|
     t.decimal  "price"
@@ -127,6 +155,10 @@ ActiveRecord::Schema.define(:version => 20140314212733) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "account_id"
+    t.integer  "ahoy_visit_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

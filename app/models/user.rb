@@ -7,11 +7,13 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :invitable
+         :invitable, :omniauthable, :omniauth_providers => [:stripe_connect]
 
   # Setup accessible (or protected) attributes for your model
 
-  attr_accessible :role_ids, :account_id, :name, :account_attributes, :account, :time_zone, :email, :password, :password_confirmation, :remember_me, :stripe_token, :default_prices_attributes, :client_prices_attributes
+  attr_accessible :role_ids, :account_id, :name, :account_attributes, :account, :time_zone, :email,
+                   :password, :password_confirmation, :remember_me, :stripe_token,
+                   :default_prices_attributes, :client_prices_attributes, :provider, :uid
   attr_accessor :stripe_token
   before_save :update_stripe
   after_create :welcome_email

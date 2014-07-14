@@ -56,3 +56,4 @@ gem "better_errors", ">= 0.7.2", :group => :development
 gem 'skeuocard-rails'
 gem 'groupdate'
 gem 'binding_of_caller'
+gem 'omniauth-stripe-connect'

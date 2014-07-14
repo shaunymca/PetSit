@@ -5,7 +5,6 @@ RailsStripeMembershipSaas::Application.routes.draw do
 
   resources :accounts
 
-
   mount StripeEvent::Engine => '/stripe'
   resources :invoices
   get "calendar/index"
@@ -29,6 +28,6 @@ RailsStripeMembershipSaas::Application.routes.draw do
     put 'update_plan', :to => 'registrations#update_plan'
     put 'update_card', :to => 'registrations#update_card'
   end
-  devise_for :users, :controllers => { :registrations => 'registrations' }
+  devise_for :users, :controllers => { :registrations => 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
 end
