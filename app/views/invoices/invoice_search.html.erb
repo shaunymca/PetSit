@@ -1,0 +1,7 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :last_name_eq %>
+  <%= f.search_field :last_name_eq %>
+  <%= f.label :id_eq %>
+  <%= f.search_field :id_eq %>
+  <%= f.submit %>
+<% end %>

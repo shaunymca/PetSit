@@ -1,7 +1,7 @@
 RailsStripeMembershipSaas::Application.routes.draw do
   resources :pets
   match "prints" => "prints#index" 
-
+  
 
   resources :accounts
 
@@ -20,6 +20,8 @@ RailsStripeMembershipSaas::Application.routes.draw do
   authenticated :user do
     root :to => 'visits#index'
   end
+  resources :searches
+
   match "/help" => "help#index"
   match "index.html" => "home#index"
   match "cgi-sys/defaultwebpage.cgi" => "home#index"

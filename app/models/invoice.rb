@@ -1,6 +1,7 @@
 class Invoice < ActiveRecord::Base
   resourcify
-  attr_accessible :client_id, :due_date, :paid, :account_id, :visit_id, :start_date, :end_date, :american_start_date, :american_end_date, :american_due_date, :visits_attributes, :client_attributes
+  attr_accessible :client_id, :due_date, :paid, :account_id, :visit_id, :start_date, :end_date, :american_start_date,
+   :american_end_date, :american_due_date, :visits_attributes, :client_attributes, :last_name
   has_many :visits
   belongs_to :account
   belongs_to :client
@@ -14,6 +15,10 @@ class Invoice < ActiveRecord::Base
     self.client.full_name
   end
   
+  def last_name
+    self.client.last_name
+  end
+
   def american_start_date
     @american_start_date || start_date.try(:strftime, "%m-%d-%Y")
   end
@@ -65,6 +70,15 @@ class Invoice < ActiveRecord::Base
   def company_name
     account.name
   end
-  
+
+  def self.search(id, last_name)
+  klass = scoped
+
+  if id.present? && last_name.present?
+      klass = klass.joins(:client).where('invoices.id = ? AND clients.last_name = ?', "#{id}", "#{last_name}").first
+    end
+
+    klass
+  end
   
 end

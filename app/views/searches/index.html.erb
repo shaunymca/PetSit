@@ -1,0 +1,62 @@
+<div class='well span11'>
+    <%= form_tag("/searches", method: "get") do %>
+      <%= label_tag(:id, "Search for Invoice Id:") %>
+      <%= text_field_tag(:id) %>
+      <%= label_tag(:last_name, "Search for Last Name:") %>
+      <%= text_field_tag(:last_name) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+
+<% if @invoice == nil %>
+ <%= "nothing here" %>
+ <% else %>
+<div class="span6">
+    <H3><%= @invoice.client_name %> | Invoice # <%= @invoice.id %></H3>
+    <p>For services rendered
+      <%= @invoice.american_start_date + " through " + @invoice.american_end_date %>
+    </p>
+  
+    <div class="row">
+        <div class="span5">
+          <table class="table table-hover">
+            <thead>
+              <th>Visit Type</th>
+              <th>Price per Visit</th>
+              <th>Number of Visits</th>
+              <th>Total</th>
+            </thead>
+            <tbody>
+            <% @visits.each do |visit| %>
+              <tr>
+                <td><%= visit.vtype %></td>
+                <td>$<%= visit.vprice.to_i.floor %></td>
+                <td><%= visit.count %></td>
+                <td>$<%= visit.total %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <div class='span3'>
+    <br>
+    <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
+    <% if @invoice.paid == false %>
+      <%= simple_form_for(@invoice) do |f| %>
+        <%= f.input :paid %>
+        <%= f.button :submit %>
+      <% end %>
+    <% else %>
+      <H2>PAID</H2>
+    <% end %>
+    <% if @invoice.paid != true %>
+      <H3>Total Amount Due: $<%= @invoice.total_price %></H3>
+    <% else %>
+      <H3>Amount Paid: $<%= @invoice.total_price %></H3>
+    <% end %>
+  </div>
+  <div class='span12'>
+    <%= link_to 'Back', invoices_path %>
+  </div> <% end %>
