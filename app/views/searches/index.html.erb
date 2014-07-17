@@ -44,12 +44,9 @@
     <br>
     <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
     <% if @invoice.paid == false %>
-      <%= simple_form_for(@invoice) do |f| %>
-        <%= f.input :paid %>
-        <%= f.button :submit %>
-      <% end %>
+        <h2>Status : Unpaid </h2>
     <% else %>
-      <H2>PAID</H2>
+      <H2>Status : Paid</H2>
     <% end %>
     <% if @invoice.paid != true %>
       <H3>Total Amount Due: $<%= @invoice.total_price %></H3>
