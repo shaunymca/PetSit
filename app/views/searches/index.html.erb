@@ -1,9 +1,9 @@
 <div class='well span11'>
     <%= form_tag("/searches", method: "get") do %>
       <%= label_tag(:id, "Search for Invoice Id:") %>
-      <%= text_field_tag(:id) %>
+      <%= text_field_tag(:id, nil, required: true) %>
       <%= label_tag(:last_name, "Search for Last Name:") %>
-      <%= text_field_tag(:last_name) %>
+      <%= text_field_tag(:last_name, nil, required: true) %>
       <%= submit_tag("Search") %>
     <% end %>
 

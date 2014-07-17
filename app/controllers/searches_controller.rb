@@ -4,7 +4,9 @@ class SearchesController < ApplicationController
     def index
         if params[:id] && params[:last_name]
             @invoice = Invoice.search(params[:id], params[:last_name])
-            @visits = @invoice.visits.select('distinct visit_type AS vtype, AVG(visit_price) AS vprice, COUNT(*) AS count, SUM(visit_price) AS total').group('visit_type')
+            unless @invoice.nil?
+                @visits = @invoice.visits.select('distinct visit_type AS vtype, AVG(visit_price) AS vprice, COUNT(*) AS count, SUM(visit_price) AS total').group('visit_type')
+            end
         end
 
 
