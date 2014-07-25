@@ -38,15 +38,17 @@
   <% if invoice.paid != true %>
     <H3>Total Amount Due: $<%= invoice.total_price %></H3>
     <div>
-    <form action="/searches?id=<%=invoice.id%>" method="POST">
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key=<%= invoice.account.publishable_key %>
-        data-name=<%= invoice.account.name %>
-        data-description= ''
-        data-amount=<%= invoice.total_price * 100 %>   >
-      </script>
-    </form>
+      <% unless invoice.account.access_token == nil %>
+        <form action="/searches?id=<%=invoice.id%>" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key=<%= invoice.account.publishable_key %>
+            data-name=<%= invoice.account.name %>
+            data-description= ''
+            data-amount=<%= invoice.total_price * 100 %>   >
+          </script>
+        </form>
+      <% end %>
   </div>
   <% else %>
     <H3>Amount Paid: $<%= invoice.total_price %></H3>

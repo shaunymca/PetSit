@@ -31,6 +31,16 @@
   <div class='span3'>
     <br>
     <p><%= link_to 'Download Invoice (PDF) <i class="icon-paper-clip"></i>'.html_safe, invoice_path(@invoice, format: "pdf"), :target => "_blank", class: "btn" %></p>
+    <% if @invoice.account.access_token? %>
+    <p> Link for client to pay Invoice <p>
+       <input value=<%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%> disabled='true'>
+
+     <% else %>
+     <p> Link for client to pay Invoice: </p>
+
+      <p><%= link_to 'Connect to Stripe', edit_user_registration_path, 'data-no-turbolink' => true %> to collect payments.</p>
+       <input value=<%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%> disabled='true'>
+     <% end %>
     <% if @invoice.paid == false %>
       <%= simple_form_for(@invoice) do |f| %>
         <%= f.input :paid %>

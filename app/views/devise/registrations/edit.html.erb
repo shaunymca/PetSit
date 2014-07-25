@@ -20,7 +20,11 @@
     <div class="tab-content">
       <div class="tab-pane active" id="profile">
         <h3>Profile</h3>
+        <% if current_user.has_role? :admin or current_user.has_role? :default or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier %>
+        <% if current_user.account.access_token == nil %>
         <%= link_to "<span>Connect with Stripe</span>".html_safe, user_omniauth_authorize_path(:stripe_connect), :class => "stripe-connect" %>
+        <% end %>
+        <% end %>
 
         <div id="stripe_error" class="alert alert-error" style="display:none" ></div>
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f| %>
