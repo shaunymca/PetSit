@@ -3,12 +3,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         # Delete the code inside of this method and write your own.
         # The code below is to show you where to access the data.
         omni = request.env["omniauth.auth"]
-        #raise omni['provider'].to_yaml
-        @user = current_user
-        @user.uid = omni['uid']
-        @user.access_token = omni['info']['stripe_publishable_key']
-        @user.provider = omni['provider']
-        if @user.save
+        #raise omni['credentials']['token'].to_yaml
+        @account = current_user.account
+        @account.uid = omni['uid']
+        @account.access_token = omni['credentials']['token']
+        @account.publishable_key = omni['info']['stripe_publishable_key']
+        @account.provider = omni['provider']
+        if @account.save
             flash[:notice] = "Stripe Saved"
             redirect_to edit_user_registration_path
         end
