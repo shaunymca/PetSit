@@ -5,9 +5,9 @@ class ChangeStripeConnectConfig < ActiveRecord::Migration
     add_column :accounts, :provider, :string
     add_column :accounts, :uid, :string
 
-    remove_column :users, :publishable_key, :string
-    remove_column :users, :access_token, :string
-    remove_column :users, :provider, :string
-    remove_column :users, :uid, :string
+    remove_column :users, :publishable_key
+    remove_column :users, :access_token
+    remove_column :users, :provider
+    remove_column :users, :uid
   end
 end
