@@ -43,7 +43,7 @@
 
       <p><%= link_to 'Connect to Stripe', edit_user_registration_path, 'data-no-turbolink' => true %> to collect payments.</p>
        <div class='alert alert-block'>
-        <p><%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%></p>
+        <p class='wordwrap'><%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%></p>
        </div>
      <% end %>
     <% if @invoice.paid == false %>
