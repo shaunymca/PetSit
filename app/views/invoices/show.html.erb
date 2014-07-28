@@ -34,14 +34,14 @@
     <% if @invoice.account.access_token? %>
     <p> Link for client to pay Invoice 
     </br>
-       <div class='alert alert-info'><%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%>
+       <div class='alert alert-block alert-info'><%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%>
        </div>
       </p>
      <% else %>
      <p> Link for client to pay Invoice: </p>
 
       <p><%= link_to 'Connect to Stripe', edit_user_registration_path, 'data-no-turbolink' => true %> to collect payments.</p>
-       <div class='alert alert-info'><%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%>
+       <div class='alert alert-block'><%= "http://app.petsitterspal.com/searches?id=#{@invoice.id}&last_name=#{@invoice.last_name}&commit=Search"%>
        </div>
      <% end %>
     <% if @invoice.paid == false %>
