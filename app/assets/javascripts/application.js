@@ -27,4 +27,5 @@
 //= require detect_timezone
 //= require jquery.detect_timezone
 //= require skeuocard
+//= require geoPosition.js
 //= require_directory .
