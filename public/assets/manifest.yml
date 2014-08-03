@@ -33,8 +33,8 @@ application.js: application-f6ffa87241dc0eb31b40acb36ee394f5.js
 application/index.js: application-f6ffa87241dc0eb31b40acb36ee394f5.js
 client_upload_template.xlsx: client_upload_template-897b93213204d661b161bf4ef3051cf2.xlsx
 client_upload_template/index.xlsx: client_upload_template-897b93213204d661b161bf4ef3051cf2.xlsx
-application.css: application-f01a4c75b04351cdebbd3a409aa06ae5.css
-application/index.css: application-f01a4c75b04351cdebbd3a409aa06ae5.css
+application.css: application-b62073aaa68b9891a0487aa62213f680.css
+application/index.css: application-b62073aaa68b9891a0487aa62213f680.css
 ocra-webfont.eot: ocra-webfont-c985ad3aaf0dfce2849f911975967781.eot
 ocra-webfont/index.eot: ocra-webfont-c985ad3aaf0dfce2849f911975967781.eot
 ocra-webfont.svg: ocra-webfont-92f321f714b5896331882cb53209044c.svg
