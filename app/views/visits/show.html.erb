@@ -1,68 +1,68 @@
 
 <div class='well span12'>
-  <p id="notice"><%= notice %></p>
-  <div class='span5'>
-    <p>
-      <b>Client:</b>
-      <%= @visit.client.full_name %>
-    </p>
-    
-    <p>
-      <b>Visit type:</b>
-      <%= @visit.visit_type %>
-    </p>
-    
-    <p>
-      <b>Visit date:</b>
-      <%= @visit.american_start_date %>
-    </p>
-    
-    <p>
-      <b>Visit time:</b>
-      <%= @visit.time_text %>
-    </p>
-    <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
-    <p>
-      <b>Visit price:</b>
-      <%= '$' + @visit.visit_price.to_s %>
-    </p>    
-    <% end %>
-  </div>
-  <div class='span5'>
-    <p>
-      <b>Address:</b>
-    </p>
-    <p>
-      <%= @visit.client.address_1 %>, <%= @visit.client.address_2 %>
-    </p>
-    <p>
-      <%= @visit.client.city + ', ' + @visit.client.state %>
-    </p>
-    <p>
-      <%= @visit.client.zip %>
-    </p>
-    <%= button_tag "NEW GEO BUTTON", :id => 'geo', :class => 'btn btn-info', :data => { 'walker_url' => image_path('47401-84.png')} %>
-    <button id= "geo2" type="button" class="btn btn-info">GEO BUTTON</button>
-    <div class="visible-phone">
-      <br>
-      <%= link_to 'View on Map <i class="icon-map-marker"></i>'.html_safe, "https://maps.google.com/maps?q=#{@visit.client.address_1}+#{@visit.client.address_2}+#{@visit.client.city}+#{@visit.client.state}", class: "btn btn-info", :target => "_blank" %>
-    </div>  
-            <div>
-          <%= gmaps("map_options" => {:container_class => "map_container_renamed", "zoom" => 15, "auto_zoom" => false, "auto_adjust" => true }, "markers" => { "data" => @json }) %>
-        </div>
+  <div class = 'row'>
+    <p id="notice"><%= notice %></p>
+    <div class='span5'>
+      <p>
+        <b>Client:</b>
+        <%= @visit.client.full_name %>
+      </p>
       
-    <div class="hidden-phone">
-      <div class="row-fluid">
-
-      </div>
+      <p>
+        <b>Visit type:</b>
+        <%= @visit.visit_type %>
+      </p>
+      
+      <p>
+        <b>Visit date:</b>
+        <%= @visit.american_start_date %>
+      </p>
+      
+      <p>
+        <b>Visit time:</b>
+        <%= @visit.time_text %>
+      </p>
+      <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
+      <p>
+        <b>Visit price:</b>
+        <%= '$' + @visit.visit_price.to_s %>
+      </p>    
+      <% end %>
+    </div>
+    <div class='span5'>
+      <p>
+        <b>Address:</b>
+      </p>
+      <p>
+        <%= @visit.client.address_1 %>, <%= @visit.client.address_2 %>
+      </p>
+      <p>
+        <%= @visit.client.city + ', ' + @visit.client.state %>
+      </p>
+      <p>
+        <%= @visit.client.zip %>
+      </p>
+    </div>         
+  </div>
+  <div class = 'row'>
+    <div class='span10'>
+      <%= button_tag "Find Me", :id => 'geo', :class => 'btn btn-info', :data => { 'walker_url' => image_path('47401-84.png')} %>
+      <%= link_to 'View on Map <i class="icon-map-marker"></i>'.html_safe, "https://maps.google.com/maps?q=#{@visit.client.address_1}+#{@visit.client.address_2}+#{@visit.client.city}+#{@visit.client.state}", class: "btn btn-info", :target => "_blank" %>
     </div>
   </div>
-  <div class='span5'>
-  <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
-  <%= link_to 'Delete', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>
-  
-  <%= link_to 'Edit', edit_visit_path(@visit) %> |
-  <% end %>
-  <%= link_to 'Back', visits_path %>
+  <div class = 'row'>
+    <div class = 'span12'>
+      <%= gmaps("map_options" => {:container_class => "map_container_renamed", "zoom" => 15, "auto_zoom" => false, "auto_adjust" => true }, "markers" => { "data" => @json }) %>
+    </div>
+  </div> 
+    <div class='row'>
+    <div class='span5'>
+    <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
+    <%= link_to 'Delete', @visit, method: :delete, data: { confirm: 'Are you sure?' } %>
+    
+    <%= link_to 'Edit', edit_visit_path(@visit) %> |
+    <% end %>
+    <%= link_to 'Back', visits_path %>
+    </div>
   </div>
 </div>
