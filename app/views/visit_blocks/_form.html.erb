@@ -8,7 +8,7 @@
         </div>
         <div class="span3">
           <%= f.label :user_name %>
-          <%= options_from_collection_for_select(current_user.account.users, :id, :name) %>
+          <%# options_from_collection_for_select(current_user.account.users, :id, :name) %>
           <%= f.collection_select :user_id, current_user.account.users, :id, :name %>
         </div>
       </div>
@@ -30,7 +30,7 @@
         </div>
         <%= f.hidden_field :visit_type %>
         <%= f.hidden_field :client_id %>
-        
+
       </div>
       <div>
         &nbsp;
@@ -42,7 +42,7 @@
         </div>
         <div class='span3'>
         <%= f.label :american_end_date, "Last Visit Date" %>
-        <%= f.text_field :american_end_date, :value=>Date.today.strftime('%m/%d/%Y'), :id =>"end_date", :class => 'span2' %>  
+        <%= f.text_field :american_end_date, :value=>Date.today.strftime('%m/%d/%Y'), :id =>"end_date", :class => 'span2' %>
         </div>
       </div>
       <div>
