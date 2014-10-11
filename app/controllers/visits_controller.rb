@@ -25,6 +25,7 @@ class VisitsController < ApplicationController
   # GET /visits/1.json
   def show
     @visit = Visit.find(params[:id])
+    @client = @visit.client
     @json = @visit.client.to_gmaps4rails
     respond_to do |format|
       format.html # show.html.erb

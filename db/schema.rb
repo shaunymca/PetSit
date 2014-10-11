@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140722031053) do
+ActiveRecord::Schema.define(:version => 20141010005420) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -203,6 +203,9 @@ ActiveRecord::Schema.define(:version => 20140722031053) do
     t.integer  "visit_block_id"
     t.datetime "end_time"
     t.integer  "user_id"
+    t.float    "checkin_lon"
+    t.float    "checkin_lan"
+    t.datetime "checkin_date"
   end
 
 end
