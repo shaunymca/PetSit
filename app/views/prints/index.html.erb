@@ -3,254 +3,294 @@
     <% if current_user.has_role? :admin or current_user.has_role? :basic or current_user.has_role? :standard or current_user.has_role? :plus or current_user.has_role? :advanced or current_user.has_role? :premier or current_user.has_role? :default %>
 
         <legend>Monday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'monday' %>
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <div class='class="alert alert-success'>
-                        <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                      </div>
-                    <% else %>
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'monday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Tuesday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'tuesday' %>
-
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <h4><%='<i class="icon-map-marker"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                    <% else %>
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'tuesday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Wednesday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'wednesday' %>
-
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <h4><%='<i class="icon-map-marker"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                    <% else %>
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'wednesday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
         <legend>Thursday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'thursday' %>
-
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <h4><%='<i class="icon-map-marker"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                    <% else %>
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'thursday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Friday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'friday' %>
-
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <h4><%='<i class="icon-map-marker"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                    <% else %>
-
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'friday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Saturday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'saturday' %>
-
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <h4><%='<i class="icon-map-marker"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                    <% else %>
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'saturday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+              </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Sunday</legend>
-        <% @adminvisits.each do |visit| %>
-                <% if visit.day_of_week == 'sunday' %>
-
-                    <p>
-                    <% unless visit.checkin_date.nil? %>
-                      <h4><%='<i class="icon-map-marker"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
-                    <% else %>
-                      <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
-                    <% end %>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @admin_visits.each do |visit| %>
+          <% if visit.day_of_week == 'sunday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text} #{visit.user.name}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text} - #{visit.user.name}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
     <% else %>
         <legend>Monday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'monday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'monday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Tuesday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'tuesday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'tuesday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Wednesday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'wednesday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'wednesday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
         <legend>Thursday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'thursday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'thursday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Friday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'friday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'friday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Saturday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'saturday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'saturday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
 
         <legend>Sunday</legend>
-        <% @visits.each do |visit| %>
-                <% if visit.day_of_week == 'sunday' %>
-
-                    <p>
-                    <h4><%= visit.time_text %></h4>
-                    <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
-                    </p>
-                    <p>
-                    <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
-                    <%= visit.client.city + ', ' + visit.client.state %>
-                    <%= visit.client.zip %>
-                    </p>
-                <% end %>
+        <% @print_visits.each do |visit| %>
+          <% if visit.day_of_week == 'sunday' %>
+              <p>
+              <% unless visit.checkin_date.nil? %>
+                <div class='class="alert alert-success'>
+                  <h4><%='<i class="icon-check"></i>'.html_safe + "  #{visit.time_text}" %></h4>
+                </div>
+              <% else %>
+                <h4><%="#{visit.time_text}"%></h4>
+              <% end %>
+              <%= link_to "#{visit.client.full_name} | #{visit.visit_type}", visit, 'data-no-turbolink' => true %>
+              </p>
+              <p>
+              <%= visit.client.address_1 %>, <%= visit.client.address_2 %>
+              <%= visit.client.city + ', ' + visit.client.state %>
+              <%= visit.client.zip %>
+              </p>
+          <% end %>
         <%end %>
     <% end %>
 </div>
