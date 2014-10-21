@@ -1,7 +1,7 @@
 RailsStripeMembershipSaas::Application.routes.draw do
   resources :pets
-  match "prints" => "prints#index" 
-  
+  match "prints" => "prints#index"
+
 
   resources :accounts
 
@@ -20,6 +20,11 @@ RailsStripeMembershipSaas::Application.routes.draw do
   authenticated :user do
     root :to => 'visits#index'
   end
+
+  authenticate :user, lambda { |u| u.has_role? :admin } do
+    mount Upmin::Engine => '/admin'
+  end
+
   resources :searches
 
   match "/help" => "help#index"

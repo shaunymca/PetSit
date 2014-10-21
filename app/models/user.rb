@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :default_prices, :allow_destroy => true
   accepts_nested_attributes_for :account
 
-
+  #upmin_attributes :account_name
 
   def update_plan(role)
     self.role_ids = []
