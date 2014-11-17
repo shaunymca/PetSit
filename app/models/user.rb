@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
       customer.description = name
       customer.save
     end
-    unless customer.nil?
+    unless customer.cards.data.first["last4"]?
       self.last_4_digits = customer.cards.data.first["last4"]
     end
     self.customer_id = customer.id
