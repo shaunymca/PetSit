@@ -58,6 +58,7 @@
 
       <div class="tab-pane" id="walkers">
         <h2><%= t "devise.invitations.new.header"%></h2>
+        <p>Add new users here and you can start assigning jobs to them. As Walkers, they will have access to view their schedule, visit details, and check-into jobs. You already have access to these features, along with client managment and invoicing.</p>
 
       <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name),
       :html => {:method => :post} do |f| %>

@@ -64,9 +64,8 @@ class User < ActiveRecord::Base
       customer.description = name
       customer.save
     end
-    unless customer.cards.data.first["last4"].nil?
-      self.last_4_digits = customer.cards.data.first["last4"]
-    end
+    self.last_4_digits = customer.cards.data.first["last4"]
+    
     self.customer_id = customer.id
     self.stripe_token = nil
   rescue Stripe::StripeError => e
